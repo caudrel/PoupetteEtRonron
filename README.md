@@ -10,6 +10,19 @@ The menu, the users, the FAQ, the subjects of the contact form, and the opening 
 As this project was part of my evaluation, we all have been asked to do the CRUD manually (vs via Symfony) and not use EasyAdminBundle.
 Also, I used this project for my exam "Titre Professionnel : Développeur Web et Web Mobile". 
 
+## Steps
+
+- Clone the repo from GitHub
+- Duplicate the `.env` file and rename it `.env.local` and name the database `poupette_et_ronron`
+- run the command `composer install`
+- run the command `yarn install`
+- run the command `php bin/console doctrine:database:create`
+- run the command `php bin/console doctrine:migrations:migrate`
+- run the command `php bin/console doctrine:fixtures:load`
+- run the command `symfony server:start`
+
+to come
+
 ## Contributor
 
 - Aurélie Lozach          https://www.linkedin.com/in/aurelielozach/
