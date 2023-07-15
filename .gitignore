@@ -12,6 +12,7 @@
 .idea/php.xml
 .idea
 .DS_Store
+.assets/
 ###< symfony/framework-bundle ###
 
 ###> phpunit/phpunit ###
