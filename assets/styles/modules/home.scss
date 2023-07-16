@@ -4,6 +4,7 @@
   background-image: url("../../images/ArtisticDarkPlanche.jpg");
   background-size: cover;
   position: relative;
+  top: -15vh;
 }
 
 .pr-logoEntier-home {
@@ -12,6 +13,7 @@
   height: auto;
   bottom: 10vh;
   left: 10vw;
+  filter: drop-shadow(6px 0px 5px black);
 }
 
 .pr-container-txt-home {
@@ -76,5 +78,11 @@
 @media screen and (max-width: 768px) {
   .pr-logoEntier-home {
     width: 50vw;
+  }
+}
+
+@media screen and (max-width: 430px) {
+  .pr-container-txt-home {
+    width: 90%;
   }
 }
