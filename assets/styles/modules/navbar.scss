@@ -13,3 +13,13 @@
   width: auto;
   color: $pr-color-iceblue;
 }
+
+@media screen and (max-width: 430px) {
+  .pr-menu-logo {
+    height: 5vh;
+  }
+  .btn {
+    --bs-btn-padding-x: 0;
+    --bs-btn-padding-y: 0;
+  }
+}

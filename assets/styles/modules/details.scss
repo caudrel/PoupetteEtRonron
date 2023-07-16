@@ -18,7 +18,6 @@
 
 .pr-block-address {
   background-color: $pr-color-slate;
-
 }
 
 .pr-block-details-mixte {
@@ -28,15 +27,12 @@
   width: 75vw;
 }
 
-.pr-horaires {
-
-}
-
 @media screen and (max-width: 430px) {
   .pr-block-details-mixte {
     width: 85vw;
     display: block;
     margin-left: 5vw;
+    margin-bottom: 3rem;
   }
 
   .pr-horaires-mt {

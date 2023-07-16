@@ -91,11 +91,33 @@ td:nth-child(2) {
 }
 
 @media screen and (max-width: 430px) {
+  h2 {
+    font-size: 1.3rem;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+  }
+
+  h4 {
+    font-size: 1rem;
+  }
+
+  h5 {
+    font-size: 1rem;
+  }
+
+  p {
+    font-size: 0.8rem;
+  }
+
   .pr-container-txt-home {
     width: 90%;
   }
 
   table {
     width: 70vw;
+  }
+
+  td {
+    font-size: 0.9rem;
   }
 }
