@@ -1,0 +1,30 @@
+.accordion-button{
+  border: solid;
+  border-width: 1px;
+  border-color: $pr-color-iceblue;
+  color: $pr-color-slate;
+}
+
+.accordion {
+  --bs-accordion-border-color: none;
+  --bs-accordion-active-color: $pr-color-slate;
+  --bs-accordion-color: $pr-color-slate;
+}
+
+.accordion-item{
+ --bs-accordion-btn-focus-border-color: $pr-color-iceblue;
+  --bs-accordion-btn-color: none;
+}
+
+.accordion-button:focus {
+  border-color: $pr-color-iceblue;
+}
+
+.accordion-button:not(.collapsed) {
+  background-color: $pr-color-iceblue;
+  color: $pr-color-slate;
+}
+
+.accordion-button:not(.collapsed)::after {
+  background-color: $pr-color-iceblue;
+}
