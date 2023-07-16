@@ -3,37 +3,46 @@
 {% block title %}Accueil{% endblock %}
 
 {% block body %}
-    <div class="pr-home-image">
-        <img src="{{ asset('/images/LogoPRentier.png') }}" alt="Logo Poupette et Ronron" class="pr-logoEntier-home">
-    </div>
-    <section class="pr-container-txt-home">
-        <h1>BIENVENUE</h1>
-        <p>Poupette et Ronron vous propose une nouvelle expérience pour déguster votre pizza.</p>
-        <p>P&R prépare des pizzas “pala alla romana”. Une pizza rectangulaire, à la pâte épaisse
-            mais aérée, moelleuse et croustillante. La pâte est fermentée avec du levain naturel, ce qui contribue à sa
-            saveur distinctive et à sa légèreté.</p>
-        <p>Chez Poupette et Ronron, nous vous proposons des pizzas à la part, vous pouvez choisir
-            un mix de vos préférées.</p>
-    </section>
-    <div class="pr-background-divider">
-        <h2 class="pr-color-paper pr-dropshadow-slate ">PLUS DE GOURMANDISE</h2>
-    </div>
-    <section class="pr-container-txt-home">
-        <h2>NOS MENUS</h2>
-        <p>Chez Poupette et Ronron, on fait des pizzas, mais pas que ! Nous vous préparons aussi des desserts qui parfois vous feront venir que pour ça ! A déguster seul, ou dans un de nos menus.</p>
-        <p>Nos menus vous proposent 1 à 4 éléments à composer selon vos goûts.</p>
+    <div>
+        {% include "includes/_navbar.html.twig" %}
+        <div class="pr-home-image">
 
-    <div class="pr-small-board">
-        <img src="{{ asset('/images/1element.png') }}" alt="" class="pr-1element">
-    </div>
-<p>Nous vous proposons 4 menus. Ils sont composés de 1, 2, 3, ou 4 éléments + une boisson sans alcool</p>
-        <div class="pr-medium-board">
-            <img src="{{ asset('/images/4menus.png') }}" alt="" class="pr-menus">
+            <img src="{{ asset('build/images/LogoPRentier.png') }}" alt="Logo Poupette et Ronron"
+                 class="pr-logoEntier-home">
         </div>
 
+        <section class="pr-container-txt-home">
+            <h1>BIENVENUE</h1>
+            <p>Poupette et Ronron vous propose une nouvelle expérience pour déguster votre pizza.</p>
+            <p>P&R prépare des pizzas “pala alla romana”. Une pizza rectangulaire, à la pâte épaisse
+                mais aérée, moelleuse et croustillante. La pâte est fermentée avec du levain naturel, ce qui contribue à
+                sa
+                saveur distinctive et à sa légèreté.</p>
+            <p>Chez Poupette et Ronron, nous vous proposons des pizzas à la part, vous pouvez choisir
+                un mix de vos préférées.</p>
+        </section>
+        <div class="pr-background-divider">
+            <h2 class="pr-color-paper pr-dropshadow-slate ">PLUS DE GOURMANDISE</h2>
+        </div>
+        <section class="pr-container-txt-home">
+            <h2>NOS MENUS</h2>
+            <p>Chez Poupette et Ronron, on fait des pizzas, mais pas que ! Nous vous préparons aussi des desserts qui
+                parfois vous feront venir que pour ça ! A déguster seul, ou dans un de nos menus.</p>
+            <p>Nos menus vous proposent 1 à 4 éléments à composer selon vos goûts.</p>
 
-        <button>La carte</button>
+            <div class="pr-small-board">
+                <img src="{{ asset('build/images/1element.png') }}" alt="" class="pr-1element">
+            </div>
+            <p>Nous vous proposons 4 menus. Ils sont composés de 1, 2, 3, ou 4 éléments + une boisson sans alcool</p>
+            <div class="pr-medium-board">
+                <h2 class="pr-font-handwriting pr-color-paper pr-title-bigFrame">Menus P&R</h2>
+                <img src="{{ asset('build/images/4menus.png') }}" alt="" class="pr-menus">
+            </div>
 
-    </section>
+
+            <button>La carte</button>
+
+        </section>
+    </div>
 
 {% endblock %}

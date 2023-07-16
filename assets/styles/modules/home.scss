@@ -4,14 +4,16 @@
   background-image: url("../../images/ArtisticDarkPlanche.jpg");
   background-size: cover;
   position: relative;
+  top: -15vh;
 }
 
 .pr-logoEntier-home {
   position: absolute;
-  width: 50vw;
+  width: 30vw;
   height: auto;
   bottom: 10vh;
   left: 10vw;
+  filter: drop-shadow(6px 0px 5px black);
 }
 
 .pr-container-txt-home {
@@ -43,7 +45,8 @@
   left: 50%;
   transform: translate(-50%, -50%);
   height: 20vh;
-  width: 50vw;
+  width: auto;
+  opacity: 0.5;
 }
 
 .pr-medium-board {
@@ -60,5 +63,26 @@
   left: 50%;
   transform: translate(-50%, -40%);
   height: 30vh;
-  width: 55vw;
+  width: auto;
+  opacity: 0.5;
+}
+
+.pr-title-bigFrame {
+  position: absolute;
+  top: 8%;
+  left: 50%;
+  transform: translate(-50%, -40%);
+  opacity: 0.5;
+}
+
+@media screen and (max-width: 768px) {
+  .pr-logoEntier-home {
+    width: 50vw;
+  }
+}
+
+@media screen and (max-width: 430px) {
+  .pr-container-txt-home {
+    width: 90%;
+  }
 }
