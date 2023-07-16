@@ -28,3 +28,13 @@
 .accordion-button:not(.collapsed)::after {
   background-color: $pr-color-iceblue;
 }
+
+.pr-FAQ-W {
+  width: 75vw;
+}
+
+@media screen and (max-width: 430px) {
+  .pr-FAQ-W {
+    width: 100%;
+  }
+}
