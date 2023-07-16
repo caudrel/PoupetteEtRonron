@@ -44,6 +44,23 @@ p {
   color: $pr-color-slate;
 }
 
+a{
+  text-decoration: none;
+}
+
+td:first-child {
+  width: 5vw;
+}
+td:nth-child(2) {
+  width: 15vw;
+  text-align: right;
+}
+
+.pr-container-txt {
+  width: 80%;
+  margin: auto;
+}
+
 .pr-color-paper {
   color: $pr-color-paper;
 }
@@ -74,5 +91,11 @@ p {
 }
 
 @media screen and (max-width: 430px) {
+  .pr-container-txt-home {
+    width: 90%;
+  }
 
+  table {
+    width: 70vw;
+  }
 }
