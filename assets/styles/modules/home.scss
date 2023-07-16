@@ -16,11 +16,6 @@
   filter: drop-shadow(6px 0px 5px black);
 }
 
-.pr-container-txt-home {
-  width: 70%;
-  margin: auto;
-}
-
 .pr-background-divider {
   background-image: url("../../images/4Slices.png");
   background-size: 100% auto;
@@ -82,7 +77,5 @@
 }
 
 @media screen and (max-width: 430px) {
-  .pr-container-txt-home {
-    width: 90%;
-  }
+
 }

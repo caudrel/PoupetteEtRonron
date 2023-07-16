@@ -1,0 +1,45 @@
+.pr-contact-header {
+  background-image: url("../../images/FrontDoorRestaurant.jpg");
+  width: auto;
+  height: 50vh;
+  background-size: cover;
+  background-position: center;
+  position: relative;
+  top: -15vh;
+}
+
+.pr-title-header-contact {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  @extend .pr-dropshadow-slate;
+}
+
+.pr-block-address {
+  background-color: $pr-color-slate;
+
+}
+
+.pr-block-details-mixte {
+  display: flex;
+  justify-content: space-around;
+  margin-bottom: 5rem;
+  width: 75vw;
+}
+
+.pr-horaires {
+
+}
+
+@media screen and (max-width: 430px) {
+  .pr-block-details-mixte {
+    width: 85vw;
+    display: block;
+    margin-left: 5vw;
+  }
+
+  .pr-horaires-mt {
+    margin-top: 3rem;
+  }
+}
