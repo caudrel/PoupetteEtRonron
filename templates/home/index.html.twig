@@ -4,8 +4,10 @@
 
 {% block body %}
     <div class="pr-home-image">
-        <img src="{{ asset('/images/LogoPRentier.png') }}" alt="Logo Poupette et Ronron" class="pr-logoEntier-home">
+        {% include "includes/_navbar.html.twig" %}
+        <img src="{{ asset('build/images/LogoPRentier.png') }}" alt="Logo Poupette et Ronron" class="pr-logoEntier-home">
     </div>
+
     <section class="pr-container-txt-home">
         <h1>BIENVENUE</h1>
         <p>Poupette et Ronron vous propose une nouvelle expérience pour déguster votre pizza.</p>
@@ -24,11 +26,12 @@
         <p>Nos menus vous proposent 1 à 4 éléments à composer selon vos goûts.</p>
 
     <div class="pr-small-board">
-        <img src="{{ asset('/images/1element.png') }}" alt="" class="pr-1element">
+        <img src="{{ asset('build/images/1element.png') }}" alt="" class="pr-1element">
     </div>
 <p>Nous vous proposons 4 menus. Ils sont composés de 1, 2, 3, ou 4 éléments + une boisson sans alcool</p>
         <div class="pr-medium-board">
-            <img src="{{ asset('/images/4menus.png') }}" alt="" class="pr-menus">
+            <h2 class="pr-font-handwriting pr-color-paper pr-title-bigFrame">Menus P&R</h2>
+            <img src="{{ asset('build/images/4menus.png') }}" alt="" class="pr-menus">
         </div>
 
 

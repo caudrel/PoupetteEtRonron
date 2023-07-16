@@ -12,6 +12,10 @@ body {
   padding: 0;
 }
 
+.pr-font-handwriting {
+  font-family: $pr-handwriting-font-family;
+}
+
 h1, h2, h3, h4, h5, h6 {
   font-family: $pr-title-font-family;
   color: $pr-color-slate;
@@ -31,6 +35,10 @@ h2 {
   text-align: center;
 }
 
+h3 {
+  font-size: 1.5rem;
+}
+
 p {
   font-family: $pr-p-font-family;
   color: $pr-color-slate;
@@ -38,6 +46,10 @@ p {
 
 .pr-color-paper {
   color: $pr-color-paper;
+}
+
+.pr-color-iceblue {
+  color: $pr-color-iceblue;
 }
 
 .pr-dropshadow-slate {
