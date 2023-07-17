@@ -18,8 +18,7 @@ class ContactFormFixtures extends Fixture
 
     public function load(ObjectManager $manager): void
     {
-        // $product = new Product();
-        // $manager->persist($product);
+
         foreach (self::SUBJECTS as $subject) {
             $contactFormForFixture = new ContactForm();
             $contactFormForFixture ->setSubject($subject);
