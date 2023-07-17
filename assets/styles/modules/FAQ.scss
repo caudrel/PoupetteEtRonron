@@ -1,31 +1,31 @@
-.accordion-button{
+.pr-accordion-button-FAQ{
   border: solid;
   border-width: 1px;
   border-color: $pr-color-iceblue;
   color: $pr-color-slate;
 }
 
-.accordion {
+.pr-accordion-FAQ {
   --bs-accordion-border-color: none;
   --bs-accordion-active-color: $pr-color-slate;
   --bs-accordion-color: $pr-color-slate;
 }
 
-.accordion-item{
+.pr-accordion-item-FAQ {
  --bs-accordion-btn-focus-border-color: $pr-color-iceblue;
   --bs-accordion-btn-color: none;
 }
 
-.accordion-button:focus {
+.pr-accordion-button-FAQ:focus {
   border-color: $pr-color-iceblue;
 }
 
-.accordion-button:not(.collapsed) {
+.pr-accordion-button-FAQ:not(.collapsed) {
   background-color: $pr-color-iceblue;
   color: $pr-color-slate;
 }
 
-.accordion-button:not(.collapsed)::after {
+.pr-accordion-button-FAQ:not(.collapsed)::after {
   background-color: $pr-color-iceblue;
 }
 
