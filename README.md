@@ -15,7 +15,12 @@ Also, I used this project for my exam "Titre Professionnel : Développeur Web et
 - Clone the repo from GitHub
 - Duplicate the `.env` file and rename it `.env.local` and name the database `poupette_et_ronron`
 - run the command `composer install`
+- run the command `composer require symfony/webpack-encore-bundle`
 - run the command `yarn install`
+- run the command `composer require gedmo/doctrine-extensions'
+- run the command `composer require symfonycasts/verify-email-bundle'
+- run the command `npm install @popperjs/core`
+- run the command `composer update`
 - run the command `php bin/console doctrine:database:create`
 - run the command `php bin/console doctrine:migrations:migrate`
 - run the command `php bin/console doctrine:fixtures:load`
