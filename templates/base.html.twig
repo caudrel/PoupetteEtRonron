@@ -2,7 +2,7 @@
 <html lang="fr">
     <head>
         <meta charset="UTF-8">
-        <title>{% block title %}Welcome!{% endblock %}</title>
+        <title>{% block title %}{% endblock %}</title>
         <link rel="icon" type="image/png" href="{{ asset('favicon.ico') }}"/>
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -18,7 +18,9 @@
 
     <body>
         <main class="pr-container-all">
+
             {% block body %}
+
             {% endblock %}
 
             {% include "includes/_footer.html.twig" %}

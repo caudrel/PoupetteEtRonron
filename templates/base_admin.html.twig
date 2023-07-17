@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}Administration de Poupette et Ronron{% endblock %}</title>
+    <link rel="icon" type="image/png" href="{{ asset('favicon.ico') }}"/>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400&family=Palanquin&family=Permanent+Marker&display=swap"
+          rel="stylesheet">
+    {% block stylesheets %}
+        {{ encore_entry_link_tags('app') }}
+    {% endblock %}
+
+    {% block javascripts %}
+        {{ encore_entry_script_tags('app') }}
+    {% endblock %}
+</head>
+
+<body>
+
+<div class="pr-container-admin-all">
+    <div class="pr-container-admin-nav">
+        {% include "includes/_navbar_admin.html.twig" %}
+    </div>
+
+    <div class="pr-container-admin-body">
+        {% block body %}
+        {% endblock %}
+    </div>
+</div>
+
+</body>
+</html>

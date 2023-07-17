@@ -1,0 +1,40 @@
+.pr-container-admin-all {
+  display: flex;
+  justify-content: left;
+  width: 100vw;
+}
+
+.pr-container-admin-nav {
+  width: 20vw;
+  height: 100vh;
+  padding-right: 2vw;
+  padding-left: 3vw;
+}
+
+.pr-container-admin-body {
+  background-color: $pr-color-paper;
+  width: 80vw;
+  height: 100vh;
+  padding: 10vh 10vw 0 10vh;
+}
+
+.pr-logoEntier-admin {
+  width: 15vw;
+  height: auto;
+  margin: 2vh auto;
+}
+
+.pr-admin-title-button {
+  background-color: $pr-color-slate;
+  border-color: none;
+}
+
+.pr-admin-title {
+  color: $pr-color-orange;
+  margin-top: 3rem;
+  margin-bottom: 3rem;
+}
+
+.pr-admin-sub-title {
+  color: $pr-color-paper;
+}
