@@ -28,7 +28,7 @@ class UserFixtures extends Fixture
                 ->setFirstname($faker->firstName())
                 ->setLastname($faker->lastName())
                 ->setIsActiv(true)
-                ->setIsVerified(true)
+                ->setIsVerified(false)
                 ->setCreatedAt(new \DateTime())
                 ->setUpdatedAt(new \DateTime())
                 ->setRoles(['ROLE_ADMIN']);
@@ -46,7 +46,7 @@ class UserFixtures extends Fixture
             ->setIsVerified(true)
             ->setCreatedAt(new \DateTime())
             ->setUpdatedAt(new \DateTime())
-            ->setRoles(['ROLE_SUPER_ADMIN']);
+            ->setRoles(['ROLE_SUPER_ADMIN', 'ROLE_ADMIN']);
         $manager->persist($userSuperAdmin);
 
 
