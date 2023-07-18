@@ -1,12 +1,35 @@
 {{ form_start(form) }}
 
-{{ form_row(form.email) }}
-{{ form_row(form.firstname) }}
-{{ form_row(form.lastname) }}
+<div class="col">
+    <label class="">Nom</label>
+    <input
+            name="{{ field_name(form.lastname) }}"
+            type="text" class="form-control pr-admin-form-input"
+            value="{{ user.lastname }}">
+</div>
+
+<div class="col">
+    <label class="">Prénom</label>
+    <input
+            name="{{ field_name(form.firstname) }}"
+            type="text" class="form-control pr-admin-form-input"
+            value="{{ user.firstname }}">
+</div>
+
+<div class="col">
+    <label class="">Email</label>
+    <input
+            name="{{ field_name(form.email) }}"
+            type="text" class="form-control pr-admin-form-input"
+            value="{{ user.email }}">
+</div>
+
+
 {{ form_row(form.roles) }}
 {{ form_row(form.isActiv) }}
 
 
-<button class="btn">{{ button_label|default('Save') }}</button>
+
+<button class="btn pr-button-slate">{{ button_label|default('Save') }}</button>
 
 {{ form_end(form) }}

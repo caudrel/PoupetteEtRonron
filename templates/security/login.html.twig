@@ -14,11 +14,13 @@
         </div>
     {% endif %}
 
-    <h1 class="h3 mb-3 font-weight-normal">Connection</h1>
-    <label for="inputEmail">Email</label>
-    <input type="email" value="{{ last_username }}" name="email" id="inputEmail" class="form-control" autocomplete="email" required autofocus>
-    <label for="inputPassword">Mot de passe</label>
-    <input type="password" name="password" id="inputPassword" class="form-control" autocomplete="current-password" required>
+        <h1 class="pr-color-orange mt-0 mb-5 pb-5">Connexion</h1>
+
+<div class="d-flex flex-column align-items-center mt-5 pt-5">
+    <label for="inputEmail"></label>
+    <input type="email" value="{{ last_username }}" name="email" id="inputEmail" class="form-control pr-admin-form-input" autocomplete="email" placeholder="Email" required autofocus>
+    <label for="inputPassword"></label>
+    <input type="password" name="password" id="inputPassword" class="form-control pr-admin-form-input" autocomplete="current-password" placeholder="Mot de passe" required>
 
     <input type="hidden" name="_csrf_token"
            value="{{ csrf_token('authenticate') }}"
@@ -35,13 +37,13 @@
         </div>
     #}
 
-    <button class="btn btn-lg btn-primary" type="submit">
-        valider
+    <button class="btn mt-4 pr-button-slate" type="submit">
+        Valider
     </button>
 
 </form>
 
-    <a href="{{ path('app_forgot_password_request') }}"><h5 class="pr-color-slate">Réinitialiser mon mot de passe</h5></a>
-
+    <a href="{{ path('app_forgot_password_request') }}"><p class="">Réinitialiser mon mot de passe</p></a>
+    </div>
 
 {% endblock %}

@@ -4,11 +4,14 @@
 
 {% block body %}
     {% if is_granted('ROLE_SUPER_ADMIN') %}
-    <h1>Create new User</h1>
+        <div class="pr-admin-header">
+            <h1 class="pr-color-orange mt-0 mb-5">Utilisateur</h1>
+            <h4>Ajouter</h4>
+        </div>
 
     {{ include('user/_form.html.twig') }}
 
-    <a href="{{ path('app_user_index') }}">back to list</a>
+    <a href="{{ path('app_user_index') }}">Retour à la liste</a>
 
     {% endif %}
 {% endblock %}

@@ -4,9 +4,12 @@
 
 {% block body %}
 
-    <h1>Edit User</h1>
+    <div class="pr-admin-header">
+        <h1 class="pr-color-orange mt-0 mb-5">Utilisateur</h1>
+        <h4>Modifier le profil</h4>
+    </div>
 
-    {{ include('user/_form_edit_profile.html.twig', {'button_label': 'Update'}) }}
+    {{ include('user/_form_edit_profile.html.twig', {'button_label': 'Mettre à jour'}) }}
 
     <a href="{{ path('app_user_index') }}">back to list</a>
 

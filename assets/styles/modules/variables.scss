@@ -51,24 +51,86 @@ h4 {
 p {
   font-family: $pr-p-font-family;
   color: $pr-color-slate;
+  font-size: 1.2rem;
 }
 
 a{
   text-decoration: none;
 }
 
-td:first-child {
+.pr-button-slate {
+  background-color: $pr-color-slate;
+  color: $pr-color-paper;
+  border-radius: 5px;
+  padding: 0.5rem 1rem;
+  margin: 0.5rem;
+  font-family: $pr-title-font-family;
+  font-size: 1.1rem;
+  width: 12vw;
+}
+.pr-button-slate:hover {
+  background-color: $pr-color-slate;
+  color: $pr-color-paper;
+  box-shadow: 1px 1px 6px 0 $pr-color-orange, -1px -1px 6px 0 $pr-color-orange, 1px -1px 6px 0 $pr-color-orange, -1px 1px 6px 0 $pr-color-orange;
+}
+
+.pr-button-orange {
+  background-color: $pr-color-orange;
+  color: $pr-color-paper;
+  border-radius: 5px;
+  padding: 0.5rem 1rem;
+  margin: 0.5rem;
+  font-family: $pr-title-font-family;
+  font-size: 1.1rem;
+  width: 12vw;
+}
+
+.pr-button-orange:hover {
+  background-color: $pr-color-orange;
+  color: $pr-color-paper;
+  box-shadow: 1px 1px 6px 0 $pr-color-slate, -1px -1px 6px 0 $pr-color-slate, 1px -1px 6px 0 $pr-color-slate, -1px 1px 6px 0 $pr-color-slate;
+}
+
+.pr-button-ice {
+  background-color: $pr-color-iceblue;
+  color: $pr-color-orange;
+  border: 1px solid $pr-color-orange;
+  border-radius: 5px;
+  padding: 0.5rem 1rem;
+  margin: 0.5rem;
+  font-family: $pr-title-font-family;
+  font-size: 1.1rem;
+  width: 12vw;
+}
+
+.pr-button-mini-ice {
+  background-color: $pr-color-iceblue;
+  color: $pr-color-orange;
+  border: 1px solid $pr-color-orange;
+  border-radius: 5px;
+  padding: 0.5rem 1rem;
+  margin: 0.5rem;
+  font-family: $pr-title-font-family;
+  font-size: 1rem;
   width: 5vw;
 }
-td:nth-child(2) {
-  width: 15vw;
-  text-align: right;
+
+.pr-button-ice:hover {
+  background-color: $pr-color-iceblue;
+  color: $pr-color-slate;
+  box-shadow: 1px 1px 6px 0 $pr-color-slate, -1px -1px 6px 0 $pr-color-slate, 1px -1px 6px 0 $pr-color-slate, -1px 1px 6px 0 $pr-color-slate;
+}
+.pr-button-mini-ice:hover {
+  background-color: $pr-color-iceblue;
+  color: $pr-color-slate;
+  box-shadow: 1px 1px 6px 0 $pr-color-slate, -1px -1px 6px 0 $pr-color-slate, 1px -1px 6px 0 $pr-color-slate, -1px 1px 6px 0 $pr-color-slate;
 }
 
 .pr-container-txt {
   width: 80%;
   margin: auto;
   margin-bottom: 3.5rem;
+  padding-bottom: 2rem;
 }
 
 .pr-color-paper {
@@ -77,6 +139,10 @@ td:nth-child(2) {
 
 .pr-color-iceblue {
   color: $pr-color-iceblue;
+}
+
+.pr-color-orange {
+  color: $pr-color-orange;
 }
 
 .pr-dropshadow-slate {
@@ -88,6 +154,8 @@ td:nth-child(2) {
   margin: 0 auto;
   background-color: $pr-color-paper;
 }
+
+
 
 
 @media screen and (max-width: 1280px) {
