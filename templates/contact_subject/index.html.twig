@@ -29,7 +29,7 @@
                 <td>{{ subject.createdAt|date('Y-m-d') }}</td>
                 <td>{{ subject.updatedAt|date('Y-m-d') }}</td>
                 <td>
-                    {#<a href="{{ path('app_contact_subjet_edit', {'id': subject.id}) }}"><button class="pr-button-mini-ice">Modifier</button></a>#}
+                    <a href="{{ path('app_contact_subject_edit', {'id': subject.id}) }}"><button class="pr-button-mini-ice">Modifier</button></a>
                 </td>
             </tr>
         {% endfor %}

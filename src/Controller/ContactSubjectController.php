@@ -48,4 +48,32 @@ class ContactSubjectController extends AbstractController
             'subjects' => $subjects,
         ]);
     }
+
+    #[Route('/contact/subject/{id}', name: 'app_contact_subject_edit')]
+    public function edit(
+        ContactForm $contactForm,
+        Request                $request,
+        EntityManagerInterface $entityManager,
+    ): Response
+    {
+
+        $form = $this->createForm(ContactSubjectType::class, $contactForm);
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()) {
+            $contactForm->setSubject($form->get('subject')->getData());
+            $contactForm->setIsValid($form->get('isValid')->getData());
+            $contactForm->setUpdatedAt(new \DateTime());
+
+            $entityManager->persist($contactForm);
+            $entityManager->flush();
+
+            return $this->redirectToRoute('app_contact_subject', [], Response::HTTP_SEE_OTHER);
+        }
+        return $this->render('contact_subject/edit.html.twig', [
+            'contactForm' => $contactForm,
+            'form' => $form,
+        ]);
+    }
+
 }
