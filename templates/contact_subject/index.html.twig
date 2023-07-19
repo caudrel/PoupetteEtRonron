@@ -1,0 +1,41 @@
+{% extends 'base_admin.html.twig' %}
+
+{% block title %}Subjects{% endblock %}
+
+{% block body %}
+
+
+    <div class="pr-admin-header">
+        <h1 class="pr-color-orange mt-0 mb-5">Sujets boite contact</h1>
+        <h4>Liste des sujets listés</h4>
+    </div>
+
+    <table class="table table-hover table-pr mt-5">
+        <thead>
+        <tr>
+            <th scope="col">Sujet</th>
+            <th scope="col">Est visible ?</th>
+            <th scope="col">Créée le</th>
+            <th scope="col">Modifiée le</th>
+            <th scope="col">Action</th>
+        </tr>
+        </thead>
+
+        <tbody>
+        {% for subject in subjects %}
+            <tr>
+                <td>{{ subject.subject }}</td>
+                <td>{{ subject.isValid ? 'Oui' : 'Non' }}</td>
+                <td>{{ subject.createdAt|date('Y-m-d') }}</td>
+                <td>{{ subject.updatedAt|date('Y-m-d') }}</td>
+                <td>
+                    {#<a href="{{ path('app_contact_subjet_edit', {'id': subject.id}) }}"><button class="pr-button-mini-ice">Modifier</button></a>#}
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    {#<button class="btn pr-button-slate"><a href="{{ path('app_contact_subjet_new') }}">Ajouter</a></button>#}
+
+{% endblock %}
