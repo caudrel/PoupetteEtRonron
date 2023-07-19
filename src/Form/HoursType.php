@@ -14,8 +14,6 @@ class HoursType extends AbstractType
         $builder
             ->add('day')
             ->add('description')
-            ->add('createdAt')
-            ->add('updatedAt')
         ;
     }
 
