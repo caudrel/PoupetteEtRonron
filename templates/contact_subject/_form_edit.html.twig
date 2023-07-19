@@ -1,0 +1,23 @@
+
+{{ form_start(form) }}
+
+
+<div class="col">
+    <label class="">Sujet</label>
+    <input
+            name="{{ field_name(form.subject) }}"
+            type="text" class="form-control pr-admin-form-input"
+            value="{{ contactForm.subject }}">
+</div>
+
+<h5 class="mt-5 mb-3">Ce sujet doit-il s'afficher en ce moment ?</h5>
+<div class="d-flex justify-content-between">
+    <div class="me-3">{{ form_widget(form.isValid) }}</div>
+    <div class="w-100 mb-5">{{ form_label(form.isValid) }}</div>
+</div>
+
+
+
+<button class="btn pr-button-slate">{{ button_label|default('Valider') }}</button>
+
+{{ form_end(form) }}
