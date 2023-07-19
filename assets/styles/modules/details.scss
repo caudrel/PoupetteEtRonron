@@ -19,6 +19,8 @@
 
 .pr-block-address {
   background-color: $pr-color-slate;
+  margin-top: 3rem;
+  padding-bottom: 1.5rem;
 }
 
 .pr-block-details-mixte {
@@ -37,11 +39,32 @@
   text-align: right;
 }
 
+.pr-map-responsive {
+  overflow:hidden;
+  padding-bottom:56.25%;
+  position:relative;
+  height:0;
+}
+
+.pr-map-responsive iframe {
+  left:0;
+  top:0;
+  height:100%;
+  width:100%;
+  position:absolute;
+}
+
+
 @media screen and (max-width: 430px) {
   .pr-block-details-mixte {
     width: 85vw;
     flex-direction: column;
     margin-bottom: 3rem;
+  }
+
+  .pr-block-address {
+    margin-top: 1rem;
+    padding-bottom: 1.5rem;
   }
 
   .pr-horaires-mt {

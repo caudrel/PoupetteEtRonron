@@ -43,10 +43,22 @@
 }
 
 .pr-admin-form-input {
-  width: 20vw;
+  width: 30vw;
   margin-bottom: 1.2rem;
 }
 
 .pr-table-admin-show {
   width: 30vw;
+}
+
+
+.pr-checkmark {
+  background-color: $pr-color-paper;
+  border: $pr-color-iceblue;
+  height: 25px;
+  width: 25px;
+}
+
+.pr-checkmark:checked {
+  background-color: $pr-color-orange;
 }

@@ -1,6 +1,6 @@
 <div class="d-flex justify-content-center">
-<img src="{{ asset('build/images/LogoPRentier.png') }}" alt="Logo Poupette et Ronron"
-     class="pr-logoEntier-admin">
+    <a href="{{ path('app_home') }}"><img src="{{ asset('build/images/LogoPRentier.png') }}" alt="Logo Poupette et Ronron"
+                                          class="pr-logoEntier-admin"></a>
 </div>
 
 {% if is_granted('ROLE_ADMIN') %}

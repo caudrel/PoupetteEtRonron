@@ -25,9 +25,22 @@
 </div>
 
 
-{{ form_row(form.roles) }}
-{{ form_row(form.isActiv) }}
+<h5 class="mt-5 mb-3">Niveau d'autorisation</h5>
+{% for role in form.roles %}
 
+    <div class="d-flex justify-content-between">
+        <div class="me-3">{{ form_widget(role) }}</div>
+        <div class="w-100">{{ role.vars.label }}</div>
+    </div>
+
+{% endfor %}
+
+
+<h5 class="mt-5 mb-3">L'employé doit-il avoir accès en ce moment ?</h5>
+<div class="d-flex justify-content-between">
+    <div class="me-3">{{ form_widget(form.isActiv) }}</div>
+    <div class="w-100 mb-5">{{ form_label(form.isActiv) }}</div>
+</div>
 
 
 <button class="btn pr-button-slate">{{ button_label|default('Save') }}</button>

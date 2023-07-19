@@ -35,7 +35,10 @@ class ProfileType extends AbstractType
                 'expanded' => true, // Affiche les choix sous forme de cases à cocher
                 // Autres options de configuration si nécessaire
             ])
-            ->add('isActiv', CheckboxType::class);
+            ->add('isActiv', CheckboxType::class, [
+                'label' => 'Utilisateur actif ?',
+                'required' => false,
+            ]);
     }
 
     public function configureOptions(OptionsResolver $resolver): void
