@@ -1,6 +1,6 @@
 <div class="d-flex justify-content-center">
-<img src="{{ asset('build/images/LogoPRentier.png') }}" alt="Logo Poupette et Ronron"
-     class="pr-logoEntier-admin">
+    <a href="{{ path('app_home') }}"><img src="{{ asset('build/images/LogoPRentier.png') }}" alt="Logo Poupette et Ronron"
+                                          class="pr-logoEntier-admin"></a>
 </div>
 
 {% if is_granted('ROLE_ADMIN') %}
@@ -10,7 +10,7 @@
     <a href="{{ path('app_logout') }}"><h6 class="pr-color-paper">Me déconnecter</h6></a>
 
 
-<h4 class="pr-admin-title mb-3">Utilisateurs</h4>
+<h4 class="pr-nav-title mb-3">Utilisateurs</h4>
     {% if is_granted('ROLE_SUPER_ADMIN') %}
 <a href="{{ path('app_user_index') }}"><h5 class="pr-color-paper">Liste</h5></a>
 <a href="{{ path('app_user_new') }}"><h5 class="pr-color-paper">Ajouter</h5></a>
@@ -19,15 +19,15 @@
 <a href="{{ path('app_user_edit_password', {id: app.user.id}) }}"><h5 class="pr-color-paper">Modifier mot de passe</h5></a>
 
 
-<h4 class="pr-admin-title mb-3">FAQ</h4>
+<h4 class="pr-nav-title mb-3">FAQ</h4>
 <h5 class="pr-color-paper">Liste</h5>
 <h5 class="pr-color-paper">Ajouter</h5>
 
-<h4 class="pr-admin-title mb-3">Horaires</h4>
+<h4 class="pr-nav-title mb-3">Horaires</h4>
 <h5 class="pr-color-paper">Liste</h5>
 <h5 class="pr-color-paper">Ajouter</h5>
 
-<h4 class="pr-admin-title mb-3">Sujets Contact</h4>
+<h4 class="pr-nav-title mb-3">Sujets Contact</h4>
 <h5 class="pr-color-paper">Liste</h5>
 <h5 class="pr-color-paper">Ajouter</h5>
 

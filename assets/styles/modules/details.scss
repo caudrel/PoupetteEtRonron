@@ -19,6 +19,8 @@
 
 .pr-block-address {
   background-color: $pr-color-slate;
+  margin-top: 3rem;
+  padding-bottom: 1.5rem;
 }
 
 .pr-block-details-mixte {
@@ -28,15 +30,61 @@
   width: 75vw;
 }
 
+.pr-hours-table-day {
+  width: 5vw;
+}
+
+.pr-hours-table-hours {
+  width: 15vw;
+  text-align: right;
+}
+
+.pr-map-responsive {
+  overflow:hidden;
+  padding-bottom:56.25%;
+  position:relative;
+  height:0;
+}
+
+.pr-map-responsive iframe {
+  left:0;
+  top:0;
+  height:100%;
+  width:100%;
+  position:absolute;
+}
+
+
 @media screen and (max-width: 430px) {
   .pr-block-details-mixte {
     width: 85vw;
-    display: block;
-    margin-left: 5vw;
+    flex-direction: column;
     margin-bottom: 3rem;
   }
 
+  .pr-block-address {
+    margin-top: 1rem;
+    padding-bottom: 1.5rem;
+  }
+
   .pr-horaires-mt {
-    margin-top: 3rem;
+    width: 100%;
+    margin-top: 2rem;
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+  }
+
+  .pr-adresse {
+    align-items: center;
+    margin-left: 0;
+  }
+
+  .pr-hours-table-day {
+    width: 15%;
+  }
+
+  .pr-hours-table-hours {
+    width: 80%;
+    text-align: right;
   }
 }

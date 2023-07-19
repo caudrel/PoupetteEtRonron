@@ -4,50 +4,50 @@
 
 {% block body %}
     {% if is_granted('ROLE_SUPER_ADMIN') %}
-    <h1>Utilisateurs</h1>
+    <div class="pr-admin-header">
+        <h1 class="pr-color-orange mt-0 mb-5">Utilisateurs</h1>
+        <h4>Liste des utilisateurs</h4>
+    </div>
 
-    <table class="table">
+    <table class="table table-hover table-pr mt-5">
         <thead>
             <tr>
-                <th>Id</th>
-                <th>Email</th>
-                <th>Rôles</th>
-                <th>Prénom</th>
-                <th>Nom</th>
-                <th>Actif ?</th>
-                <th>Compte vérifié ?</th>
-                <th>Créé le</th>
-                <th>Modifié le</th>
-                <th>Actions</th>
+                <th scope="col">Email</th>
+                <th scope="col">Prénom</th>
+                <th scope="col">Nom</th>
+                <th scope="col">Rôles</th>
+                <th scope="col">Actif ?</th>
+                <th scope="col">Compte vérifié ?</th>
+                <th scope="col">Créé le</th>
+                <th scope="col">Modifié le</th>
+                <th scope="col">Actions</th>
             </tr>
         </thead>
         <tbody>
         {% for user in users %}
             <tr>
-                <td>{{ user.id }}</td>
                 <td>{{ user.email }}</td>
-                <td>{{ user.roles ? user.roles|json_encode : '' }}</td>
                 <td>{{ user.firstname }}</td>
                 <td>{{ user.lastname }}</td>
+                <td>{{ user.roles ? user.roles|json_encode : '' }}</td>
                 <td>{{ user.isActiv ? 'Yes' : 'No' }}</td>
                 <td>{{ user.isVerified ? 'Yes' : 'No' }}</td>
                 <td>{{ user.createdAt ? user.createdAt|date('Y-m-d') : '' }}</td>
                 <td>{{ user.updatedAt ? user.updatedAt|date('Y-m-d') : '' }}</td>
                 <td>
-                    <a href="{{ path('app_user_show', {'id': user.id}) }}">Afficher</a>
-                    <a href="{{ path('app_user_edit', {'id': user.id}) }}">Modifier</a>
+                    <a href="{{ path('app_user_edit_profile', {'id': user.id}) }}"><button class="pr-button-mini-ice">Modifier</button></a>
 
                 </td>
             </tr>
         {% else %}
             <tr>
-                <td colspan="11">no records found</td>
+                <td colspan="11">Pas de données trouvées</td>
             </tr>
         {% endfor %}
         </tbody>
     </table>
 
-    <a href="{{ path('app_user_new') }}">Ajouter</a>
+        <a href="{{ path('app_user_new') }}"><button class="btn pr-button-slate">Ajouter</button></a>
 
     {% endif %}
 {% endblock %}

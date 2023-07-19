@@ -1,7 +1,33 @@
 {{ form_start(form) }}
 
-{{ form_widget(form) }}
+<div class="col">
+    <input
+            name="{{ field_name(form.lastname) }}"
+            type="text" class="form-control pr-admin-form-input"
+        placeholder="Nom">
+</div>
 
-<button class="btn">{{ button_label|default('Save') }}</button>
+<div class="col">
+    <input
+            name="{{ field_name(form.firstname) }}"
+            type="text" class="form-control pr-admin-form-input"
+            placeholder="Prénom">
+</div>
+
+<div class="col">
+    <input
+            name="{{ field_name(form.email) }}"
+            type="text" class="form-control pr-admin-form-input"
+            placeholder="Email">
+</div>
+
+<div class="col">
+    <input
+            name="{{ field_name(form.password) }}"
+            type="text" class="form-control pr-admin-form-input"
+            placeholder="Mot de passe">
+</div>
+
+<button class="btn pr-button-slate">{{ button_label|default('Valider') }}</button>
 
 {{ form_end(form) }}

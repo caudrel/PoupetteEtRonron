@@ -4,11 +4,15 @@
 
 {% block body %}
     {% if app.user.id == user.id or is_granted('ROLE_SUPER_ADMIN') %}
-        <h1>Utilisateur</h1>
 
-        <table class="table">
+<div class="pr-admin-header">
+    <h1 class="pr-color-orange mt-0 mb-5">Utilisateur</h1>
+    <h4>Détails</h4>
+</div>
+
+        <table class="table pr-table-admin-show">
             <tbody>
-            <tr>
+            <tr class="">
                 <th>Prénom</th>
                 <td>{{ user.firstname }}</td>
             </tr>
@@ -48,18 +52,13 @@
         </table>
 
         <div>
-        {% if is_granted('ROLE_SUPER_ADMIN') %}
-            <a href="{{ path('app_user_index') }}">Retour à la liste</a>
-        {% endif %}
-        </div>
-        <div>
         {% if is_granted('ROLE_ADMIN') %}
-            <a href="{{ path('app_user_edit', {'id': user.id}) }}">Modifier le profil</a>
+            <a href="{{ path('app_user_edit', {'id': user.id}) }}"><button class="btn pr-button-slate">Modifier le profil</button></a>
         {% endif %}
         </div>
         <div>
         {% if is_granted('ROLE_SUPER_ADMIN') %}
-            <a href="{{ path('app_user_edit_profile', {'id': user.id}) }}">Paramétrer ce profil</a>
+            <a href="{{ path('app_user_edit_profile', {'id': user.id}) }}"><button class="btn pr-button-orange">Paramétrer ce profil</button></a>
         {% endif %}
         </div>
 
