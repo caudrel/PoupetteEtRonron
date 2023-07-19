@@ -1,0 +1,24 @@
+
+{{ form_start(form) }}
+
+
+<div class="col">
+    <input
+            name="{{ field_name(form.subject) }}"
+            type="text" class="form-control pr-admin-form-input"
+            placeholder="Sujet">
+</div>
+
+
+<div class="col">
+    <div class="d-flex justify-content-between">
+        <div class="me-3">{{ form_widget(form.isValid) }}</div>
+        <div class="w-100 mb-5">{{ form_label(form.isValid) }}</div>
+    </div>
+</div>
+
+
+
+<button class="btn pr-button-slate">{{ button_label|default('Valider') }}</button>
+
+{{ form_end(form) }}

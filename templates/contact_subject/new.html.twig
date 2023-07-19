@@ -1,0 +1,14 @@
+{% extends 'base_admin.html.twig' %}
+
+{% block title %}Subject contact box{% endblock %}
+
+{% block body %}
+
+    <div class="pr-admin-header">
+        <h1 class="pr-color-orange mt-0 mb-5">Sujets boite contact</h1>
+        <h4>Ajouter un sujet</h4>
+    </div>
+
+    {{ include('contact_subject/_form_new.html.twig', {'button_label': 'Ajouter'}) }}
+
+{% endblock %}
