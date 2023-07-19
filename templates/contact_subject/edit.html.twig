@@ -13,6 +13,6 @@
 
     <button class="btn pr-button-ice"><a href="{{ path('app_contact_subject') }}">Retour à la liste</a></button>
 
-    {#{{ include('faq/_delete_form.html.twig', {'id': faq.id}) }}#}
+    {{ include('contact_subject/_delete_form.html.twig', {'id': contactForm.id}) }}
 
 {% endblock %}

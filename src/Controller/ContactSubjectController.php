@@ -76,4 +76,15 @@ class ContactSubjectController extends AbstractController
         ]);
     }
 
+    #[Route('/contact/subject/delete/{id}', name: 'app_contact_subject_delete', methods: ['POST'])]
+    public function delete(Request $request, ContactForm $contactForm, EntityManagerInterface $entityManager): Response
+    {
+        if ($this->isCsrfTokenValid('delete' . $contactForm->getId(), $request->request->get('_token'))) {
+            $entityManager->remove($contactForm);
+            $entityManager->flush();
+        }
+
+        return $this->redirectToRoute('app_contact_subject', [], Response::HTTP_SEE_OTHER);
+    }
+
 }
