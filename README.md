@@ -13,35 +13,29 @@ Also, I used this project for my exam "Titre Professionnel : Développeur Web et
 ## Steps
 
 - Clone the repo from GitHub
-- Duplicate the `.env` file and rename it `.env.local` and name the database `poupette_et_ronron`
+- Duplicate the `.env` file and rename it `.env.local` and name the database as you like (add a sdn for the test environment)
 - run the command `composer install`
-- run the command `composer require symfony/webpack-encore-bundle`
 - run the command `yarn install`
-- run the command `composer require gedmo/doctrine-extensions'
-- run the command `composer require symfonycasts/verify-email-bundle'
-- run the command `npm install @popperjs/core`
-- run the command `composer update`
+- run the command `yarn encore dev`
 - run the command `php bin/console doctrine:database:create`
+- run the command `php bin/console make:migration`
 - run the command `php bin/console doctrine:migrations:migrate`
 - run the command `php bin/console doctrine:fixtures:load`
 - run the command `symfony server:start`
+- Run `yarn run dev --watch` to compile assets when needed
 
-to come
 
-## Contributor
+## Accessing the administration part
+- login as admin : admin@poupetteetronron.com
+- password : password
+- url : /login
+
+## Author
 
 - Aurélie Lozach          https://www.linkedin.com/in/aurelielozach/
 
 I coded this desktop and mobile app with PHP 8.2, with Symfony.
 
-It uses some cool vendors/libraries such as Twig and Grumphp.
-
 ## Demo on YouTube
 
 to come
-
-## Database
-
-to come
-
-blabla
