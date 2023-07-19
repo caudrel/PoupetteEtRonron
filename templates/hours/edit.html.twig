@@ -1,0 +1,18 @@
+{% extends 'base_admin.html.twig' %}
+
+{% block title %}Edit Opening Hours{% endblock %}
+
+{% block body %}
+
+    <div class="pr-admin-header">
+        <h1 class="pr-color-orange mt-0 mb-5">Horaires d'ouvertures</h1>
+        <h4>Modifier un horaire</h4>
+    </div>
+
+    {{ include('hours/_form_edit.html.twig', {'button_label': 'Mettre à jour'}) }}
+
+    <button class="btn pr-button-ice"><a href="{{ path('app_hours') }}">Retour à la liste</a></button>
+
+    {{ include('hours/_delete_form.html.twig', {'id': openingHours.id}) }}
+
+{% endblock %}

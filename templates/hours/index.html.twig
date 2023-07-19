@@ -29,7 +29,7 @@
                 <td>{{ openingHour.createdAt|date('Y-m-d') }}</td>
                 <td>{{ openingHour.updatedAt|date('Y-m-d') }}</td>
                 <td>
-                    {#<a href="{{ path('app_faq_edit', {'id': faq.id}) }}"><button class="pr-button-mini-ice">Modifier</button></a>#}
+                    <a href="{{ path('app_hours_edit', {'id': openingHour.id}) }}"><button class="pr-button-mini-ice">Modifier</button></a>
                 </td>
             </tr>
         {% endfor %}
@@ -37,7 +37,5 @@
     </table>
 
     <button class="btn pr-button-slate"><a href="{{ path('app_hours_new') }}">Ajouter</a></button>
-
-
 
 {% endblock %}
