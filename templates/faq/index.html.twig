@@ -1,0 +1,40 @@
+{% extends 'base_admin.html.twig' %}
+
+{% block title %}FAQ{% endblock %}
+
+{% block body %}
+
+    <div class="pr-admin-header">
+        <h1 class="pr-color-orange mt-0 mb-5">Questions fréquemment posées - FAQ</h1>
+        <h4>Liste des questions</h4>
+    </div>
+
+    <table class="table table-hover table-pr mt-5">
+        <thead>
+        <tr>
+            <th scope="col">Question</th>
+            <th scope="col">Réponse</th>
+            <th scope="col">Est affichée ?</th>
+            <th scope="col">Créée le</th>
+            <th scope="col">Modifiée le</th>
+            <th scope="col">Actions</th>
+        </tr>
+        </thead>
+
+        <tbody>
+        {% for faq in faqs %}
+            <tr>
+                <td>{{ faq.question }}</td>
+                <td>{{ faq.answer }}</td>
+                <td>{{ faq.isActiv ? 'Yes' : 'No' }}</td>
+                <td>{{ faq.createdAt|date('Y-m-d') }}</td>
+                <td>{{ faq.updatedAt|date('Y-m-d') }}</td>
+                <td>
+                    <a href="{{ path('app_faq_edit', {'id': faq.id}) }}"><button class="btn btn-pr-slate">Modifier</button></a>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+{% endblock %}

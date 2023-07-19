@@ -1,0 +1,14 @@
+{% extends 'base_admin.html.twig' %}
+
+{% block title %}FAQ{% endblock %}
+
+{% block body %}
+
+<div class="pr-admin-header">
+    <h1 class="pr-color-orange mt-0 mb-5">Questions fréquemment posées - FAQ</h1>
+    <h4>Modifier</h4>
+</div>
+
+    {{ include('FAQ/_form.html.twig', {'button_label': 'Mettre à jour'}) }}
+
+{% endblock %}
