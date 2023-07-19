@@ -1,40 +1,20 @@
+
 <div class="accordion pr-accordion-FAQ accordion-flush pr-FAQ-W" id="accordionFlushExample">
-    <div class="accordion-item pr-accordion-item-FAQ">
-        <h2 class="accordion-header mb-2 mt-2">
-            <button class="accordion-button pr-accordion-button-FAQ collapsed" type="button" data-bs-toggle="collapse"
-                    data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
-                Réserver une table ?
-            </button>
-        </h2>
-        <div id="flush-collapseOne" class="accordion-collapse collapse" data-bs-parent="#accordionFlushExample">
-            <div class="accordion-body">Nous ne faisons pas de réservation. En générale les tables se libèrent vite et
-                le temps d'attente est limité.
+
+    {% for faq in faqs %}
+
+        <div class="accordion-item pr-accordion-item-FAQ">
+            <h2 class="accordion-header mb-2 mt-2">
+                <button class="accordion-button pr-accordion-button-FAQ collapsed" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#flush-collapse{{ loop.index }}" aria-expanded="false" aria-controls="flush-collapse{{ loop.index }}">
+                    {{ faq.question }}
+                </button>
+            </h2>
+            <div id="flush-collapse{{ loop.index }}" class="accordion-collapse collapse" data-bs-parent="#accordionFlushExample">
+                <div class="accordion-body">{{ faq.answer }}</div>
             </div>
         </div>
-    </div>
-    <div class="accordion-item pr-accordion-item-FAQ">
-        <h2 class="accordion-header mb-2 mt-2">
-            <button class="accordion-button pr-accordion-button-FAQ collapsed" type="button" data-bs-toggle="collapse"
-                    data-bs-target="#flush-collapseTwo" aria-expanded="false" aria-controls="flush-collapseTwo">
-                Réservation de groupe / privatisation
-            </button>
-        </h2>
-        <div id="flush-collapseTwo" class="accordion-collapse collapse" data-bs-parent="#accordionFlushExample">
-            <div class="accordion-body">Si vous souhaitez privatiser le restaurant pour un événement, nous vous invitons
-                à nous contacter par téléphone ou via notre formulaire de contact disponible sur cette même page (à venir très prochainement).
-            </div>
-        </div>
-    </div>
-    <div class="accordion-item pr-accordion-item-FAQ">
-        <h2 class="accordion-header mb-2 mt-2">
-            <button class="accordion-button pr-accordion-button-FAQ collapsed" type="button" data-bs-toggle="collapse"
-                    data-bs-target="#flush-collapseThree" aria-expanded="false" aria-controls="flush-collapseThree">
-                Ouvertures weekend et jours fériés ?
-            </button>
-        </h2>
-        <div id="flush-collapseThree" class="accordion-collapse collapse" data-bs-parent="#accordionFlushExample">
-            <div class="accordion-body">Les horaires d'ouvertures les jours fériés sont disponibles sur nos réseaux sociaux : Facebook et Instagram. Le lien est disponible en bas de page :)
-            </div>
-        </div>
-    </div>
+
+    {% endfor %}
+
 </div>
