@@ -1,0 +1,14 @@
+{% extends 'base_admin.html.twig' %}
+
+{% block title %}New Opening Hours{% endblock %}
+
+{% block body %}
+
+    <div class="pr-admin-header">
+        <h1 class="pr-color-orange mt-0 mb-5">Horaires d'ouvertures</h1>
+        <h4>Ajouter un horaire</h4>
+    </div>
+
+    {{ include('hours/_form.html.twig', {'button_label': 'Ajouter'}) }}
+
+{% endblock %}
