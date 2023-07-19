@@ -2,6 +2,8 @@
 
 namespace App\Controller;
 
+use App\Entity\FAQ;
+use App\Repository\FAQRepository;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Routing\Annotation\Route;
@@ -9,9 +11,15 @@ use Symfony\Component\Routing\Annotation\Route;
 class DetailsController extends AbstractController
 {
     #[Route('/contact', name: 'app_contact')]
-public function contact(): Response
+public function contact(
+    FAQRepository $FAQRepository,
+    ): Response
     {
-        return $this->render('details/show.html.twig');
+        $faqs = $FAQRepository->findAll();
+
+        return $this->render('details/show.html.twig', [
+            'faqs' => $faqs,
+        ]);
     }
 
 }
