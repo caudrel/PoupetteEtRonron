@@ -1,0 +1,30 @@
+
+{{ form_start(form) }}
+
+
+<div class="col">
+    <input
+            name="{{ field_name(form.question) }}"
+            type="text" class="form-control pr-admin-form-input"
+            placeholder="Question">
+</div>
+
+<div class="col">
+    <input
+            name="{{ field_name(form.answer) }}"
+            type="text" class="form-control pr-admin-form-input"
+            placeholder="Réponse">
+</div>
+
+<div class="col">
+    <div class="d-flex justify-content-between">
+        <div class="me-3">{{ form_widget(form.isActiv) }}</div>
+        <div class="w-100 mb-5">{{ form_label(form.isActiv) }}</div>
+    </div>
+</div>
+
+
+
+<button class="btn pr-button-slate">{{ button_label|default('Valider') }}</button>
+
+{{ form_end(form) }}

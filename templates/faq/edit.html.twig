@@ -1,0 +1,18 @@
+{% extends 'base_admin.html.twig' %}
+
+{% block title %}FAQ{% endblock %}
+
+{% block body %}
+
+<div class="pr-admin-header">
+    <h1 class="pr-color-orange mt-0 mb-5">Questions fréquemment posées - FAQ</h1>
+    <h4>Modifier</h4>
+</div>
+
+    {{ include('faq/_form.html.twig', {'button_label': 'Mettre à jour'}) }}
+
+    <button class="btn pr-button-ice"><a href="{{ path('app_faq') }}">Retour à la liste</a></button>
+
+    {{ include('faq/_delete_form.html.twig', {'id': faq.id}) }}
+
+{% endblock %}
