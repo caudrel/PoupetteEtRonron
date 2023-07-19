@@ -22,7 +22,7 @@ class FAQ
     #[ORM\Column(type: Types::TEXT)]
     private ?string $answer = null;
 
-    #[ORM\Column]
+    #[ORM\Column(type: Types::BOOLEAN)]
     private ?bool $isActiv = null;
 
     public function getId(): ?int

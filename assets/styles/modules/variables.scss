@@ -59,8 +59,9 @@ p {
   font-size: 1.2rem;
 }
 
-a{
+a {
   text-decoration: none;
+  color: inherit;
 }
 
 .pr-button-slate {
@@ -72,6 +73,9 @@ a{
   font-family: $pr-title-font-family;
   font-size: 1.1rem;
   width: 12vw;
+  min-width: 220px;
+  display: flex;
+  justify-content: center;
 }
 .pr-button-slate:hover {
   background-color: $pr-color-slate;
@@ -88,6 +92,9 @@ a{
   font-family: $pr-title-font-family;
   font-size: 1.1rem;
   width: 12vw;
+  min-width: 220px;
+  display: flex;
+  justify-content: center;
 }
 
 .pr-button-orange:hover {
@@ -106,6 +113,9 @@ a{
   font-family: $pr-title-font-family;
   font-size: 1.1rem;
   width: 12vw;
+  min-width: 220px;
+  display: flex;
+  justify-content: center;
 }
 
 .pr-button-mini-ice {
@@ -118,6 +128,9 @@ a{
   font-family: $pr-title-font-family;
   font-size: 1rem;
   width: 5vw;
+  min-width: 90px;
+  display: flex;
+  justify-content: center;
 }
 
 .pr-button-ice:hover {

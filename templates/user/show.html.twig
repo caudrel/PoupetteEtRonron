@@ -53,12 +53,12 @@
 
         <div>
         {% if is_granted('ROLE_ADMIN') %}
-            <a href="{{ path('app_user_edit', {'id': user.id}) }}"><button class="btn pr-button-slate">Modifier le profil</button></a>
+            <button class="btn pr-button-slate"><a href="{{ path('app_user_edit', {'id': user.id}) }}">Modifier le profil</a></button>
         {% endif %}
         </div>
         <div>
         {% if is_granted('ROLE_SUPER_ADMIN') %}
-            <a href="{{ path('app_user_edit_profile', {'id': user.id}) }}"><button class="btn pr-button-orange">Paramétrer ce profil</button></a>
+            <button class="btn pr-button-orange"><a href="{{ path('app_user_edit_profile', {'id': user.id}) }}">Paramétrer ce profil</a></button>
         {% endif %}
         </div>
 

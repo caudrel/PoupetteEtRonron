@@ -73,7 +73,7 @@ class UserController extends AbstractController
                 "$firstName $lastName a bien été créé."
             );
 
-            return $this->redirectToRoute('app_user_index');
+            return $this->redirectToRoute('app_user_index', [], Response::HTTP_SEE_OTHER);
         }
 
         return $this->render('user/new.html.twig', [

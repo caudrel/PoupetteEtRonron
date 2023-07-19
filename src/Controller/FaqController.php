@@ -13,6 +13,34 @@ use Symfony\Component\Routing\Annotation\Route;
 
 class FaqController extends AbstractController
 {
+    #[Route('/faq/new', name: 'app_faq_new', methods: ['GET', 'POST'])]
+    public function new(
+        Request                $request,
+        EntityManagerInterface $entityManager,
+    ): Response
+    {
+        $faq = new FAQ();
+
+        $form = $this->createForm(FaqType::class, $faq);
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()) {
+            $faq->setQuestion($form->get('question')->getData());
+            $faq->setAnswer($form->get('answer')->getData());
+            $faq->setIsActiv($form->get('isActiv')->getData());
+            $faq->setCreatedAt(new \DateTime());
+            $faq->setUpdatedAt(new \DateTime());
+
+            $entityManager->persist($faq);
+            $entityManager->flush();
+
+            return $this->redirectToRoute('app_faq', [], Response::HTTP_SEE_OTHER);
+        }
+        return $this->render('faq/new.html.twig', [
+            'form' => $form,
+            'faq' => $faq,
+        ]);
+    }
     #[Route('/faq', name: 'app_faq')]
     public function index(FAQRepository $FAQRepository): Response
     {
@@ -50,4 +78,16 @@ class FaqController extends AbstractController
             'form' => $form,
         ]);
     }
+
+    #[Route('/faq/delete/{id}', name: 'app_faq_delete', methods: ['POST'])]
+    public function delete(Request $request, FAQ $faq, EntityManagerInterface $entityManager): Response
+    {
+        if ($this->isCsrfTokenValid('delete' . $faq->getId(), $request->request->get('_token'))) {
+            $entityManager->remove($faq);
+            $entityManager->flush();
+        }
+
+        return $this->redirectToRoute('app_faq', [], Response::HTTP_SEE_OTHER);
+    }
+
 }

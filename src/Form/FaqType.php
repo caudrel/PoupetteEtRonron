@@ -19,9 +19,10 @@ class FaqType extends AbstractType
             ->add('answer', TextareaType::class)
             ->add('isActiv', CheckboxType::class, [
                 'label' => 'FAQ active ?',
-                'required' => false])
-        ;
+                'required' => false,
+            ]);
     }
+
     public function configureOptions(OptionsResolver $resolver): void
     {
         $resolver->setDefaults([

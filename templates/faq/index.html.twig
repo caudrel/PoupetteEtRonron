@@ -17,7 +17,7 @@
             <th scope="col">Est affichée ?</th>
             <th scope="col">Créée le</th>
             <th scope="col">Modifiée le</th>
-            <th scope="col">Actions</th>
+            <th scope="col">Action</th>
         </tr>
         </thead>
 
@@ -30,11 +30,13 @@
                 <td>{{ faq.createdAt|date('Y-m-d') }}</td>
                 <td>{{ faq.updatedAt|date('Y-m-d') }}</td>
                 <td>
-                    <a href="{{ path('app_faq_edit', {'id': faq.id}) }}"><button class="btn btn-pr-slate">Modifier</button></a>
+                    <a href="{{ path('app_faq_edit', {'id': faq.id}) }}"><button class="pr-button-mini-ice">Modifier</button></a>
                 </td>
             </tr>
         {% endfor %}
         </tbody>
     </table>
+
+    <button class="btn pr-button-slate"><a href="{{ path('app_faq_new') }}">Ajouter</a></button>
 
 {% endblock %}

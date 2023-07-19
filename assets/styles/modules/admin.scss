@@ -48,7 +48,15 @@
 }
 
 .pr-table-admin-show {
-  width: 30vw;
+}
+
+.pr-table-admin-show tbody > tr > th {
+  width: inherit;
+  background-color: red;
+}
+
+.pr-table-admin-show tbody > tr > td {
+  width: 20vw;
 }
 
 
