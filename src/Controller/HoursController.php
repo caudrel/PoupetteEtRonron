@@ -33,7 +33,7 @@ class HoursController extends AbstractController
             }
             $description = $form->get('description')->getData();
             if(strlen($description)>60 || strlen($description)<5) {
-                $this->addFlash('danger', 'Le champ jour doit contenir entre 5 et 60 caractères');
+                $this->addFlash('danger', 'Le champ amplitude horaire doit contenir entre 5 et 60 caractères');
                 return $this->redirectToRoute('app_hours_new');
             }
 
@@ -45,7 +45,7 @@ class HoursController extends AbstractController
             $entityManager->persist($openingHour);
             $entityManager->flush();
 
-            $this->addFlash('success', 'Les horaires ont bien été ajoutés');
+            $this->addFlash('success', "L'horaire a bien été ajouté");
 
             return $this->redirectToRoute('app_hours', [], Response::HTTP_SEE_OTHER);
         }
@@ -84,7 +84,7 @@ class HoursController extends AbstractController
             $entityManager->persist($openingHours);
             $entityManager->flush();
 
-            $this->addFlash('success', 'Les horaires ont bien été modifiés');
+            $this->addFlash('success', "L'horaire a bien été modifié");
 
             return $this->redirectToRoute('app_hours', [], Response::HTTP_SEE_OTHER);
         }
@@ -101,7 +101,7 @@ class HoursController extends AbstractController
             $entityManager->remove($openingHours);
             $entityManager->flush();
 
-            $this->addFlash('success', 'Les horaires ont bien été supprimés');
+            $this->addFlash('success', "L'horaire a bien été supprimé");
         }
 
         return $this->redirectToRoute('app_hours', [], Response::HTTP_SEE_OTHER);
