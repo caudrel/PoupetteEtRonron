@@ -16,7 +16,7 @@
         {#<h3 class="pr-color-iceblue m-5">Menu</h3>#}
         <a href="{{ path('app_contact') }}"><h3 class="pr-color-iceblue m-5">Adresse & FAQ</h3></a>
         {% if app.user %}
-        <a href="{{ path('app_user_show', {id: app.user.id} )}}"><h3 class="pr-color-iceblue m-5">Administration</h3></a>
+        <a href="{{ path('app_admin_home', {id: app.user.id} )}}"><h3 class="pr-color-iceblue m-5">Administration</h3></a>
         {% endif %}
         <h3 class="pr-color-iceblue m-5">Mentions légales</h3>
 

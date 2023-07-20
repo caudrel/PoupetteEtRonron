@@ -19,6 +19,25 @@
   padding: 5vh 2vw 0 2vw;
 }
 
+.pr-welcome {
+  box-shadow: 0 0 15px 0 $pr-color-iceblue, 0 0 15px 0 $pr-color-iceblue, 0 0 15px 0 $pr-color-iceblue, 0 0 15px 0 $pr-color-iceblue;
+  border-radius: 6px;
+  border: 1px solid $pr-color-iceblue;
+}
+
+.pr-welcome h1 {
+  color: $pr-color-orange;
+  font-weight: bolder;
+  margin-top: 4rem;
+  margin-bottom: 4rem;
+}
+
+.pr-box {
+  box-shadow: 0 0 15px 0 $pr-color-iceblue, 0 0 15px 0 $pr-color-iceblue, 0 0 15px 0 $pr-color-iceblue, 0 0 15px 0 $pr-color-iceblue;
+  border-radius: 6px;
+  border: 1px solid $pr-color-iceblue;
+}
+
 .pr-logoEntier-admin {
   width: 15vw;
   height: auto;
@@ -38,8 +57,7 @@
 
 .pr-admin-header {
   display: flex;
-  flex-direction: column;
-  align-items: flex-start;
+  justify-content: center;
 }
 
 .pr-admin-form-input {
