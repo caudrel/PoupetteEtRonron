@@ -37,15 +37,15 @@ class UserController extends AbstractController
         $form = $this->createForm(UserType::class, $user);
         $form->handleRequest($request);
 
-        /*$userExist = $entityManager->getRepository(User::class)->findOneBy(['email' => $user->getEmail()]);
-        if ($userExist) {
-            $this->addFlash(
-                'danger',
-                "Cet email est déjà utilisé."
-            );
-        }*/
-
         if ($form->isSubmitted() && $form->isValid()) {
+
+            if ($form->get('password')->getData() == 0) {
+                $this->addFlash(
+                    'danger',
+                    "Veuillez entrer un mot de passe."
+                );
+                return $this->redirectToRoute('app_user_new', [], Response::HTTP_SEE_OTHER);
+            }
 
             // encode the plain password
             $user->setPassword(
@@ -158,11 +158,12 @@ class UserController extends AbstractController
 
     #[Route('/{id}/edit_password', name: 'app_user_edit_password', methods: ['GET', 'POST'])]
     public function editPassword(
-        Request $request,
-        User $user,
-        EntityManagerInterface $entityManager,
+        Request                     $request,
+        User                        $user,
+        EntityManagerInterface      $entityManager,
         UserPasswordHasherInterface $passwordHasher
-    ): Response {
+    ): Response
+    {
 
         $form = $this->createForm(ChangePasswordFormType::class, $user);
         $form->handleRequest($request);
@@ -200,6 +201,10 @@ class UserController extends AbstractController
         if ($this->isCsrfTokenValid('delete' . $user->getId(), $request->request->get('_token'))) {
             $entityManager->remove($user);
             $entityManager->flush();
+
+            $this->addFlash(
+                'success',
+                "L'utilisateur a bien été supprimé.");
         }
 
         return $this->redirectToRoute('app_user_index', [], Response::HTTP_SEE_OTHER);
