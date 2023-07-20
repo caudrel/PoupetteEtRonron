@@ -16,7 +16,8 @@
 
         <h1 class="pr-color-orange mt-0 mb-5 pb-5">Connexion</h1>
 
-<div class="d-flex flex-column align-items-center mt-5 pt-5">
+    <div class="d-flex justify-content-center">
+<div class="d-flex flex-column align-items-center mt-5 pt-5 w-50 pr-box">
     <label for="inputEmail"></label>
     <input type="email" value="{{ last_username }}" name="email" id="inputEmail" class="form-control pr-admin-form-input" autocomplete="email" placeholder="Email" required autofocus>
     <label for="inputPassword"></label>
@@ -41,9 +42,11 @@
         Valider
     </button>
 
-</form>
+
 
     <a href="{{ path('app_forgot_password_request') }}"><p class="">Réinitialiser mon mot de passe</p></a>
     </div>
+    </div>
+</form>
 
 {% endblock %}

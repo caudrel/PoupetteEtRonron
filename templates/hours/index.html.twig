@@ -4,15 +4,18 @@
 
 {% block body %}
 
-
     <div class="pr-admin-header">
         <h1 class="pr-color-orange mt-0 mb-5">Horaires d'ouverture</h1>
-        <h4>Liste des jours</h4>
     </div>
 
-    <table class="table table-hover table-pr mt-5 w-75">
+    <div class="w-50 m-auto p-3 d-flex flex-column align-items-center">
+        <h3 class="mt-0 mb-4">Liste des jours</h3>
+    </div>
+
+    <div class="d-flex justify-content-center">
+    <table class="table table-hover table-pr mt-3 w-75 pr-box">
         <thead>
-        <tr>
+        <tr class="align-top">
             <th scope="col">Jour</th>
             <th scope="col">Amplitude horaire</th>
             <th scope="col">Créée le</th>
@@ -35,7 +38,10 @@
         {% endfor %}
         </tbody>
     </table>
+    </div>
 
+<div class="d-flex justify-content-center">
     <button class="btn pr-button-slate"><a href="{{ path('app_hours_new') }}">Ajouter</a></button>
+</div>
 
 {% endblock %}

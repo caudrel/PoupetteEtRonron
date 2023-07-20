@@ -6,10 +6,13 @@
     {% if is_granted('ROLE_SUPER_ADMIN') %}
     <div class="pr-admin-header">
         <h1 class="pr-color-orange mt-0 mb-5">Utilisateurs</h1>
-        <h4>Liste des utilisateurs</h4>
     </div>
 
-    <table class="table table-hover table-pr pr-index mt-3">
+        <div class="w-50 m-auto p-3 d-flex flex-column align-items-center">
+            <h3 class="mt-0 mb-4">Liste des utilisateurs</h3>
+    </div>
+
+    <table class="table table-hover table-pr pr-index mt-3 pr-welcome">
         <thead class="">
             <tr class="align-text-top">
                 <th scope="col" class="pr-col-email">Email</th>
