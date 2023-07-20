@@ -7,6 +7,9 @@
             name="{{ field_name(form.question) }}"
             type="text" class="form-control pr-admin-form-input"
             placeholder="Question">
+    <div class="pr-form-error">
+        {{ form_errors(form.question) }}
+    </div>
 </div>
 
 <div class="col">
@@ -14,6 +17,9 @@
             name="{{ field_name(form.answer) }}"
             type="text" class="form-control pr-admin-form-input"
             placeholder="Réponse">
+    <div class="pr-form-error">
+        {{ form_errors(form.answer) }}
+    </div>
 </div>
 
 <div class="col">

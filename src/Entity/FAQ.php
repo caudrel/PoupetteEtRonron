@@ -6,6 +6,7 @@ use App\Repository\FAQRepository;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
 use Gedmo\Timestampable\Traits\TimestampableEntity;
+use Symfony\Component\Validator\Constraints as Assert;
 
 #[ORM\Entity(repositoryClass: FAQRepository::class)]
 class FAQ
@@ -17,9 +18,23 @@ class FAQ
     private ?int $id = null;
 
     #[ORM\Column(length: 100)]
+    #[Assert\NotBlank(message: 'Veuillez entrer une question')]
+    #[Assert\Length(
+        min: 20,
+        max: 100,
+        minMessage: 'La question doit comporter au moins {{ limit }} caractères',
+        maxMessage: 'Le jour ne peut pas dépasser {{ limit }} caractères',
+    )]
     private ?string $question = null;
 
     #[ORM\Column(type: Types::TEXT)]
+    #[Assert\NotBlank(message: 'Veuillez entrer une réponse')]
+    #[Assert\Length(
+        min: 20,
+        max: 250,
+        minMessage: 'La réponse doit comporter au moins {{ limit }} caractères',
+        maxMessage: 'La réponse ne peut pas dépasser {{ limit }} caractères',
+    )]
     private ?string $answer = null;
 
     #[ORM\Column(type: Types::BOOLEAN)]
