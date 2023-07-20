@@ -14,7 +14,7 @@
     <input
             name="{{ field_name(form.firstname) }}"
             type="text" class="form-control pr-admin-form-input"
-            placeholder="Prénom">
+            placeholder="Prénom" required>
     <div class="pr-form-error">
         {{ form_errors(form.firstname) }}
     </div>
@@ -24,7 +24,7 @@
     <input
             name="{{ field_name(form.email) }}"
             type="text" class="form-control pr-admin-form-input"
-            placeholder="Email">
+            placeholder="Email" required>
     <div class="pr-form-error">
         {{ form_errors(form.email) }}
     </div>
