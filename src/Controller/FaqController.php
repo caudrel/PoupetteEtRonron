@@ -34,6 +34,11 @@ class FaqController extends AbstractController
             $entityManager->persist($faq);
             $entityManager->flush();
 
+            $this->addFlash(
+                'success',
+                "La FAQ a bien été ajoutée."
+            );
+
             return $this->redirectToRoute('app_faq', [], Response::HTTP_SEE_OTHER);
         }
         return $this->render('faq/new.html.twig', [
@@ -71,6 +76,11 @@ class FaqController extends AbstractController
             $entityManager->persist($faq);
             $entityManager->flush();
 
+            $this->addFlash(
+                'success',
+                "La FAQ a bien été modifiée."
+            );
+
             return $this->redirectToRoute('app_faq', [], Response::HTTP_SEE_OTHER);
         }
         return $this->render('faq/edit.html.twig', [
@@ -85,6 +95,12 @@ class FaqController extends AbstractController
         if ($this->isCsrfTokenValid('delete' . $faq->getId(), $request->request->get('_token'))) {
             $entityManager->remove($faq);
             $entityManager->flush();
+
+            $question = $faq->getQuestion();
+            $this->addFlash(
+                'success',
+                "La FAQ -- $question -- a bien été supprimée."
+            );
         }
 
         return $this->redirectToRoute('app_faq', [], Response::HTTP_SEE_OTHER);

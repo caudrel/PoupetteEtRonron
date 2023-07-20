@@ -98,7 +98,7 @@
 }
 
 .pr-col-email{
-  width: 14%;
+  width: 13%;
   overflow-wrap: anywhere;
 }
 .pr-col-prenom {
@@ -132,4 +132,18 @@
 .pr-col-action{
   width: 7%;
   overflow-wrap: anywhere;
+}
+
+.alert-success{
+  color: $pr-color-slate;
+  background-color: $pr-color-iceblue;
+  border-color: $pr-color-slate;
+  border-radius: 6px;
+}
+
+.alert-danger{
+  color: $pr-color-orange;
+  background-color: $pr-color-slate;
+  border-color: $pr-color-orange;
+  border-radius: 6px;
 }

@@ -37,15 +37,15 @@ class UserController extends AbstractController
         $form = $this->createForm(UserType::class, $user);
         $form->handleRequest($request);
 
-        $userExist = $entityManager->getRepository(User::class)->findOneBy(['email' => $user->getEmail()]);
-        if ($userExist) {
-            $this->addFlash(
-                'danger',
-                "Cet email est déjà utilisé."
-            );
-        }
-
         if ($form->isSubmitted() && $form->isValid()) {
+
+            if ($form->get('password')->getData() == 0) {
+                $this->addFlash(
+                    'danger',
+                    "Veuillez entrer un mot de passe."
+                );
+                return $this->redirectToRoute('app_user_new', [], Response::HTTP_SEE_OTHER);
+            }
 
             // encode the plain password
             $user->setPassword(
@@ -68,6 +68,7 @@ class UserController extends AbstractController
 
             $firstName = $user->getFirstname();
             $lastName = $user->getLastname();
+
             $this->addFlash(
                 'success',
                 "$firstName $lastName a bien été créé."
@@ -108,7 +109,12 @@ class UserController extends AbstractController
             $entityManager->persist($user);
             $entityManager->flush();
 
-            return $this->redirectToRoute('app_user_index', [], Response::HTTP_SEE_OTHER);
+            $this->addFlash(
+                'success',
+                "Le profil a bien été modifié."
+            );
+
+            return $this->redirectToRoute('app_user_index');
         }
 
         return $this->render('user/edit_profile.html.twig', [
@@ -133,6 +139,14 @@ class UserController extends AbstractController
             $entityManager->flush();
             $userId = $user->getId();
 
+            $firstName = $user->getFirstname();
+            $lastName = $user->getLastname();
+
+            $this->addFlash(
+                'success',
+                "Le profil de $firstName $lastName a bien été modifié."
+            );
+
             return $this->redirectToRoute('app_user_show', ['id' => $userId], Response::HTTP_SEE_OTHER);
         }
 
@@ -144,11 +158,12 @@ class UserController extends AbstractController
 
     #[Route('/{id}/edit_password', name: 'app_user_edit_password', methods: ['GET', 'POST'])]
     public function editPassword(
-        Request $request,
-        User $user,
-        EntityManagerInterface $entityManager,
+        Request                     $request,
+        User                        $user,
+        EntityManagerInterface      $entityManager,
         UserPasswordHasherInterface $passwordHasher
-    ): Response {
+    ): Response
+    {
 
         $form = $this->createForm(ChangePasswordFormType::class, $user);
         $form->handleRequest($request);
@@ -166,6 +181,11 @@ class UserController extends AbstractController
             $entityManager->flush();
             $userId = $user->getId();
 
+            $this->addFlash(
+                'success',
+                "Le mot de passe a bien été modifié."
+            );
+
             return $this->redirectToRoute('app_user_show', ['id' => $userId], Response::HTTP_SEE_OTHER);
         }
 
@@ -181,6 +201,10 @@ class UserController extends AbstractController
         if ($this->isCsrfTokenValid('delete' . $user->getId(), $request->request->get('_token'))) {
             $entityManager->remove($user);
             $entityManager->flush();
+
+            $this->addFlash(
+                'success',
+                "L'utilisateur a bien été supprimé.");
         }
 
         return $this->redirectToRoute('app_user_index', [], Response::HTTP_SEE_OTHER);
