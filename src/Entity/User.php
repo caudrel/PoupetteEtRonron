@@ -8,6 +8,7 @@ use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 use Symfony\Component\Security\Core\User\PasswordAuthenticatedUserInterface;
 use Symfony\Component\Security\Core\User\UserInterface;
 use Gedmo\Timestampable\Traits\TimestampableEntity;
+use Symfony\Component\Validator\Constraints as Assert;
 
 #[ORM\Entity(repositoryClass: UserRepository::class)]
 #[UniqueEntity(fields: ['email'], message: 'There is already an account with this email')]
@@ -21,6 +22,10 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     private ?int $id = null;
 
     #[ORM\Column(length: 180, unique: true)]
+    #[Assert\NotBlank(message: 'Veuillez entrer un email')]
+    #[Assert\Email(
+        message: "L'email {{ value }} n'est pas un email valide.",
+    )]
     private ?string $email = null;
 
     #[ORM\Column]
@@ -30,12 +35,33 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
      * @var string The hashed password
      */
     #[ORM\Column]
+    #[Assert\NotBlank(message: 'Veuillez entrer un mot de passe')]
+    #[Assert\Length(
+        min: 2,
+        max: 50,
+        minMessage: 'Votre mot de passe doit comporter au moins {{ limit }} caractères',
+        maxMessage: 'Votre mot de passe ne peut pas dépasser {{ limit }} caractères',
+    )]
     private ?string $password = null;
 
     #[ORM\Column(length: 35)]
+    #[Assert\NotBlank(message: 'Veuillez entrer un prénom')]
+    #[Assert\Length(
+        min: 2,
+        max: 50,
+        minMessage: 'Votre prénom doit comporter au moins {{ limit }} caractères',
+        maxMessage: 'Votre prénom ne peut pas dépasser {{ limit }} caractères',
+    )]
     private ?string $firstname = null;
 
     #[ORM\Column(length: 35)]
+    #[Assert\NotBlank(message: 'Veuillez entrer un Nom')]
+    #[Assert\Length(
+        min: 2,
+        max: 50,
+        minMessage: 'Votre Nom doit comporter au moins {{ limit }} caractères',
+        maxMessage: 'Votre Nom ne peut pas dépasser {{ limit }} caractères',
+    )]
     private ?string $lastname = null;
 
     #[ORM\Column]

@@ -59,6 +59,17 @@
   width: 35vw;
 }
 
+.pr-form-error {
+  color: $pr-color-orange;
+}
+
+.pr-form-error ul li {
+  list-style-type: none;
+}
+
+.pr-form-error ul {
+  padding-left: 1vw;
+}
 
 .pr-checkmark {
   background-color: $pr-color-paper;

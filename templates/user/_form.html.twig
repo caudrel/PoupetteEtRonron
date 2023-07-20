@@ -5,6 +5,9 @@
             name="{{ field_name(form.lastname) }}"
             type="text" class="form-control pr-admin-form-input"
         placeholder="Nom">
+    <div class="pr-form-error">
+        {{ form_errors(form.lastname) }}
+    </div>
 </div>
 
 <div class="col">
@@ -12,6 +15,9 @@
             name="{{ field_name(form.firstname) }}"
             type="text" class="form-control pr-admin-form-input"
             placeholder="Prénom">
+    <div class="pr-form-error">
+        {{ form_errors(form.firstname) }}
+    </div>
 </div>
 
 <div class="col">
@@ -19,6 +25,9 @@
             name="{{ field_name(form.email) }}"
             type="text" class="form-control pr-admin-form-input"
             placeholder="Email">
+    <div class="pr-form-error">
+        {{ form_errors(form.email) }}
+    </div>
 </div>
 
 <div class="col">
@@ -26,6 +35,9 @@
             name="{{ field_name(form.password) }}"
             type="text" class="form-control pr-admin-form-input"
             placeholder="Mot de passe">
+    <div class="pr-form-error">
+        {{ form_errors(form.password) }}
+    </div>
 </div>
 
 <button class="btn pr-button-slate">{{ button_label|default('Valider') }}</button>
