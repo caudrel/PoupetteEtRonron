@@ -9,34 +9,34 @@
         <h4>Liste des utilisateurs</h4>
     </div>
 
-    <table class="table table-hover table-pr mt-5">
-        <thead>
-            <tr>
-                <th scope="col">Email</th>
-                <th scope="col">Prénom</th>
-                <th scope="col">Nom</th>
-                <th scope="col">Rôles</th>
-                <th scope="col">Actif ?</th>
-                <th scope="col">Compte vérifié ?</th>
-                <th scope="col">Créé le</th>
-                <th scope="col">Modifié le</th>
-                <th scope="col">Action</th>
+    <table class="table table-hover table-pr pr-index mt-3">
+        <thead class="">
+            <tr class="align-text-top">
+                <th scope="col" class="pr-col-email">Email</th>
+                <th scope="col" class="pr-col-prenom">Prénom</th>
+                <th scope="col" class="pr-col-nom">Nom</th>
+                <th scope="col" class="pr-col-roles">Rôles</th>
+                <th scope="col" class="pr-col-actif">Actif ?</th>
+                <th scope="col" class="pr-col-verif">Compte vérifié ?</th>
+                <th scope="col" class="pr-col-created">Créé le</th>
+                <th scope="col" class="pr-col-modified">Modifié le</th>
+                <th scope="col" class="pr-col-action text-center">Action</th>
             </tr>
         </thead>
 
         <tbody>
         {% for user in users %}
             <tr>
-                <td>{{ user.email }}</td>
-                <td>{{ user.firstname }}</td>
-                <td>{{ user.lastname }}</td>
-                <td>{{ user.roles ? user.roles|json_encode : '' }}</td>
-                <td>{{ user.isActiv ? 'Yes' : 'No' }}</td>
-                <td>{{ user.isVerified ? 'Yes' : 'No' }}</td>
-                <td>{{ user.createdAt ? user.createdAt|date('Y-m-d') : '' }}</td>
-                <td>{{ user.updatedAt ? user.updatedAt|date('Y-m-d') : '' }}</td>
-                <td>
-                    <a href="{{ path('app_user_edit_profile', {'id': user.id}) }}"><button class="pr-button-mini-ice">Modifier</button></a>
+                <td class="pr-col-email">{{ user.email }}</td>
+                <td class="pr-col-prenom">{{ user.firstname }}</td>
+                <td class="pr-col-nom">{{ user.lastname }}</td>
+                <td class="pr-col-roles">{{ user.roles ? user.roles|json_encode : '' }}</td>
+                <td class="pr-col-actif">{{ user.isActiv ? 'Yes' : 'No' }}</td>
+                <td class="pr-col-verif">{{ user.isVerified ? 'Yes' : 'No' }}</td>
+                <td class="pr-col-created">{{ user.createdAt ? user.createdAt|date('Y-m-d') : '' }}</td>
+                <td class="pr-col-modified">{{ user.updatedAt ? user.updatedAt|date('Y-m-d') : '' }}</td>
+                <td class="pr-col-action">
+                    <a href="{{ path('app_user_edit_profile', {'id': user.id}) }}" class="d-flex justify-content-center"><button class="pr-button-mini-ice">Modifier</button></a>
 
                 </td>
             </tr>

@@ -16,7 +16,7 @@
   width: 80vw;
   height: inherit;
   min-height: 100vh;
-  padding: 5vh 5vw 0 5vh;
+  padding: 5vh 2vw 0 2vw;
 }
 
 .pr-logoEntier-admin {
@@ -59,6 +59,17 @@
   width: 35vw;
 }
 
+.pr-form-error {
+  color: $pr-color-orange;
+}
+
+.pr-form-error ul li {
+  list-style-type: none;
+}
+
+.pr-form-error ul {
+  padding-left: 1vw;
+}
 
 .pr-checkmark {
   background-color: $pr-color-paper;
@@ -69,4 +80,56 @@
 
 .pr-checkmark:checked {
   background-color: $pr-color-orange;
+}
+
+.pr-index {
+}
+
+.pr-index table, th {
+  font-size: .8rem;
+}
+
+.pr-index table th, td {
+  font-size: .7rem;
+}
+
+.pr-th {
+
+}
+
+.pr-col-email{
+  width: 14%;
+  overflow-wrap: anywhere;
+}
+.pr-col-prenom {
+  width: 5%;
+  overflow-wrap: anywhere;
+}
+.pr-col-nom {
+  width: 5%;
+  overflow-wrap: anywhere;
+}
+.pr-col-roles {
+  width: 20%;
+  overflow-wrap: anywhere;
+}
+.pr-col-actif {
+  width: 5%;
+  overflow-wrap: anywhere;
+}
+.pr-col-verif{
+  width: 5%;
+  overflow-wrap: anywhere;
+}
+.pr-col-created{
+  width: 6%;
+  overflow-wrap: anywhere;
+}
+.pr-col-modified{
+  width: 6%;
+  overflow-wrap: anywhere;
+}
+.pr-col-action{
+  width: 7%;
+  overflow-wrap: anywhere;
 }

@@ -7,7 +7,10 @@
     <input
             name="{{ field_name(form.question) }}"
             type="text" class="form-control pr-admin-form-input"
-            value="{{ faq.question }}">
+            value="{{ faq.question }}" required>
+    <div class="pr-form-error">
+        {{ form_errors(form.question) }}
+    </div>
 </div>
 
 <div class="col">
@@ -15,7 +18,10 @@
     <input
             name="{{ field_name(form.answer) }}"
             type="text" class="form-control pr-admin-form-input"
-            value="{{ faq.answer }}">
+            value="{{ faq.answer }}" required>
+    <div class="pr-form-error">
+        {{ form_errors(form.answer) }}
+    </div>
 </div>
 
 <h5 class="mt-5 mb-3">Cette question doit-elle s'afficher en ce moment ?</h5>
