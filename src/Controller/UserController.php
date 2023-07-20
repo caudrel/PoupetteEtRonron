@@ -37,13 +37,13 @@ class UserController extends AbstractController
         $form = $this->createForm(UserType::class, $user);
         $form->handleRequest($request);
 
-        $userExist = $entityManager->getRepository(User::class)->findOneBy(['email' => $user->getEmail()]);
+        /*$userExist = $entityManager->getRepository(User::class)->findOneBy(['email' => $user->getEmail()]);
         if ($userExist) {
             $this->addFlash(
                 'danger',
                 "Cet email est déjà utilisé."
             );
-        }
+        }*/
 
         if ($form->isSubmitted() && $form->isValid()) {
 
@@ -68,6 +68,7 @@ class UserController extends AbstractController
 
             $firstName = $user->getFirstname();
             $lastName = $user->getLastname();
+
             $this->addFlash(
                 'success',
                 "$firstName $lastName a bien été créé."
@@ -108,7 +109,12 @@ class UserController extends AbstractController
             $entityManager->persist($user);
             $entityManager->flush();
 
-            return $this->redirectToRoute('app_user_index', [], Response::HTTP_SEE_OTHER);
+            $this->addFlash(
+                'success',
+                "Le profil a bien été modifié."
+            );
+
+            return $this->redirectToRoute('app_user_index');
         }
 
         return $this->render('user/edit_profile.html.twig', [
@@ -132,6 +138,14 @@ class UserController extends AbstractController
             $entityManager->persist($user);
             $entityManager->flush();
             $userId = $user->getId();
+
+            $firstName = $user->getFirstname();
+            $lastName = $user->getLastname();
+
+            $this->addFlash(
+                'success',
+                "Le profil de $firstName $lastName a bien été modifié."
+            );
 
             return $this->redirectToRoute('app_user_show', ['id' => $userId], Response::HTTP_SEE_OTHER);
         }
@@ -165,6 +179,11 @@ class UserController extends AbstractController
             $entityManager->persist($user);
             $entityManager->flush();
             $userId = $user->getId();
+
+            $this->addFlash(
+                'success',
+                "Le mot de passe a bien été modifié."
+            );
 
             return $this->redirectToRoute('app_user_show', ['id' => $userId], Response::HTTP_SEE_OTHER);
         }

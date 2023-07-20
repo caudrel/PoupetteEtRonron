@@ -4,7 +4,7 @@
     <input
             name="{{ field_name(form.lastname) }}"
             type="text" class="form-control pr-admin-form-input"
-        placeholder="Nom">
+        placeholder="Nom" required>
     <div class="pr-form-error">
         {{ form_errors(form.lastname) }}
     </div>
@@ -34,7 +34,7 @@
     <input
             name="{{ field_name(form.password) }}"
             type="text" class="form-control pr-admin-form-input"
-            placeholder="Mot de passe">
+            placeholder="Mot de passe" required>
     <div class="pr-form-error">
         {{ form_errors(form.password) }}
     </div>
