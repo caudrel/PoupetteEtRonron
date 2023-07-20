@@ -7,6 +7,9 @@
             name="{{ field_name(form.day) }}"
             type="text" class="form-control pr-admin-form-input"
             placeholder="Jour">
+    <div class="pr-form-error">
+        {{ form_errors(form.day) }}
+    </div>
 </div>
 
 <div class="col">
@@ -14,6 +17,9 @@
             name="{{ field_name(form.description) }}"
             type="text" class="form-control pr-admin-form-input"
             placeholder="Amplitude horaire">
+    <div class="pr-form-error">
+        {{ form_errors(form.description) }}
+    </div>
 </div>
 
 
