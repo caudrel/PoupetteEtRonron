@@ -1,0 +1,62 @@
+.pr-anim-logoEntier {
+  animation: animLogoEntier 2s ease 0s 1 normal forwards;
+}
+
+@keyframes animLogoEntier {
+  0% {
+    transform: scale(0);
+    transform-origin: 0 50%;
+  }
+
+  100% {
+    transform: scale(1);
+    transform-origin: 0 50%;
+  }
+}
+
+.pr-anim-bienvenue {
+  animation: animBienv 5s ease 0s 1 normal forwards;
+}
+
+@keyframes animBienv {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+
+.pr-anim-burger {
+  animation: pr-anim-burger 4s ease 4s 4 normal forwards;
+}
+
+@keyframes pr-anim-burger {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  10%,
+  30%,
+  50%,
+  70% {
+    transform: translateY(-8px);
+  }
+
+  20%,
+  40%,
+  60% {
+    transform: translateY(8px);
+  }
+
+  80% {
+    transform: translateY(6.4px);
+  }
+
+  90% {
+    transform: translateY(-6.4px);
+  }
+}
