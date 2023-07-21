@@ -1,6 +1,35 @@
 .pr-footer {
   background-color: $pr-color-orange;
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
   height: 9vh;
+  width: inherit;
+  padding: 0 3vw;
+}
+
+.pr-footer-text {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  width: 50vw;
+}
+
+.pr-social-footer {
+  display: flex;
+  justify-content: space-around;
+  width: 30vw;
+}
+
+@media screen and (max-width: 430px) {
+  .pr-social-footer {
+    width: 25vw;
+  }
+
+  .pr-footer {
+  }
+
+  .pr-footer-text {
+    width: 75vw
+  }
+
 }
