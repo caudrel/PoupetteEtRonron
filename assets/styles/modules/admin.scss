@@ -38,6 +38,12 @@
   border: 1px solid $pr-color-iceblue;
 }
 
+.pr-box-orange {
+  box-shadow: 0 0 15px 0 $pr-color-orange, 0 0 15px 0 $pr-color-orange, 0 0 15px 0 $pr-color-orange, 0 0 15px 0 $pr-color-orange;
+  border-radius: 6px;
+  border: 1px solid $pr-color-orange;
+}
+
 .pr-logoEntier-admin {
   width: 15vw;
   height: auto;
