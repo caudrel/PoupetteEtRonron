@@ -1,6 +1,39 @@
-{% extends 'base_admin.html.twig' %}
+<!DOCTYPE html>
+<html lang="fr">
 
-{% block title %}Connectez-vous !{% endblock %}
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}Administration de Poupette et Ronron{% endblock %}</title>
+    <link rel="icon" type="image/png" href="{{ asset('favicon.ico') }}"/>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400&family=Palanquin&family=Permanent+Marker&display=swap"
+          rel="stylesheet">
+    {% block stylesheets %}
+        {{ encore_entry_link_tags('app') }}
+    {% endblock %}
+
+    {% block javascripts %}
+        {{ encore_entry_script_tags('app') }}
+    {% endblock %}
+</head>
+
+<body>
+
+<div class="pr-container-admin-all">
+    <div class="pr-container-admin-nav">
+        {% include "includes/_navbar_admin.html.twig" %}
+    </div>
+
+    <div class="pr-container-admin-body">
+
+        {% for category, messages in app.flashes %}
+            {% for message in messages %}
+                <div class="alert alert-{{ category }}">
+                    {{ message }}
+                </div>
+            {% endfor %}
+        {% endfor %}
 
 {% block body %}
 <form method="post">
@@ -9,12 +42,15 @@
     {% endif %}
 
     {% if app.user %}
-        <div class="mb-3">
-            Vous êtes connecté en tant que {{ app.user.userIdentifier }}, <a href="{{ path('app_logout') }}">Me déconnecter</a>
+        <div class="d-flex flex-column align-items-center mb-3">
+        <div class="w-50 pr-box-orange px-3 py-1">
+            <p>Vous êtes connecté en tant que {{ app.user.userIdentifier }}</p>
+            <a href="{{ path('app_logout') }}"><p class="pr-color-orange">Me déconnecter</p></a>
+        </div>
         </div>
     {% endif %}
 
-        <h1 class="pr-color-orange mt-0 mb-5 pb-5">Connexion</h1>
+        <h1 class="pr-color-orange mt-0 mb-4 pb-5">Connexion</h1>
 
     <div class="d-flex justify-content-center">
 <div class="d-flex flex-column align-items-center mt-5 pt-5 w-50 pr-box">
@@ -48,5 +84,10 @@
     </div>
     </div>
 </form>
+    </div>
+</div>
 
+</body>
+
+</html>
 {% endblock %}
