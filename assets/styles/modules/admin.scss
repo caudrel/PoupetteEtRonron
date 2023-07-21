@@ -171,3 +171,15 @@
   border-color: $pr-color-orange;
   border-radius: 6px;
 }
+
+.password-form {
+  /* Vos styles pour le conteneur du formulaire */
+  width: 50%;
+}
+
+.password-form div {
+  margin-bottom: 2rem;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}

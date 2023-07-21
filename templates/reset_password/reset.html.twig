@@ -1,12 +1,58 @@
-{% extends 'base_admin.html.twig' %}
+<!DOCTYPE html>
+<html lang="fr">
 
-{% block title %}Reset your password{% endblock %}
+<head>
+    <meta charset="UTF-8">
+    <title>Réinitialisez votre mot de passe</title>
+    <link rel="icon" type="image/png" href="{{ asset('favicon.ico') }}"/>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400&family=Palanquin&family=Permanent+Marker&display=swap"
+          rel="stylesheet">
+    {% block stylesheets %}
+        {{ encore_entry_link_tags('app') }}
+    {% endblock %}
 
-{% block body %}
-    <h1>Reset your password</h1>
+    {% block javascripts %}
+        {{ encore_entry_script_tags('app') }}
+    {% endblock %}
+</head>
 
-    {{ form_start(resetForm) }}
-        {{ form_row(resetForm.password) }}
-        <button class="btn btn-primary">Reset password</button>
-    {{ form_end(resetForm) }}
-{% endblock %}
+<body>
+
+<div class="pr-container-admin-all">
+    <div class="pr-container-admin-nav">
+        {% include "includes/_navbar_admin.html.twig" %}
+    </div>
+
+    <div class="pr-container-admin-body">
+
+        {% for category, messages in app.flashes %}
+            {% for message in messages %}
+                <div class="alert alert-{{ category }}">
+                    {{ message }}
+                </div>
+            {% endfor %}
+        {% endfor %}
+
+
+        <div class="d-flex my-auto h-75">
+            <div class="pr-box w-75 m-auto p-3 d-flex flex-column align-items-center">
+                <h1>Réinitialisez votre mot de passe</h1>
+
+                {{ form_start(resetForm, {'attr': {'class': 'password-form'}}) }}
+                {#{{ form_start(resetForm) }}#}
+
+                {{ form_row(resetForm.password, {'attr': {'class': 'form-control mp-5'}}) }}
+
+                <div class="d-flex justify-content-center">
+                    <button class="btn pr-button-slate w-25 mt-5">Réinitialiser</button>
+                </div>
+                {{ form_end(resetForm) }}
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
+
