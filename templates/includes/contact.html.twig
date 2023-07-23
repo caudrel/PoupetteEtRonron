@@ -1,9 +1,9 @@
 
-<div class="pr-FAQ-W">
+<div class="d-flex flex-column align-items-center">
 
         {{ form_start(form) }}
 
-    <div class="col">
+    <div class="col pr-contact-input">
         <input
                 name="{{ field_name(form.firstname) }}"
                 type="text" class="form-control pr-admin-form-input"
@@ -13,7 +13,7 @@
         </div>
     </div>
 
-    <div class="col">
+    <div class="col pr-contact-input">
         <input
                 name="{{ field_name(form.lastname) }}"
                 type="text" class="form-control pr-admin-form-input"
@@ -23,7 +23,7 @@
         </div>
     </div>
 
-    <div class="col">
+    <div class="col pr-contact-input">
         <input
                 name="{{ field_name(form.email) }}"
                 type="email" class="form-control pr-admin-form-input"
@@ -33,39 +33,22 @@
         </div>
     </div>
 
-    {#<select class="form-select" aria-label="{{ field_name(form.subject) }}">
-        <option selected>A quel sujet nous contactez-vous ?</option>
-        {% for subject in subjects %}
-            <option value="{{ subject.subject }}">{{ subject.subject }}</option>
-        {% endfor %}
-    </select>#}
 
+<div class="col pr-contact-input">
+    {{ form_widget(form.subject, {'label_attr': {'class': 'pr-contact-subject'}}) }}
+</div>
 
-    {{ form_widget(form.subject) }}
-
-    {#<div class="col">
-        <input
-                name="{{ field_name(form.subject) }}"
-                type="text" class="form-control pr-admin-form-input"
-                placeholder="">
-        <div class="pr-form-error">
-            {{ form_errors(form.subject) }}
-        </div>
-    </div>#}
 
     <div class="col">
-        <input
-                name="{{ field_name(form.message) }}"
-                type="text" class="form-control pr-admin-form-input"
-                placeholder="Votre message">
+        <textarea name="{{ field_name(form.message) }}" class="form-control" id="exampleFormControlTextarea1" rows="3" placeholder="Votre message"></textarea>
         <div class="pr-form-error">
             {{ form_errors(form.message) }}
         </div>
     </div>
 
-
-        <button type="submit">Envoyer</button>
-
+    <div class="d-flex justify-content-center">
+        <button class="btn pr-button-slate mt-4" type="submit">Envoyer</button>
+    </div>
         {{ form_end(form) }}
 
 </div>
