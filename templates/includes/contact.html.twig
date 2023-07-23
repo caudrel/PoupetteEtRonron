@@ -1,0 +1,71 @@
+
+<div class="pr-FAQ-W">
+
+        {{ form_start(form) }}
+
+    <div class="col">
+        <input
+                name="{{ field_name(form.firstname) }}"
+                type="text" class="form-control pr-admin-form-input"
+                placeholder="Prénom">
+        <div class="pr-form-error">
+            {{ form_errors(form.firstname) }}
+        </div>
+    </div>
+
+    <div class="col">
+        <input
+                name="{{ field_name(form.lastname) }}"
+                type="text" class="form-control pr-admin-form-input"
+                placeholder="Nom">
+        <div class="pr-form-error">
+            {{ form_errors(form.lastname) }}
+        </div>
+    </div>
+
+    <div class="col">
+        <input
+                name="{{ field_name(form.email) }}"
+                type="email" class="form-control pr-admin-form-input"
+                placeholder="VotreEmail@gmail.com">
+        <div class="pr-form-error">
+            {{ form_errors(form.email) }}
+        </div>
+    </div>
+
+    {#<select class="form-select" aria-label="{{ field_name(form.subject) }}">
+        <option selected>A quel sujet nous contactez-vous ?</option>
+        {% for subject in subjects %}
+            <option value="{{ subject.subject }}">{{ subject.subject }}</option>
+        {% endfor %}
+    </select>#}
+
+
+    {{ form_widget(form.subject) }}
+
+    {#<div class="col">
+        <input
+                name="{{ field_name(form.subject) }}"
+                type="text" class="form-control pr-admin-form-input"
+                placeholder="">
+        <div class="pr-form-error">
+            {{ form_errors(form.subject) }}
+        </div>
+    </div>#}
+
+    <div class="col">
+        <input
+                name="{{ field_name(form.message) }}"
+                type="text" class="form-control pr-admin-form-input"
+                placeholder="Votre message">
+        <div class="pr-form-error">
+            {{ form_errors(form.message) }}
+        </div>
+    </div>
+
+
+        <button type="submit">Envoyer</button>
+
+        {{ form_end(form) }}
+
+</div>
