@@ -1,0 +1,28 @@
+.pr-contact {
+  width: 50%;
+}
+
+.pr-contact-subject {
+  width: 100%;
+  margin-bottom: 1.2rem;
+}
+
+
+.pr-contact-input select {
+  @extend .pr-contact-subject;
+  @extend .form-select;
+}
+
+@media screen and (max-width: 430px){
+  .pr-contact {
+    width: 100%;
+  }
+
+  .pr-contact-input input {
+    width: 100%
+  }
+
+  .pr-contact-input select {
+    width: 100%
+  }
+}
