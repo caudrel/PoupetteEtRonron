@@ -16,7 +16,6 @@ class FoodCategoryFixtures extends Fixture
 
     public function load(ObjectManager $manager): void
     {
-
         foreach (self::CATEGORIES as $categoryName) {
             $category = new FoodCategory();
             $category->setFoodCategoryName($categoryName);
@@ -25,7 +24,7 @@ class FoodCategoryFixtures extends Fixture
             $category->setUpdatedAt(new \DateTime());
 
             $manager->persist($category);
-            $this->addReference('category_' . $categoryName, $category);
+            $this->addReference('foodCategory_' . $categoryName, $category);
         }
 
         $manager->flush();

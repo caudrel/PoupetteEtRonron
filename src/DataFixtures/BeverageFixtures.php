@@ -10,49 +10,49 @@ class BeverageFixtures extends Fixture
 {
     CONST BEVERAGES = [
         [
-            'BeverageName' => 'Eaux',
+            'beverageName' => 'Eaux',
             'description' => 'Evian 50cl, San Pelligrino 50cl',
             'price' => 4.00,
             'beverageCategory' => 'Eaux et softs',
         ],
         [
-            'BeverageName' => 'Eaux',
+            'beverageName' => 'Eaux',
             'description' => 'Evian 1L, San Pelligrino 1L',
             'price' => 6.00,
             'beverageCategory' => 'Eaux et softs',
         ],
         [
-            'BeverageName' => 'Softs',
+            'beverageName' => 'Softs',
             'description' => 'Coca-cola, Coca-cola zero, Orangina, Ice Tea, Sprite, Minute maid Pomme ou Orange - 33cl',
             'price' => 3.00,
             'beverageCategory' => 'Eaux et softs',
         ],
         [
-            'BeverageName' => 'Sirops',
+            'beverageName' => 'Sirops',
             'description' => 'Grenadine, Menthe, Fraise, Citron',
             'price' => 2.50,
             'beverageCategory' => 'Eaux et softs',
         ],
         [
-            'BeverageName' => 'Bière pression',
+            'beverageName' => 'Bière pression',
             'description' => 'Grimbergen, Hoegaarden, Heineken 25cl',
             'price' => 4.00,
             'beverageCategory' => 'Les bières',
         ],
         [
-            'BeverageName' => 'Bière pression',
+            'beverageName' => 'Bière pression',
             'description' => 'Grimbergen, Hoegaarden, Heineken 50cl',
             'price' => 6.50,
             'beverageCategory' => 'Les bières',
         ],
         [
-            'BeverageName' => 'Bière bouteille',
+            'beverageName' => 'Bière bouteille',
             'description' => 'Cannette Afut 33cl',
             'price' => 5.00,
             'beverageCategory' => 'Les bières',
         ],
         [
-            'BeverageName' => 'Bière bouteille',
+            'beverageName' => 'Bière bouteille',
             'description' => 'Mort Subite Kriek 33cl',
             'price' => 5.50,
             'beverageCategory' => 'Les bières',
@@ -60,13 +60,10 @@ class BeverageFixtures extends Fixture
     ];
     public function load(ObjectManager $manager): void
     {
-        // $product = new Product();
-        // $manager->persist($product);
-
         foreach (self::BEVERAGES as $beverage) {
             $beverageForFixture = new Beverage();
             $beverageForFixture
-                ->setBeverageName($beverage ['BeverageName'])
+                ->setBeverageName($beverage ['beverageName'])
                 ->setDescription($beverage ['description'])
                 ->setIsActiv(true)
                 ->setPrice($beverage ['price'])
