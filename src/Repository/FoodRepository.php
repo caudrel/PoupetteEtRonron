@@ -3,6 +3,7 @@
 namespace App\Repository;
 
 use App\Entity\Food;
+use App\Entity\FoodCategory;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Persistence\ManagerRegistry;
 
@@ -38,6 +39,18 @@ class FoodRepository extends ServiceEntityRepository
             $this->getEntityManager()->flush();
         }
     }
+
+    public function findAllFoodsWithCategory(string $foodCategoryName)
+    {
+        return $this->createQueryBuilder('food')
+            ->join(FoodCategory::class, 'category', 'WITH', 'food.foodCategory = category')
+            ->where('category.foodCategoryName = :categoryName')
+            ->setParameter('categoryName', $foodCategoryName)
+            ->getQuery()
+            ->getResult();
+    }
+
+
 
 //    /**
 //     * @return Food[] Returns an array of Food objects

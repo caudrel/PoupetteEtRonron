@@ -11,7 +11,8 @@ class BeverageCategoryFixtures extends Fixture
 
     const CATEGORIES = [
         'Eaux et softs',
-        'Les bières',
+        'Les bières pression',
+        'Les bières bouteilles',
     ];
     public function load(ObjectManager $manager): void
     {

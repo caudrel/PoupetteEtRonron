@@ -1,0 +1,161 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}La Carte{% endblock %}
+
+{% block body %}
+
+    <div class="pr-carte-nav">
+        {% include "includes/_navbar.html.twig" %}
+    </div>
+
+    <div class="pr-carte-background">
+
+        <div class="pr-carte-container">
+            <h1 class="pt-1 pb-0 mb-0 mt-5">LA CARTE</h1>
+
+            <div class="pr-carte-section">
+                <div class="pr-carte-inner-section">
+                    <table class="w-100">
+                        <tbody>
+                        <thead>
+                        <tr class="">
+                            <th><h3 class="fw-light text-end mt-0 mb-2">Les menus</h3></th>
+                            <th></th>
+                            <th></th>
+                        </tr>
+                        </thead>
+                        {% for menu in menus %}
+                            <tr>
+                                <td class="pr-carte-itemName fw-light align-text-top">{{ menu.foodName }}</td>
+                                <td class="pr-carte-description fw-light">{{ menu.description }}</td>
+                                <td class="pr-carte-price fw-light">{{ menu.price|number_format(2) }} €</td>
+                            </tr>
+                        {% endfor %}
+                        </tbody>
+                    </table>
+                    <p class="pr-cart-cf">* un élément = une part de pizza ou un dessert</p>
+                </div>
+            </div>
+
+            <div class="pr-carte-section">
+                <div class="pr-carte-inner-section">
+                    <table class="w-100">
+                        <tbody>
+                        <thead>
+                        <tr class="">
+                            <th><h3 class="fw-light text-end mt-0 mb-2">Les pizzas</h3></th>
+                            <th></th>
+                            <th></th>
+                        </tr>
+                        </thead>
+                        {% for pizza in pizzas %}
+                            <tr>
+                                <td class="pr-carte-itemName fw-light align-text-top">{{ pizza.foodName }}</td>
+                                <td class="pr-carte-description fw-light">{{ pizza.description }}</td>
+                                <td class="pr-carte-price fw-light">{{ pizza.price|number_format(2) }} €</td>
+                            </tr>
+                        {% endfor %}
+                        </tbody>
+                    </table>
+                    <p class="pr-cart-cf">Une part fait environs 10cm x 20cm</p>
+                </div>
+            </div>
+
+            <div class="pr-carte-section">
+                <div class="pr-carte-inner-section">
+                    <table class="w-100">
+                        <tbody>
+                        <thead>
+                        <tr class="">
+                            <th><h3 class="fw-light text-end mt-0 mb-2">Les desserts</h3></th>
+                            <th></th>
+                            <th></th>
+                        </tr>
+                        </thead>
+                        {% for dessert in desserts %}
+                            <tr>
+                                <td class="pr-carte-itemName fw-light align-text-top">{{ dessert.foodName }}</td>
+                                <td class="pr-carte-description fw-light">{{ dessert.description }}</td>
+                                <td class="pr-carte-price fw-light">{{ dessert.price|number_format(2) }} €</td>
+                            </tr>
+                        {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <h1 class="pt-1 pb-0 mb-0 mt-5">LES BOISSONS</h1>
+
+            <div class="pr-carte-section">
+                <div class="pr-carte-inner-section">
+                    <table class="w-100">
+                        <tbody>
+                        <thead>
+                        <tr class="">
+                            <th><h3 class="fw-light text-end mt-0 mb-2">Les softs</h3></th>
+                            <th></th>
+                            <th></th>
+                        </tr>
+                        </thead>
+                        {% for waterSoft in waterSofts %}
+                            <tr>
+                                <td class="pr-carte-itemName fw-light align-text-top">{{ waterSoft.beverageName }}</td>
+                                <td class="pr-carte-description fw-light">{{ waterSoft.description }}</td>
+                                <td class="pr-carte-price fw-light">{{ waterSoft.price|number_format(2) }} €</td>
+                            </tr>
+                        {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <div class="pr-carte-section">
+                <div class="pr-carte-inner-section">
+                    <table class="w-100">
+                        <tbody>
+                        <thead>
+                        <tr class="">
+                            <th><h3 class="fw-light text-end mt-0 mb-2">Bières pression</h3></th>
+                            <th></th>
+                            <th></th>
+                        </tr>
+                        </thead>
+                        {% for beerTap in beerTaps %}
+                            <tr>
+                                <td class="pr-carte-itemName fw-light align-text-top">{{ beerTap.beverageName }}</td>
+                                <td class="pr-carte-description fw-light">{{ beerTap.description }}</td>
+                                <td class="pr-carte-price fw-light">{{ beerTap.price|number_format(2) }} €</td>
+                            </tr>
+                        {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <div class="pr-carte-section">
+                <div class="pr-carte-inner-section">
+                    <table class="w-100">
+                        <tbody>
+                        <thead>
+                        <tr class="">
+                            <th><h3 class="fw-light text-end mt-0 mb-2">Bières bouteilles</h3></th>
+                            <th></th>
+                            <th></th>
+                        </tr>
+                        </thead>
+                        {% for beerBottle in beerBottles %}
+                            <tr>
+                                <td class="pr-carte-itemName fw-light align-text-top">{{ beerBottle.beverageName }}</td>
+                                <td class="pr-carte-description fw-light">{{ beerBottle.description }}</td>
+                                <td class="pr-carte-price fw-light">{{ beerBottle.price|number_format(2) }} €</td>
+                            </tr>
+                        {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+{% endblock %}
