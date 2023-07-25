@@ -1,0 +1,43 @@
+{% extends 'base_admin.html.twig' %}
+
+{% block title %}Food Categories{% endblock %}
+
+{% block body %}
+
+    <div class="pr-admin-header">
+        <h1 class="pr-color-orange mt-0 mb-5">Catégories de plats</h1>
+    </div>
+
+    <div class="w-50 m-auto p-3 d-flex flex-column align-items-center">
+        <h3 class="mt-0 mb-4">Liste des catégories</h3>
+    </div>
+
+    <table class="table table-hover table-pr mt-3 pr-welcome">
+        <thead>
+        <tr class="align-top">
+            <th scope="col">Catégorie</th>
+            <th scope="col">Est active ?</th>
+            <th scope="col">Créée le</th>
+            <th scope="col">Modifiée le</th>
+            <th scope="col" class="text-center">Action</th>
+        </tr>
+        </thead>
+
+        <tbody>
+        {% for foodCategory in foodCategories %}
+            <tr>
+                <td>{{ foodCategory.foodCategoryName }}</td>
+                <td>{{ foodCategory.isActiv ? 'Oui' : 'Non' }}</td>
+                <td>{{ foodCategory.createdAt|date('Y-m-d') }}</td>
+                <td>{{ foodCategory.updatedAt|date('Y-m-d') }}</td>
+                <td>
+                    <a href="{{ path('app_food_category_edit', {'id': foodCategory.id}) }}" class="d-flex justify-content-center"><button class="pr-button-mini-ice">Modifier</button></a>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <button class="btn pr-button-slate"><a href="{{ path('app_food_category_new') }}">Ajouter</a></button>
+
+{% endblock %}
