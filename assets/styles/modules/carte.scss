@@ -1,0 +1,65 @@
+.pr-carte-background{
+  width: 100%;
+  background-image: url("../../images/ArtisticDarkPlanche.jpg");
+  background-size: cover;
+  position: relative;
+}
+
+.pr-carte-nav{
+  position: fixed;
+  top: 0;
+  z-index: 20;
+}
+
+.pr-carte-container {
+  max-width: 80%;
+  margin: 15vh auto;
+  background-color: $pr-color-paper;
+  padding-bottom: 2rem;
+  border-radius: 10px;
+}
+
+.pr-carte-section {
+  width: 90%;
+  margin: 1.5rem auto;
+  border-radius: 10px;
+  border: 1px solid $pr-color-slate;
+}
+
+.pr-carte-inner-section {
+  width: 90%;
+  margin: 1.5rem auto;
+}
+
+.pr-carte-itemName{
+  width: 20%;
+  text-align: right;
+  font-size: .9rem;
+  font-family: $pr-title-font-family;
+  color: $pr-color-slate;
+}
+
+.pr-carte-description{
+  width: 65%;
+  text-align: left;
+  padding-right: 2rem;
+  padding-left: 2rem;
+  font-size: .9rem;
+  font-family: $pr-title-font-family;
+  color: $pr-color-slate;
+}
+
+.pr-carte-price {
+  width: 10%;
+  text-align: right;
+  font-size: .9rem;
+  font-family: $pr-title-font-family;
+  color: $pr-color-slate;
+}
+
+.pr-cart-cf {
+  font-family: $pr-title-font-family;
+  font-size: .8rem;
+  color: $pr-color-slate;
+  margin-top: 1rem;
+}

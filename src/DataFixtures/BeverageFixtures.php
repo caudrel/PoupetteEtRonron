@@ -34,28 +34,28 @@ class BeverageFixtures extends Fixture
             'beverageCategory' => 'Eaux et softs',
         ],
         [
-            'beverageName' => 'Bière pression',
+            'beverageName' => ' ',
             'description' => 'Grimbergen, Hoegaarden, Heineken 25cl',
             'price' => 4.00,
-            'beverageCategory' => 'Les bières',
+            'beverageCategory' => 'Les bières pression',
         ],
         [
-            'beverageName' => 'Bière pression',
+            'beverageName' => ' ',
             'description' => 'Grimbergen, Hoegaarden, Heineken 50cl',
             'price' => 6.50,
-            'beverageCategory' => 'Les bières',
+            'beverageCategory' => 'Les bières pression',
         ],
         [
-            'beverageName' => 'Bière bouteille',
+            'beverageName' => ' ',
             'description' => 'Cannette Afut 33cl',
             'price' => 5.00,
-            'beverageCategory' => 'Les bières',
+            'beverageCategory' => 'Les bières bouteilles',
         ],
         [
-            'beverageName' => 'Bière bouteille',
+            'beverageName' => ' ',
             'description' => 'Mort Subite Kriek 33cl',
             'price' => 5.50,
-            'beverageCategory' => 'Les bières',
+            'beverageCategory' => 'Les bières bouteilles',
         ]
     ];
     public function load(ObjectManager $manager): void

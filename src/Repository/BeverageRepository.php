@@ -3,6 +3,7 @@
 namespace App\Repository;
 
 use App\Entity\Beverage;
+use App\Entity\BeverageCategory;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Persistence\ManagerRegistry;
 
@@ -37,6 +38,16 @@ class BeverageRepository extends ServiceEntityRepository
         if ($flush) {
             $this->getEntityManager()->flush();
         }
+    }
+
+    public function findAllBeveragesWithCategory(string $beverageCategoryName)
+    {
+        return $this->createQueryBuilder('beverage')
+            ->join(BeverageCategory::class, 'category', 'WITH', 'beverage.beverageCategory = category')
+            ->where('category.beverageCategoryName = :categoryName')
+            ->setParameter('categoryName', $beverageCategoryName)
+            ->getQuery()
+            ->getResult();
     }
 
 //    /**
