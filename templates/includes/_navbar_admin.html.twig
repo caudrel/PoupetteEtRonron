@@ -1,33 +1,50 @@
 <div class="scroll d-flex justify-content-center">
-    <a href="{{ path('app_home') }}"><img src="{{ asset('build/images/LogoPRentier.png') }}" alt="Logo Poupette et Ronron"
+    <a href="{{ path('app_home') }}"><img src="{{ asset('build/images/LogoPRentier.png') }}"
+                                          alt="Logo Poupette et Ronron"
                                           class="pr-logoEntier-admin"></a>
 </div>
 
 {% if is_granted('ROLE_ADMIN') %}
 
-<h4 class="pr-color-paper mt-1">Bonjour {{ app.user.firstname }}</h4>
-<a href="{{ path('app_home') }}"><h6 class="pr-color-paper">Retour au site</h6></a>
+    <h4 class="pr-color-paper mt-1">Bonjour {{ app.user.firstname }}</h4>
+    <a href="{{ path('app_home') }}"><h6 class="pr-color-paper">Retour au site</h6></a>
     <a href="{{ path('app_logout') }}"><h6 class="pr-color-paper">Me déconnecter</h6></a>
 
 
-<h4 class="pr-nav-title mb-3 mt-5">Utilisateurs</h4>
+    <h4 class="pr-nav-title mb-3 mt-5">Utilisateurs</h4>
     {% if is_granted('ROLE_SUPER_ADMIN') %}
-<a href="{{ path('app_user_index') }}"><h6 class="pr-color-paper">Liste</h6></a>
-<a href="{{ path('app_user_new') }}"><h6 class="pr-color-paper">Ajouter</h6></a>
+        <a href="{{ path('app_user_index') }}"><h6 class="pr-color-paper">Liste</h6></a>
+        <a href="{{ path('app_user_new') }}"><h6 class="pr-color-paper">Ajouter</h6></a>
     {% endif %}
-    <a href="{{ path('app_user_show', {id: app.user.id} )}}"><h6 class="pr-color-paper">Mon profil</h6></a>
-<a href="{{ path('app_user_edit_password', {id: app.user.id}) }}"><h6 class="pr-color-paper">Modifier mot de passe</h6></a>
+    <a href="{{ path('app_user_show', {id: app.user.id} ) }}"><h6 class="pr-color-paper">Mon profil</h6></a>
+    <a href="{{ path('app_user_edit_password', {id: app.user.id}) }}"><h6 class="pr-color-paper">Modifier mot de
+            passe</h6></a>
 
+    <h4 class="pr-nav-title mb-3 mt-5">Menus et plats</h4>
+    <a href="{{ path('app_food') }}"><h6 class="pr-color-paper">Liste</h6></a>
+    <a href="{{ path('app_food_new') }}"><h6 class="pr-color-paper">Ajouter</h6></a>
 
-<h4 class="pr-nav-title mb-3 mt-5">FAQ</h4>
+    <h4 class="pr-nav-title mb-3 mt-5">Catégories menus et plats</h4>
+    <a href="{{ path('app_food_category') }}"><h6 class="pr-color-paper">Liste</h6></a>
+    <a href="{{ path('app_food_category_new') }}"><h6 class="pr-color-paper">Ajouter</h6></a>
+
+    <h4 class="pr-nav-title mb-3 mt-5">Boissons</h4>
+    <a href="{{ path('app_beverage') }}"><h6 class="pr-color-paper">Liste</h6></a>
+    <a href="{{ path('app_beverage_new') }}"><h6 class="pr-color-paper">Ajouter</h6></a>
+
+    <h4 class="pr-nav-title mb-3 mt-5">Catégories boissons</h4>
+    <a href="{{ path('app_beverage_category') }}"><h6 class="pr-color-paper">Liste</h6></a>
+    <a href="{{ path('app_beverage_category_new') }}"><h6 class="pr-color-paper">Ajouter</h6></a>
+
+    <h4 class="pr-nav-title mb-3 mt-5">FAQ</h4>
     <a href="{{ path('app_faq') }}"><h6 class="pr-color-paper">Liste</h6></a>
     <a href="{{ path('app_faq_new') }}"><h6 class="pr-color-paper">Ajouter</h6></a>
 
-<h4 class="pr-nav-title mb-3 mt-5">Horaires</h4>
+    <h4 class="pr-nav-title mb-3 mt-5">Horaires</h4>
     <a href="{{ path('app_hours') }}"><h6 class="pr-color-paper">Liste</h6></a>
     <a href="{{ path('app_hours_new') }}"><h6 class="pr-color-paper">Ajouter</h6></a>
 
-{#<h4 class="pr-nav-title mb-3 mt-5">Sujets Contact</h4>
+    {# <h4 class="pr-nav-title mb-3 mt-5">Sujets Contact</h4>
     <a href="{{ path('app_contact_subject') }}"><h6 class="pr-color-paper">Liste</h6></a>
-    <a href="{{ path('app_contact_subject_new') }}"><h6 class="pr-color-paper">Ajouter</h6></a>#}
+    <a href="{{ path('app_contact_subject_new') }}"><h6 class="pr-color-paper">Ajouter</h6></a> #}
 {% endif %}

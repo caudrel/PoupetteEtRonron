@@ -46,6 +46,7 @@ class FaqController extends AbstractController
             'faq' => $faq,
         ]);
     }
+
     #[Route('/faq', name: 'app_faq')]
     public function index(FAQRepository $FAQRepository): Response
     {

@@ -50,6 +50,15 @@ class BeverageRepository extends ServiceEntityRepository
             ->getResult();
     }
 
+    public function findAllWithCategory(): array
+    {
+        return $this->createQueryBuilder('b')
+            ->leftJoin('b.beverageCategory', 'bc')
+            ->addSelect('bc') // Include the BeverageCategory in the results
+            ->getQuery()
+            ->getResult();
+    }
+
 //    /**
 //     * @return Beverage[] Returns an array of Beverage objects
 //     */

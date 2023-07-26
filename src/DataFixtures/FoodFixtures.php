@@ -10,29 +10,29 @@ class FoodFixtures extends Fixture
 {
     CONST FOODS = [
         [
-            'foodName' => 'P&R 1',
-            'description' => '1 élément(*) + une eau 33cl ou un soft 33cl',
+            'foodName' => 'Light',
+            'description' => '1 élément + une boisson (*)',
             'price' => 6.90,
             'isVegetarian' => false,
             'foodCategory' => 'Les menus',
         ],
         [
-            'foodName' => 'P&R 2',
-            'description' => '2 éléments(*) + une eau 33cl ou un soft 33cl',
+            'foodName' => 'Classic',
+            'description' => '2 éléments + une boisson (*)',
             'price' => 9.90,
             'isVegetarian' => false,
             'foodCategory' => 'Les menus',
         ],
         [
-            'foodName' => 'P&R 3',
-            'description' => '3 éléments(*) + une eau 33cl ou un soft 33cl',
+            'foodName' => 'Medium',
+            'description' => '3 éléments + une boisson (*)',
             'price' => 13.90,
             'isVegetarian' => false,
             'foodCategory' => 'Les menus',
         ],
         [
-            'foodName' => 'P&R 4',
-            'description' => '4 éléments(*) + une eau 33cl ou un soft 33cl',
+            'foodName' => 'Large',
+            'description' => '4 éléments + une boisson (*)',
             'price' => 17.90,
             'isVegetarian' => false,
             'foodCategory' => 'Les menus',
