@@ -6,11 +6,11 @@
 
     <div class="pr-admin-header">
         <h1 class="pr-color-orange mt-0 mb-5">Sujets boite contact</h1>
-        <h4>Modifier</h4>
     </div>
 
+    <div class="w-50 m-auto p-3 d-flex flex-column align-items-center pr-box">
+    <h3 class="mt-3 mb-4">Modifier</h3>
     {{ include('contact_subject/_form_edit.html.twig', {'button_label': 'Mettre à jour'}) }}
-
     <button class="btn pr-button-ice"><a href="{{ path('app_contact_subject') }}">Retour à la liste</a></button>
 
     {{ include('contact_subject/_delete_form.html.twig', {'id': contactForm.id}) }}

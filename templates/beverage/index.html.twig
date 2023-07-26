@@ -1,6 +1,6 @@
 {% extends 'base_admin.html.twig' %}
 
-{% block title %}Beverage{% endblock %}
+{% block title %}Boissons{% endblock %}
 
 {% block body %}
 
@@ -37,7 +37,10 @@
                 <td>{{ beverage.createdAt|date('Y-m-d') }}</td>
                 <td>{{ beverage.updatedAt|date('Y-m-d') }}</td>
                 <td>
-                    <a href="{{ path('app_beverage_edit', {'id': beverage.id}) }}" class="d-flex justify-content-center"><button class="pr-button-mini-ice">Modifier</button></a>
+                    <a href="{{ path('app_beverage_edit', {'id': beverage.id}) }}"
+                       class="d-flex justify-content-center">
+                        <button class="pr-button-mini-ice">Modifier</button>
+                    </a>
                 </td>
             </tr>
         {% endfor %}
