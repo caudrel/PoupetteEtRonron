@@ -20,7 +20,11 @@
     <a href="{{ path('app_user_edit_password', {id: app.user.id}) }}"><h6 class="pr-color-paper">Modifier mot de
             passe</h6></a>
 
-    <h4 class="pr-nav-title mb-3 mt-5">Catégories plats</h4>
+    <h4 class="pr-nav-title mb-3 mt-5">Menus et plats</h4>
+    <a href="{{ path('app_food') }}"><h6 class="pr-color-paper">Liste</h6></a>
+    <a href="{{ path('app_food_new') }}"><h6 class="pr-color-paper">Ajouter</h6></a>
+
+    <h4 class="pr-nav-title mb-3 mt-5">Catégories menus et plats</h4>
     <a href="{{ path('app_food_category') }}"><h6 class="pr-color-paper">Liste</h6></a>
     <a href="{{ path('app_food_category_new') }}"><h6 class="pr-color-paper">Ajouter</h6></a>
 

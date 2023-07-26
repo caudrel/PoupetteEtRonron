@@ -1,0 +1,53 @@
+{% extends 'base_admin.html.twig' %}
+
+{% block title %}Food{% endblock %}
+
+{% block body %}
+
+    <div class="pr-admin-header">
+        <h1 class="pr-color-orange mt-0 mb-5">Les plats et menus</h1>
+    </div>
+
+    <div class="w-50 m-auto p-3 d-flex flex-column align-items-center">
+        <h3 class="mt-0 mb-4">Liste des plats et menus</h3>
+    </div>
+
+    <table class="table table-hover table-pr mt-3 pr-welcome">
+        <thead>
+        <tr class="align-top">
+            <th scope="col">Catégorie</th>
+            <th scope="col">Nom du plat ou menu</th>
+            <th scope="col">Description</th>
+            <th scope="col">Végétarien ?</th>
+            <th scope="col">Affiché ?</th>
+            <th scope="col">Créé le</th>
+            <th scope="col">Modifié le</th>
+            <th scope="col" class="text-center">Action</th>
+        </tr>
+        </thead>
+
+        <tbody>
+        {% for food in foods %}
+            <tr>
+                <td>{{ food.foodCategory.foodCategoryName }}</td>
+                <td>{{ food.foodName }}</td>
+                <td>{{ food.description }}</td>
+                <td>{{ food.isVegetarian ? 'Oui' : 'Non' }}</td>
+                <td>{{ food.isActiv ? 'Oui' : 'Non' }}</td>
+                <td>{{ food.createdAt|date('Y-m-d') }}</td>
+                <td>{{ food.updatedAt|date('Y-m-d') }}</td>
+                <td>
+{#
+                    <a href="{{ path('app_food_edit', {'id': food.id}) }}" class="d-flex justify-content-center"><button class="pr-button-mini-ice">Modifier</button></a>
+#}
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+{#
+    <button class="btn pr-button-slate"><a href="{{ path('app_food_new') }}">Ajouter</a></button>
+#}
+
+{% endblock %}

@@ -50,6 +50,15 @@ class FoodRepository extends ServiceEntityRepository
             ->getResult();
     }
 
+    public function findAllWithCategory(): array
+    {
+        return $this->createQueryBuilder('f')
+            ->leftJoin('f.foodCategory', 'fc')
+            ->addSelect('fc') // Include the FoodCategory in the results
+            ->getQuery()
+            ->getResult();
+    }
+
 
 
 //    /**
