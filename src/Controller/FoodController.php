@@ -25,12 +25,6 @@ class FoodController extends AbstractController
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
-            $food->setFoodCategory($form->get('foodCategory')->getData());
-            $food->setFoodName($form->get('foodName')->getData());
-            $food->setFoodCategory($form->get('description')->getData());
-            $food->setIsVegetarian($form->get('isVegetarian')->getData());
-            $food->setIsActiv($form->get('isActiv')->getData());
-            $food->setPrice($form->get('price')->getData());
             $food->setCreatedAt(new \DateTime());
             $food->setUpdatedAt(new \DateTime());
 
@@ -58,5 +52,53 @@ class FoodController extends AbstractController
         return $this->render('food/index.html.twig', [
             'foods' => $foods,
         ]);
+    }
+
+    #[Route('/food/{id}', name: 'app_food_edit')]
+    public function edit(
+        Food                    $food,
+        Request                $request,
+        EntityManagerInterface $entityManager,
+    ): Response
+    {
+
+        $form = $this->createForm(FoodType::class, $food);
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()) {
+            $food->setUpdatedAt(new \DateTime());
+
+            $entityManager->persist($food);
+            $entityManager->flush();
+
+            $plat = $food->getFoodName();
+            $this->addFlash(
+                'success',
+                "Le plat/menu -- $plat -- a bien été modifié."
+            );
+
+            return $this->redirectToRoute('app_food', [], Response::HTTP_SEE_OTHER);
+        }
+        return $this->render('food/edit.html.twig', [
+            'food' => $food,
+            'form' => $form,
+        ]);
+    }
+
+    #[Route('/food/delete/{id}', name: 'app_food_delete', methods: ['POST'])]
+    public function delete(Request $request, Food $food, EntityManagerInterface $entityManager): Response
+    {
+        if ($this->isCsrfTokenValid('delete' . $food->getId(), $request->request->get('_token'))) {
+            $entityManager->remove($food);
+            $entityManager->flush();
+
+            $plat = $food->getFoodName();
+            $this->addFlash(
+                'success',
+                "Le plat/menu -- $plat -- a bien été supprimé."
+            );
+        }
+
+        return $this->redirectToRoute('app_food', [], Response::HTTP_SEE_OTHER);
     }
 }

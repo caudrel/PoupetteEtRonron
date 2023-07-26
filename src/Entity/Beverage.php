@@ -16,8 +16,8 @@ class Beverage
     #[ORM\Column]
     private ?int $id = null;
 
-    #[ORM\Column(length: 50)]
-    private ?string $beverageName = null;
+    #[ORM\Column(length: 50, nullable: true)]
+    private ?string $beverageName;
 
     #[ORM\Column(length: 200, nullable: true)]
     private ?string $description = null;

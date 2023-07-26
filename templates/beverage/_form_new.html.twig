@@ -2,22 +2,21 @@
 
 <div class="col">
     <div class="">
-        {{ form_widget(form.foodCategory, {'attr': {'class': 'form-select pr-admin-form-input'}, 'placeholder': 'Sélectionnez une categorie'}) }}
+        {{ form_widget(form.beverageCategory, {'attr': {'class': 'form-select pr-admin-form-input'}, 'placeholder': 'Sélectionnez une categorie'}) }}
     </div>
     <div class="pr-form-error">
-        {{ form_errors(form.foodCategory) }}
+        {{ form_errors(form.beverageCategory) }}
     </div>
 
 </div>
 
-
 <div class="col">
     <input
-            name="{{ field_name(form.foodName) }}"
+            name="{{ field_name(form.beverageName) }}"
             type="text" class="form-control pr-admin-form-input"
-            placeholder="Nom du plat ou du menu">
+            placeholder="Nom de la boisson">
     <div class="pr-form-error">
-        {{ form_errors(form.foodName) }}
+        {{ form_errors(form.beverageName) }}
     </div>
 </div>
 
@@ -32,16 +31,9 @@
 </div>
 
 <div class="col">
-    {{ form_widget(form.price, {'attr': {'class': 'form-control pr-admin-form-input', 'placeholder': 'Prix en euros (ex: 6.90 )'}}) }}
+    {{ form_widget(form.price, {'attr': {'class': 'form-control pr-admin-form-input', 'placeholder': 'Prix en euros (ex: 3.90 )'}}) }}
     <div class="pr-form-error">
         {{ form_errors(form.price) }}
-    </div>
-</div>
-
-<div class="col">
-    <div class="d-flex justify-content-between">
-        <div class="me-3">{{ form_widget(form.isVegetarian) }}</div>
-        <div class="w-100 mb-1">{{ form_label(form.isVegetarian) }}</div>
     </div>
 </div>
 

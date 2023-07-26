@@ -1,38 +1,36 @@
 {{ form_start(form) }}
 
+
 <div class="col">
     <div class="">
-        {{ form_widget(form.foodCategory, {'attr': {'class': 'form-select pr-admin-form-input'}, 'placeholder': 'Sélectionnez une categorie'}) }}
+        {{ form_widget(form.foodCategory, {'attr': {'class': 'form-select pr-admin-form-input'}}) }}
     </div>
     <div class="pr-form-error">
         {{ form_errors(form.foodCategory) }}
     </div>
-
 </div>
 
-
 <div class="col">
-    <input
-            name="{{ field_name(form.foodName) }}"
-            type="text" class="form-control pr-admin-form-input"
-            placeholder="Nom du plat ou du menu">
+    <div class="">
+        {{ form_widget(form.foodName, {'attr': {'class': 'form-control pr-admin-form-input'}}) }}
+    </div>
     <div class="pr-form-error">
         {{ form_errors(form.foodName) }}
     </div>
 </div>
 
 <div class="col">
-    <input
-            name="{{ field_name(form.description) }}"
-            type="text" class="form-control pr-admin-form-input"
-            placeholder="Description">
+    <div class="">
+        {{ form_widget(form.description, {'attr': {'class': 'form-control pr-admin-form-input'}}) }}
+    </div>
     <div class="pr-form-error">
         {{ form_errors(form.description) }}
     </div>
 </div>
 
+
 <div class="col">
-    {{ form_widget(form.price, {'attr': {'class': 'form-control pr-admin-form-input', 'placeholder': 'Prix en euros (ex: 6.90 )'}}) }}
+    {{ form_widget(form.price, {'attr': {'class': 'form-control pr-admin-form-input'}}) }}
     <div class="pr-form-error">
         {{ form_errors(form.price) }}
     </div>
