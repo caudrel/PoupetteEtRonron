@@ -48,7 +48,7 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     #[Assert\NotBlank(message: 'Veuillez entrer un prénom')]
     #[Assert\Length(
         min: 2,
-        max: 50,
+        max: 35,
         minMessage: 'Votre prénom doit comporter au moins {{ limit }} caractères',
         maxMessage: 'Votre prénom ne peut pas dépasser {{ limit }} caractères',
     )]
@@ -58,7 +58,7 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     #[Assert\NotBlank(message: 'Veuillez entrer un Nom')]
     #[Assert\Length(
         min: 2,
-        max: 50,
+        max: 35,
         minMessage: 'Votre Nom doit comporter au moins {{ limit }} caractères',
         maxMessage: 'Votre Nom ne peut pas dépasser {{ limit }} caractères',
     )]

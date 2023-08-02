@@ -1,5 +1,5 @@
 .pr-contact {
-  width: 50%;
+  width: 55%;
 }
 
 .pr-contact-subject {
@@ -7,10 +7,14 @@
   margin-bottom: 1.2rem;
 }
 
+.pr-contact-input{
+  width: 75%;
+}
 
 .pr-contact-input select {
   @extend .pr-contact-subject;
   @extend .form-select;
+  width: 100%;
 }
 
 @media screen and (max-width: 430px){

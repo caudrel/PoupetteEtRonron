@@ -39,3 +39,7 @@ I coded this desktop and mobile app with PHP 8.2, with Symfony.
 ## Demo on YouTube
 
 to come
+
+## Database schema
+
+https://app.diagrams.net/#G1i2gdS42nB3vc_iYVMWac88OfoPDkSx-g
