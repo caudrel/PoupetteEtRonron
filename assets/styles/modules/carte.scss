@@ -12,7 +12,6 @@
   background-color: $pr-color-paper;
   padding-bottom: 2rem;
   border-radius: 10px;
-
 }
 
 .pr-carte-section {
@@ -58,4 +57,11 @@
   font-size: .8rem;
   color: $pr-color-slate;
   margin-top: 1rem;
+}
+
+@media screen and (max-width: 430px) {
+  .pr-carte-container {
+    max-width: 95%;
+    padding-bottom: 1rem;
+  }
 }

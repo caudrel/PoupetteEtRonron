@@ -9,6 +9,10 @@
   margin-bottom: -10vh;
 }
 
+.pr-title-PR {
+  padding: 3rem;
+}
+
 .pr-title-header-contact {
   position: absolute;
   top: 50%;
@@ -60,6 +64,10 @@
     width: 85vw;
     flex-direction: column;
     margin-bottom: 3rem;
+  }
+
+  .pr-title-PR {
+    padding: 1.5rem .4rem 1rem .4rem;
   }
 
   .pr-block-address {

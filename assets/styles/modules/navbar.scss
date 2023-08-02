@@ -3,20 +3,26 @@
   width: auto;
 }
 
+.pr-nav-link {
+  color: $pr-color-paper;
+  margin: 4rem;
+}
+
 .pr-menu-menu {
   color: $pr-color-orange;
   font-size: 0.8rem;
 }
 
+.pr-nav-socialMedia {
+  color: $pr-color-paper;
+  margin: 3rem;
+  width: 5vw;
+  height: 5vh;
+}
+
 .pr-background-orange {
   background-color: $pr-color-orange;
   text-align: right;
-}
-
-.pr-logo-social {
-  height: 5vh;
-  width: auto;
-  color: $pr-color-paper;
 }
 
 .offcanvas {
@@ -25,11 +31,25 @@
 
 @media screen and (max-width: 430px) {
   .pr-menu-logo {
-    height: 5vh;
+    height: 6vh;
   }
   .btn {
     --bs-btn-padding-x: 0;
     --bs-btn-padding-y: 0;
+  }
+
+  .pr-nav-socialMedia {
+    width: 8vw;
+    height: 8vh;
+    margin: 1rem 1.7rem 1rem 1rem;
+  }
+
+  .pr-nav-link {
+    margin: 1.7rem;
+  }
+
+  .pr-menu-menu {
+    font-size: 0.6rem;
   }
 
   .offcanvas {

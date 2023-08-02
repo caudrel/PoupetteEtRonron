@@ -44,11 +44,11 @@ class DetailsController extends AbstractController
             $lastname = $form->get('lastname')->getData();
             $firstname = $form->get('firstname')->getData();
             $subject = $form->get('subject')->getData();
-            $UserEmail = $form->get('email')->getData();
+            $userEmail = $form->get('email')->getData();
             $message = $form->get('message')->getData();
 
             $email1 = (new TemplatedEmail())
-                ->from($UserEmail)
+                ->from($userEmail)
                 ->to(new Address('admin@poupetteetronron.com', 'Equipe admin Poupette et Ronron'))
                 ->subject("$subject")
                 ->htmlTemplate('contact_subject/emailToOwner.html.twig')
@@ -61,7 +61,7 @@ class DetailsController extends AbstractController
 
             $email2 = (new TemplatedEmail())
                 ->from(new Address('admin@poupetteetronron.com', 'Equipe admin Poupette et Ronron'))
-                ->to($UserEmail)
+                ->to($userEmail)
                 ->subject("$subject")
                 ->htmlTemplate('contact_subject/emailToUser.html.twig')
                 ->context([
