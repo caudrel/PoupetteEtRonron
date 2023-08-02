@@ -21,7 +21,7 @@
 
             {% for category, messages in app.flashes %}
                 {% for message in messages %}
-                    <div class="alert alert-{{ category }} position-absolute z-3 w-100 align-content-center">
+                    <div class="alert alert-{{ category }} position-absolute pr-alert-position">
                         {{ message }}
                     </div>
                 {% endfor %}

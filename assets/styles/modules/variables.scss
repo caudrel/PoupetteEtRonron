@@ -178,6 +178,13 @@ a {
   background-color: $pr-color-paper;
 }
 
+.pr-alert-position{
+  z-index: 3;
+  width: 75vw;
+  margin-left: 12.5vw;
+  text-align: center;
+}
+
 @media screen and (max-width: 1280px) {
   .pr-container-all {
     width: 100vw;
