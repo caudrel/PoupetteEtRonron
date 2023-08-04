@@ -74,7 +74,7 @@ class DetailsController extends AbstractController
             $mailer->send($email1);
             $mailer->send($email2);
 
-            $this->addFlash('success', 'Votre message a bien été envoyé !');
+            $this->addFlash('success', "Votre message a bien été envoyé ! Nous vous répondrons au plus vite sur l'email $userEmail.");
 
             return $this->redirectToRoute('app_contact', [], Response::HTTP_SEE_OTHER);
         }

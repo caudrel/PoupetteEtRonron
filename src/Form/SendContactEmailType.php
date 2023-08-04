@@ -22,43 +22,39 @@ class SendContactEmailType extends AbstractType
         $builder
             ->add('firstname', TextType::class, [
                 'label' => 'firstname',
-                'required' => 'true',
+                'required' => true,
                 'constraints' => [
                     new Length([
-                        'min' => 2, // Longueur minimale autorisée
-                        'max' => 35, // Longueur maximale autorisée
+                        'min' => 2,
+                        'max' => 35,
                         'minMessage' => 'Le prénom doit comporter au moins {{ limit }} caractères.',
                         'maxMessage' => 'Le prénom ne peut pas dépasser {{ limit }} caractères.',
                     ]),
                     new NotBlank([
-                        'message' => 'L\'adresse e-mail ne peut pas être vide.',
+                        'message' => 'Le prénom doit être renseigné pour vous répondre au mieux.',
                     ]),
                 ],
             ])
             ->add('lastname', TextType::class, [
                 'label' => 'lastname',
-                'required' => 'true',
                 'constraints' => [
                     new Length([
-                        'min' => 2, // Longueur minimale autorisée
-                        'max' => 35, // Longueur maximale autorisée
+                        'min' => 2,
+                        'max' => 35,
                         'minMessage' => 'Le nom doit comporter au moins {{ limit }} caractères.',
                         'maxMessage' => 'Le nom ne peut pas dépasser {{ limit }} caractères.',
-                    ]),
-                    new NotBlank([
-                        'message' => 'L\'adresse e-mail ne peut pas être vide.',
                     ]),
                 ],
             ])
             ->add('email', EmailType::class, [
                 'label' => 'email',
-                'required' => 'true',
+                'required' => true,
                 'constraints' => [
                     new NotBlank([
                         'message' => 'L\'adresse e-mail ne peut pas être vide.',
                     ]),
                     new Length([
-                        'min' => 5, // Longueur minimale autorisée
+                        'min' => 7,
                         'minMessage' => "L'email doit comporter au moins {{ limit }} caractères.",
                     ]),
                 ],
@@ -66,17 +62,17 @@ class SendContactEmailType extends AbstractType
             ->add('subject', ChoiceType::class, [
                 'choices' => $options['subjects'],
                 'label' => 'subject',
-                'required' => 'true',
+                'required' => true,
             ])
             ->add('message', TextareaType::class, [
                 'label' => 'message',
-                'required' => 'true',
+                'required' => true,
                 'constraints' => [
                     new NotBlank([
-                        'message' => 'Le message ne peut pas être vide.',
+                        'message' => 'Afin de vous répondre au mieux, merci de préciser votre demande.',
                     ]),
                     new Length([
-                        'min' => 5, // Longueur minimale autorisée
+                        'min' => 50,
                         'minMessage' => "Le message doit comporter au moins {{ limit }} caractères.",
                     ]),
                 ],

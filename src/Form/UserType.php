@@ -3,32 +3,79 @@
 namespace App\Form;
 
 use App\Entity\User;
-use Doctrine\DBAL\Types\BooleanType;
-use phpDocumentor\Reflection\Types\Boolean;
 use Symfony\Component\Form\AbstractType;
-use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
-use Symfony\Component\Form\Extension\Core\Type\CollectionType;
-use Symfony\Component\Form\Extension\Core\Type\DateType;
+use Symfony\Component\Form\Extension\Core\Type\EmailType;
 use Symfony\Component\Form\Extension\Core\Type\PasswordType;
-use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use Symfony\Component\Validator\Constraints\Length;
+use Symfony\Component\Validator\Constraints\NotBlank;
 
 class UserType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $builder
-            ->add('email', TextType::class)
-            ->add('password', PasswordType::class)
-            ->add('firstname', TextType::class)
-            ->add('lastname', TextType::class)
-            /*->add('roles', CollectionType::class)
-            ->add('isActiv', CheckboxType::class)
-            ->add('isVerified', CheckboxType::class)
-            ->add('createdAt', DateType::class)
-            ->add('updatedAt', DateType::class)*/;
+            ->add('email', EmailType::class, [
+                'label' => 'email',
+                'required' => true,
+                'constraints' => [
+                    new NotBlank([
+                        'message' => "L'adresse e-mail de l'utilisateur ne peut pas être vide.",
+                    ]),
+                    new Length([
+                        'min' => 7,
+                        'minMessage' => "L'email doit comporter au moins {{ limit }} caractères.",
+                    ]),
+                ],
+            ])
+            ->add('password', PasswordType::class, [
+                'label' => 'password',
+                'required' => true,
+                'constraints' => [
+                    new Length([
+                        'min' => 6,
+                        'max' => 255,
+                        'minMessage' => 'Le mot de passe doit comporter au moins {{ limit }} caractères.',
+                        'maxMessage' => 'Le mot de passe ne peut pas dépasser {{ limit }} caractères.',
+                    ]),
+                    new NotBlank([
+                        'message' => 'Le mot de passe est obligatoire.',
+                    ]),
+                ],
+            ])
+            ->add('firstname', TextType::class, [
+                'label' => 'firstname',
+                'required' => true,
+                'constraints' => [
+                    new Length([
+                        'min' => 2,
+                        'max' => 35,
+                        'minMessage' => 'Le prénom doit comporter au moins {{ limit }} caractères.',
+                        'maxMessage' => 'Le prénom ne peut pas dépasser {{ limit }} caractères.',
+                    ]),
+                    new NotBlank([
+                        'message' => 'Le prénom est obligatoire.',
+                    ]),
+                ],
+            ])
+            ->add('lastname', TextType::class, [
+                'label' => 'lastname',
+                'required' => true,
+                'constraints' => [
+                    new Length([
+                        'min' => 2,
+                        'max' => 35,
+                        'minMessage' => 'Le nom doit comporter au moins {{ limit }} caractères.',
+                        'maxMessage' => 'Le nom ne peut pas dépasser {{ limit }} caractères.',
+                    ]),
+                    new NotBlank([
+                        'message' => 'Le nom est obligatoire',
+                    ]),
+                ],
+            ])
+            ;
     }
 
     public function configureOptions(OptionsResolver $resolver): void

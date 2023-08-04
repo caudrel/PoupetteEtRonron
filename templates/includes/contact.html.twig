@@ -5,7 +5,7 @@
             name="{{ field_name(form.firstname) }}"
             type="text" class="form-control mb-3"
             placeholder="Prénom"
-    required>
+            required>
     <div class="pr-form-error">
         {{ form_errors(form.firstname) }}
     </div>
@@ -15,8 +15,7 @@
     <input
             name="{{ field_name(form.lastname) }}"
             type="text" class="form-control mb-3"
-            placeholder="Nom"
-    required>
+            placeholder="Nom">
     <div class="pr-form-error">
         {{ form_errors(form.lastname) }}
     </div>
@@ -27,7 +26,7 @@
             name="{{ field_name(form.email) }}"
             type="email" class="form-control mb-3"
             placeholder="VotreEmail@gmail.com"
-    required>
+            required>
     <div class="pr-form-error">
         {{ form_errors(form.email) }}
     </div>
