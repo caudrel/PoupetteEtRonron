@@ -4,7 +4,7 @@
     <input
             name="{{ field_name(form.lastname) }}"
             type="text" class="form-control pr-admin-form-input"
-        placeholder="Nom" {#required#}>
+        placeholder="Nom" required>
     <div class="pr-form-error">
         {{ form_errors(form.lastname) }}
     </div>
@@ -14,7 +14,7 @@
     <input
             name="{{ field_name(form.firstname) }}"
             type="text" class="form-control pr-admin-form-input"
-            placeholder="Prénom" {#required#}>
+            placeholder="Prénom" required>
     <div class="pr-form-error">
         {{ form_errors(form.firstname) }}
     </div>
@@ -24,7 +24,7 @@
     <input
             name="{{ field_name(form.email) }}"
             type="email" class="form-control pr-admin-form-input"
-            placeholder="Email" {#required#}>
+            placeholder="Email" required>
     <div class="pr-form-error">
         {{ form_errors(form.email) }}
     </div>
@@ -34,7 +34,7 @@
     <input
             name="{{ field_name(form.password) }}"
             type="password" class="form-control pr-admin-form-input"
-            placeholder="Mot de passe">
+            placeholder="Mot de passe" required>
     <div class="pr-form-error">
         {{ form_errors(form.password) }}
     </div>

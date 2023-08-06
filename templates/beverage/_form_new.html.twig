@@ -2,7 +2,7 @@
 
 <div class="col">
     <div class="">
-        {{ form_widget(form.beverageCategory, {'attr': {'class': 'form-select pr-admin-form-input'}, 'placeholder': 'Sélectionnez une categorie'}) }}
+        {{ form_widget(form.beverageCategory, {'attr': {'class': 'form-select pr-admin-form-input', 'required': 'required'}, 'placeholder': 'Sélectionnez une categorie'}) }}
     </div>
     <div class="pr-form-error">
         {{ form_errors(form.beverageCategory) }}
@@ -24,14 +24,15 @@
     <input
             name="{{ field_name(form.description) }}"
             type="text" class="form-control pr-admin-form-input"
-            placeholder="Description">
+            placeholder="Description"
+            required>
     <div class="pr-form-error">
         {{ form_errors(form.description) }}
     </div>
 </div>
 
 <div class="col">
-    {{ form_widget(form.price, {'attr': {'class': 'form-control pr-admin-form-input', 'placeholder': 'Prix en euros (ex: 4.20 )'}}) }}
+    {{ form_widget(form.price, {'attr': {'class': 'form-control pr-admin-form-input', 'required': 'required'}, 'placeholder': 'Prix en euros (ex: 6.90 )'}) }}
     <div class="pr-form-error">
         {{ form_errors(form.price) }}
     </div>

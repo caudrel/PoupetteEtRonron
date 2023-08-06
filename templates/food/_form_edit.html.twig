@@ -3,7 +3,7 @@
 
 <div class="col">
     <div class="">
-        {{ form_widget(form.foodCategory, {'attr': {'class': 'form-select pr-admin-form-input'}}) }}
+        {{ form_widget(form.foodCategory, {'attr': {'class': 'form-select pr-admin-form-input', 'required': 'required'}}) }}
     </div>
     <div class="pr-form-error">
         {{ form_errors(form.foodCategory) }}
@@ -12,7 +12,7 @@
 
 <div class="col">
     <div class="">
-        {{ form_widget(form.foodName, {'attr': {'class': 'form-control pr-admin-form-input'}}) }}
+        {{ form_widget(form.foodName, {'attr': {'class': 'form-control pr-admin-form-input', 'required': 'required'}}) }}
     </div>
     <div class="pr-form-error">
         {{ form_errors(form.foodName) }}
@@ -21,7 +21,7 @@
 
 <div class="col">
     <div class="">
-        {{ form_widget(form.description, {'attr': {'class': 'form-control pr-admin-form-input'}}) }}
+        {{ form_widget(form.description, {'attr': {'class': 'form-control pr-admin-form-input', 'required': 'required'}}) }}
     </div>
     <div class="pr-form-error">
         {{ form_errors(form.description) }}
@@ -30,7 +30,7 @@
 
 
 <div class="col">
-    {{ form_widget(form.price, {'attr': {'class': 'form-control pr-admin-form-input'}}) }}
+    {{ form_widget(form.price, {'attr': {'class': 'form-control pr-admin-form-input', 'required': 'required'}}) }}
     <div class="pr-form-error">
         {{ form_errors(form.price) }}
     </div>

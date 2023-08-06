@@ -18,9 +18,15 @@ class Beverage
     private ?int $id = null;
 
     #[ORM\Column(length: 50, nullable: true)]
-    private ?string $beverageName;
+    private ?string $beverageName =  null;
 
-    #[ORM\Column(length: 200, nullable: true)]
+    #[ORM\Column]
+    #[Assert\Length(
+        min: 3,
+        max: 200,
+        minMessage: 'La description doit comporter au moins {{ limit }} caractères',
+        maxMessage: 'La description ne peut pas dépasser {{ limit }} caractères',
+    )]
     private ?string $description = null;
 
     #[ORM\Column]
@@ -42,7 +48,7 @@ class Beverage
         return $this->beverageName;
     }
 
-    public function setBeverageName(string $beverageName): static
+    public function setBeverageName(?string $beverageName): static // Nullable string as argument
     {
         $this->beverageName = $beverageName;
 

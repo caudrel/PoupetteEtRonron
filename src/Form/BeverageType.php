@@ -11,8 +11,6 @@ use Symfony\Component\Form\Extension\Core\Type\NumberType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
-use Symfony\Component\Validator\Constraints\Length;
-use Symfony\Component\Validator\Constraints\NotBlank;
 
 class BeverageType extends AbstractType
 {
@@ -32,17 +30,7 @@ class BeverageType extends AbstractType
             ->add('description', TextType::class, [
                 'label' => 'Description de la boisson',
                 'required' => true,
-                'constraints' => [
-                    new Length([
-                        'min' => 3,
-                        'max' => 200,
-                        'minMessage' => 'La description de la boisson doit comporter au moins {{ limit }} caractères.',
-                        'maxMessage' => 'La description de la boisson ne peut pas dépasser {{ limit }} caractères.',
-                    ]),
-                    new NotBlank([
-                        'message' => 'La description de la boisson est obligatoire',
-                    ]),
-            ]])
+            ])
             ->add('isActiv', CheckboxType::class, [
                 'label' => 'Boisson disponible ?',
                 'required' => false,

@@ -24,24 +24,15 @@ class FoodType extends AbstractType
                 'choice_label' => 'foodCategoryName',
                 'multiple' => false,
                 'expanded' => false,
+                'required' => true,
             ])
             ->add('foodName', TextType::class, [
-                'required' => false,
+                'required' => true,
             ])
             ->add('description', TextType::class, [
                 'label' => 'Description du plat',
                 'required' => true,
-                'constraints' => [
-                    new Length([
-                        'min' => 3,
-                        'max' => 200,
-                        'minMessage' => 'La description du plat doit comporter au moins {{ limit }} caractères.',
-                        'maxMessage' => 'La description du plat ne peut pas dépasser {{ limit }} caractères.',
-                    ]),
-                    new NotBlank([
-                        'message' => 'La description du plat est obligatoire',
-                    ]),
-                ]])
+                ])
             ->add('isVegetarian', CheckboxType::class, [
                 'label' => 'Plat végétarien ?',
                 'required' => false,
