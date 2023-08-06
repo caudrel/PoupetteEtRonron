@@ -19,15 +19,12 @@ class FaqType extends AbstractType
         $builder
             ->add('question', TextType::class, [
                 'label' => 'Question fréquemment posée',
-                'required' => true,
                 ])
             ->add('answer', TextareaType::class, [
                 'label' => 'Réponse',
-                'required' => true,
                 ])
             ->add('isActiv', CheckboxType::class, [
                 'label' => 'FAQ active ?',
-                'required' => false,
             ]);
     }
 

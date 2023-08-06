@@ -17,7 +17,7 @@ class FAQ
     #[ORM\Column]
     private ?int $id = null;
 
-    #[ORM\Column(length: 100)]
+    #[ORM\Column]
     #[Assert\NotBlank(message: 'Veuillez entrer une question')]
     #[Assert\Length(
         min: 10,

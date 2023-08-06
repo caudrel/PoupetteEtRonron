@@ -2,9 +2,9 @@
 
 namespace App\Controller;
 
-use App\Entity\ContactForm;
+use App\Entity\ContactSubject;
 use App\Form\ContactSubjectType;
-use App\Repository\ContactFormRepository;
+use App\Repository\ContactSubjectRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
@@ -19,7 +19,7 @@ class ContactSubjectController extends AbstractController
         EntityManagerInterface $entityManager,
     ): Response
     {
-        $contactSubject = new ContactForm();
+        $contactSubject = new ContactSubject();
 
         $form = $this->createForm(ContactSubjectType::class, $contactSubject);
         $form->handleRequest($request);
@@ -41,7 +41,7 @@ class ContactSubjectController extends AbstractController
         ]);
     }
     #[Route('/contact/subject', name: 'app_contact_subject')]
-    public function index(ContactFormRepository $contactFormRepository): Response
+    public function index(ContactSubjectRepository $contactFormRepository): Response
     {
         $subjects = $contactFormRepository->findAll();
         return $this->render('contact_subject/index.html.twig', [
@@ -51,7 +51,7 @@ class ContactSubjectController extends AbstractController
 
     #[Route('/contact/subject/{id}', name: 'app_contact_subject_edit')]
     public function edit(
-        ContactForm $contactForm,
+        ContactSubject         $contactForm,
         Request                $request,
         EntityManagerInterface $entityManager,
     ): Response
@@ -77,7 +77,7 @@ class ContactSubjectController extends AbstractController
     }
 
     #[Route('/contact/subject/delete/{id}', name: 'app_contact_subject_delete', methods: ['POST'])]
-    public function delete(Request $request, ContactForm $contactForm, EntityManagerInterface $entityManager): Response
+    public function delete(Request $request, ContactSubject $contactForm, EntityManagerInterface $entityManager): Response
     {
         if ($this->isCsrfTokenValid('delete' . $contactForm->getId(), $request->request->get('_token'))) {
             $entityManager->remove($contactForm);

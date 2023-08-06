@@ -13,9 +13,14 @@ class HoursType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $builder
-            ->add('day', TextType::class)
-            ->add('description', TextType::class)
-        ;
+            ->add('day', TextType::class, [
+                'label' => 'day',
+                'required' => true
+            ])
+            ->add('description', TextType::class, [
+                'label' => 'day',
+                'required' => true
+            ]);
     }
 
     public function configureOptions(OptionsResolver $resolver): void

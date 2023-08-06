@@ -2,7 +2,7 @@
 
 namespace App\Form;
 
-use App\Entity\ContactForm;
+use App\Entity\ContactSubject;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
@@ -19,17 +19,6 @@ class ContactSubjectType extends AbstractType
             ->add('subject', TextType::class, [
                 'label' => 'Sujet de contact',
                 'required' => true,
-                'constraints' => [
-                    new Length([
-                        'min' => 5,
-                        'max' => 60,
-                        'minMessage' => 'Le sujet de contact doit comporter au moins {{ limit }} caractères.',
-                        'maxMessage' => 'Le sujet de contact ne peut pas dépasser {{ limit }} caractères.',
-                    ]),
-                    new NotBlank([
-                        'message' => 'Le sujet de contact est obligatoire',
-                    ]),
-                ],
             ])
             ->add('isValid', CheckboxType::class, [
                 'label' => 'Sujet visible ?',
@@ -40,7 +29,7 @@ class ContactSubjectType extends AbstractType
     public function configureOptions(OptionsResolver $resolver): void
     {
         $resolver->setDefaults([
-            'data_class' => ContactForm::class,
+            'data_class' => ContactSubject::class,
         ]);
     }
 }
