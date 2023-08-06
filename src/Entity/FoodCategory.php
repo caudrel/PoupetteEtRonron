@@ -7,17 +7,26 @@ use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 use Gedmo\Timestampable\Traits\TimestampableEntity;
+use Symfony\Component\Validator\Constraints as Assert;
 
 #[ORM\Entity(repositoryClass: FoodCategoryRepository::class)]
 class FoodCategory
 {
     use TimestampableEntity;
+
     #[ORM\Id]
     #[ORM\GeneratedValue]
     #[ORM\Column]
     private ?int $id = null;
 
-    #[ORM\Column(length: 35)]
+    #[ORM\Column]
+    #[Assert\Length(
+        min: 3,
+        max: 35,
+        minMessage: 'Le nom de la catégorie doit comporter au moins {{ limit }} caractères',
+        maxMessage: 'Le nom de la catégorie ne peut pas dépasser {{ limit }} caractères',
+    )]
+    #[Assert\NotBlank(message: 'Le nom de la catégorie ne peut pas être vide')]
     private ?string $foodCategoryName = null;
 
     #[ORM\Column]

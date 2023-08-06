@@ -3,32 +3,50 @@
 namespace App\Form;
 
 use App\Entity\User;
-use Doctrine\DBAL\Types\BooleanType;
-use phpDocumentor\Reflection\Types\Boolean;
 use Symfony\Component\Form\AbstractType;
-use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
-use Symfony\Component\Form\Extension\Core\Type\CollectionType;
-use Symfony\Component\Form\Extension\Core\Type\DateType;
+use Symfony\Component\Form\Extension\Core\Type\EmailType;
 use Symfony\Component\Form\Extension\Core\Type\PasswordType;
-use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use Symfony\Component\Validator\Constraints\NotBlank;
+use Symfony\Component\Validator\Constraints\Regex;
 
 class UserType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $builder
-            ->add('email', TextType::class)
-            ->add('password', PasswordType::class)
-            ->add('firstname', TextType::class)
-            ->add('lastname', TextType::class)
-            /*->add('roles', CollectionType::class)
-            ->add('isActiv', CheckboxType::class)
-            ->add('isVerified', CheckboxType::class)
-            ->add('createdAt', DateType::class)
-            ->add('updatedAt', DateType::class)*/;
+            ->add('email', EmailType::class, [
+                'label' => 'email',
+            ])
+            ->add('password', PasswordType::class, [
+                'label' => 'password',
+                'constraints' => [
+                    new NotBlank([
+                        'message' => 'Veuillez entrer un mot de passe',
+                    ]),
+                    new Regex([
+                        'pattern' => '/(?=.*[A-Z])/',
+                        'message' => 'Votre mot de passe doit contenir au moins une lettre majuscule']),
+                    new Regex([
+                        'pattern' => '/(?=.*[a-z])/',
+                        'message' => 'Votre mot de passe doit contenir au moins une lettre minuscule']),
+                    new Regex([
+                        'pattern' => '/(?=.*\d)/',
+                        'message' => 'Votre mot de passe doit contenir au moins un chiffre']),
+                    new Regex([
+                        'pattern' => '/(?=.*[@$!%*?&])/',
+                        'message' => 'Votre mot de passe doit contenir au moins un caractère spécial ( @ $ ! % * ? & )']),
+                ],
+            ])
+            ->add('firstname', TextType::class, [
+                'label' => 'firstname',
+            ])
+            ->add('lastname', TextType::class, [
+                'label' => 'lastname',
+            ])
+            ;
     }
 
     public function configureOptions(OptionsResolver $resolver): void

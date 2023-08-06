@@ -2,6 +2,7 @@
 
 namespace App\Repository;
 
+use App\Entity\Beverage;
 use App\Entity\Food;
 use App\Entity\FoodCategory;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
@@ -40,16 +41,24 @@ class FoodRepository extends ServiceEntityRepository
         }
     }
 
-    public function findAllFoodsWithCategory(string $foodCategoryName)
+    /**
+     * @return Food[] which are activ=true with a given category as a parameter
+     */
+    public function findAllActivFoodsWithCat(string $foodCategoryName)
     {
         return $this->createQueryBuilder('food')
             ->join(FoodCategory::class, 'category', 'WITH', 'food.foodCategory = category')
             ->where('category.foodCategoryName = :categoryName')
+            ->andWhere('food.isActiv = :isActive')
             ->setParameter('categoryName', $foodCategoryName)
+            ->setParameter('isActive', true) // Définition du paramètre isActive à true
             ->getQuery()
             ->getResult();
     }
 
+    /**
+     * @return Food[] complete list for the admin with the category
+     */
     public function findAllWithCategory(): array
     {
         return $this->createQueryBuilder('f')

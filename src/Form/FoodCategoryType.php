@@ -14,12 +14,13 @@ class FoodCategoryType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $builder
-            ->add('foodCategoryName', TextType::class)
+            ->add('foodCategoryName', TextType::class, [
+                'label' => 'foodCategoryName',
+            ])
             ->add('isActiv', CheckboxType::class, [
                 'label' => 'Catégorie de plat active ?',
                 'required' => false,
             ]);
-        ;
     }
 
     public function configureOptions(OptionsResolver $resolver): void

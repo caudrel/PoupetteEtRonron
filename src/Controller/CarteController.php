@@ -14,12 +14,12 @@ class CarteController extends AbstractController
     #[Route('/carte', name: 'app_carte')]
     public function index(FoodRepository $foodRepository, BeverageRepository $beverageRepository): Response
     {
-        $pizzas = $foodRepository->findAllFoodsWithCategory("Les pizzas");
-        $menus = $foodRepository->findAllFoodsWithCategory("Les menus");
-        $desserts = $foodRepository->findAllFoodsWithCategory("Les desserts");
-        $waterSofts = $beverageRepository->findAllBeveragesWithCategory("Eaux et softs");
-        $beerTaps = $beverageRepository->findAllBeveragesWithCategory("Les bières pression");
-        $beerBottles = $beverageRepository->findAllBeveragesWithCategory("Les bières bouteilles");
+        $pizzas = $foodRepository->findAllActivFoodsWithCat("Les pizzas");
+        $menus = $foodRepository->findAllActivFoodsWithCat("Les menus");
+        $desserts = $foodRepository->findAllActivFoodsWithCat("Les desserts");
+        $waterSofts = $beverageRepository->findAllActivBevWithCat("Eaux et softs");
+        $beerTaps = $beverageRepository->findAllActivBevWithCat("Les bières pression");
+        $beerBottles = $beverageRepository->findAllActivBevWithCat("Les bières bouteilles");
 
         return $this->render('carte/index.html.twig', [
             'pizzas' => $pizzas,

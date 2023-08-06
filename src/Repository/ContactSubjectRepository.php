@@ -2,26 +2,26 @@
 
 namespace App\Repository;
 
-use App\Entity\ContactForm;
+use App\Entity\ContactSubject;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Persistence\ManagerRegistry;
 
 /**
- * @extends ServiceEntityRepository<ContactForm>
+ * @extends ServiceEntityRepository<ContactSubject>
  *
- * @method ContactForm|null find($id, $lockMode = null, $lockVersion = null)
- * @method ContactForm|null findOneBy(array $criteria, array $orderBy = null)
- * @method ContactForm[]    findAll()
- * @method ContactForm[]    findBy(array $criteria, array $orderBy = null, $limit = null, $offset = null)
+ * @method ContactSubject|null find($id, $lockMode = null, $lockVersion = null)
+ * @method ContactSubject|null findOneBy(array $criteria, array $orderBy = null)
+ * @method ContactSubject[]    findAll()
+ * @method ContactSubject[]    findBy(array $criteria, array $orderBy = null, $limit = null, $offset = null)
  */
-class ContactFormRepository extends ServiceEntityRepository
+class ContactSubjectRepository extends ServiceEntityRepository
 {
     public function __construct(ManagerRegistry $registry)
     {
-        parent::__construct($registry, ContactForm::class);
+        parent::__construct($registry, ContactSubject::class);
     }
 
-    public function save(ContactForm $entity, bool $flush = false): void
+    public function save(ContactSubject $entity, bool $flush = false): void
     {
         $this->getEntityManager()->persist($entity);
 
@@ -30,7 +30,7 @@ class ContactFormRepository extends ServiceEntityRepository
         }
     }
 
-    public function remove(ContactForm $entity, bool $flush = false): void
+    public function remove(ContactSubject $entity, bool $flush = false): void
     {
         $this->getEntityManager()->remove($entity);
 

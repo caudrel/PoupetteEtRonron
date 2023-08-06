@@ -7,8 +7,7 @@ use Symfony\Component\Form\Extension\Core\Type\PasswordType;
 use Symfony\Component\Form\Extension\Core\Type\RepeatedType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
-use Symfony\Component\Validator\Constraints\Length;
-use Symfony\Component\Validator\Constraints\NotBlank;
+use Symfony\Component\Validator\Constraints\Regex;
 
 class ChangePasswordFormType extends AbstractType
 {
@@ -17,34 +16,26 @@ class ChangePasswordFormType extends AbstractType
         $builder
             ->add('password', RepeatedType::class, [
                 'type' => PasswordType::class,
-                'options' => [
-                    'attr' => [
-                        'autocomplete' => 'Nouveau mot de passe',
-                    ],
+                'options' => ['attr' => ['class' => 'password-field']],
+                'required' => true,
+                'first_options' => ['label' => 'Mot de passe'],
+                'constraints' => [
+                    new Regex([
+                        'pattern' => '/(?=.*[A-Z])/',
+                        'message' => 'Votre mot de passe doit contenir au moins une lettre majuscule']),
+                    new Regex([
+                        'pattern' => '/(?=.*[a-z])/',
+                        'message' => 'Votre mot de passe doit contenir au moins une lettre minuscule']),
+                    new Regex([
+                        'pattern' => '/(?=.*\d)/',
+                        'message' => 'Votre mot de passe doit contenir au moins un chiffre']),
+                    new Regex([
+                        'pattern' => '/(?=.*[@$!%*?&])/',
+                        'message' => 'Votre mot de passe doit contenir au moins un caractère spécial ( @ $ ! % * ? & )']),
                 ],
-                'first_options' => [
-                    'constraints' => [
-                        new NotBlank([
-                            'message' => 'Veuillez rentrez un mot de passe',
-                        ]),
-                        new Length([
-                            'min' => 6,
-                            'minMessage' => 'Votre mot de passe doit contenir au minimum {{ limit }} characters',
-                            // max length allowed by Symfony for security reasons
-                            'max' => 4096,
-                        ]),
-                    ],
-                    'label' => 'Nouveau mot de passe',
-                ],
-                'second_options' => [
-                    'label' => 'Répéter le mot de passe',
-                ],
-                'invalid_message' => 'Les 2 mots de passe doivent correspondre.',
-                // Instead of being set onto the object directly,
-                // this is read and encoded in the controller
-                'mapped' => false,
-            ])
-        ;
+                'second_options' => ['label' => 'Répéter le mot de passe'],
+                'invalid_message' => 'Les mots de passe doivent être identiques.',
+                ]);
     }
 
     public function configureOptions(OptionsResolver $resolver): void

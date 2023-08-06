@@ -14,12 +14,13 @@ class BeverageCategoryType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $builder
-            ->add('beverageCategoryName', TextType::class)
+            ->add('beverageCategoryName', TextType::class, [
+                'label' => 'beverageCategoryName',
+            ])
             ->add('isActiv', CheckboxType::class, [
                 'label' => 'Catégorie de boisson active ?',
                 'required' => false,
             ]);
-        ;
     }
 
     public function configureOptions(OptionsResolver $resolver): void

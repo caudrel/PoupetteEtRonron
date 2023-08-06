@@ -40,16 +40,24 @@ class BeverageRepository extends ServiceEntityRepository
         }
     }
 
-    public function findAllBeveragesWithCategory(string $beverageCategoryName)
+    /**
+     * @return Beverage[] which are activ=true with a given category as a parameter
+     */
+    public function findAllActivBevWithCat(string $beverageCategoryName): array
     {
         return $this->createQueryBuilder('beverage')
             ->join(BeverageCategory::class, 'category', 'WITH', 'beverage.beverageCategory = category')
             ->where('category.beverageCategoryName = :categoryName')
+            ->andWhere('beverage.isActiv = :isActive')
             ->setParameter('categoryName', $beverageCategoryName)
+            ->setParameter('isActive', true) // Définition du paramètre isActive à true
             ->getQuery()
             ->getResult();
     }
 
+    /**
+     * @return Beverage[] complete list for the admin with the category
+     */
     public function findAllWithCategory(): array
     {
         return $this->createQueryBuilder('b')

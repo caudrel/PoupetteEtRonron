@@ -22,11 +22,15 @@ class BeverageType extends AbstractType
                 'choice_label' => 'beverageCategoryName',
                 'multiple' => false,
                 'expanded' => false,
+                'required' => true,
             ])
             ->add('beverageName', TextType::class, [
                 'required' => false,
             ])
-            ->add('description', TextType::class)
+            ->add('description', TextType::class, [
+                'label' => 'Description de la boisson',
+                'required' => true,
+            ])
             ->add('isActiv', CheckboxType::class, [
                 'label' => 'Boisson disponible ?',
                 'required' => false,

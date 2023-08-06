@@ -5,6 +5,7 @@ namespace App\Entity;
 use App\Repository\FoodRepository;
 use Doctrine\ORM\Mapping as ORM;
 use Gedmo\Timestampable\Traits\TimestampableEntity;
+use Symfony\Component\Validator\Constraints as Assert;
 
 #[ORM\Entity(repositoryClass: FoodRepository::class)]
 class Food
@@ -16,10 +17,24 @@ class Food
     #[ORM\Column]
     private ?int $id = null;
 
-    #[ORM\Column(length: 50)]
+    #[ORM\Column]
+    #[Assert\Length(
+        min: 3,
+        max: 50,
+        minMessage: 'Le nom du plat doit comporter au moins {{ limit }} caractères',
+        maxMessage: 'Le nom du plat ne peut pas dépasser {{ limit }} caractères',
+    )]
+    #[Assert\NotBlank(message: 'Le nom du plat ne peut pas être vide')]
     private ?string $foodName = null;
 
-    #[ORM\Column(length: 200)]
+    #[ORM\Column]
+    #[Assert\Length(
+        min: 3,
+        max: 200,
+        minMessage: 'La description doit comporter au moins {{ limit }} caractères',
+        maxMessage: 'La description ne peut pas dépasser {{ limit }} caractères',
+    )]
+    #[Assert\NotBlank(message: 'La description ne peut pas être vide')]
     private ?string $description = null;
 
     #[ORM\Column(nullable: true)]
@@ -29,6 +44,7 @@ class Food
     private ?bool $isActiv = null;
 
     #[ORM\Column]
+    #[Assert\NotBlank(message: 'Le prix ne peut pas être vide')]
     private ?float $price = null;
 
     #[ORM\ManyToOne(inversedBy: 'food')]

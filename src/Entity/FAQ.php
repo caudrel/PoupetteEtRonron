@@ -17,10 +17,10 @@ class FAQ
     #[ORM\Column]
     private ?int $id = null;
 
-    #[ORM\Column(length: 100)]
+    #[ORM\Column]
     #[Assert\NotBlank(message: 'Veuillez entrer une question')]
     #[Assert\Length(
-        min: 20,
+        min: 10,
         max: 100,
         minMessage: 'La question doit comporter au moins {{ limit }} caractères',
         maxMessage: 'Le jour ne peut pas dépasser {{ limit }} caractères',
@@ -30,7 +30,7 @@ class FAQ
     #[ORM\Column(type: Types::TEXT)]
     #[Assert\NotBlank(message: 'Veuillez entrer une réponse')]
     #[Assert\Length(
-        min: 20,
+        min: 10,
         max: 250,
         minMessage: 'La réponse doit comporter au moins {{ limit }} caractères',
         maxMessage: 'La réponse ne peut pas dépasser {{ limit }} caractères',

@@ -16,7 +16,7 @@ class OpeningHours
     #[ORM\Column]
     private ?int $id = null;
 
-    #[ORM\Column(length: 20)]
+    #[ORM\Column]
     #[Assert\NotBlank(message: 'Veuillez entrer un jour')]
     #[Assert\Length(
         min: 3,
@@ -24,10 +24,10 @@ class OpeningHours
         minMessage: 'Le jour doit comporter au moins {{ limit }} caractères',
         maxMessage: 'Le jour ne peut pas dépasser {{ limit }} caractères',
     )]
-    private ?string $day = null;
+    private string $day;
 
 
-    #[ORM\Column(length: 60)]
+    #[ORM\Column]
     #[Assert\NotBlank(message: 'Veuillez entrer une amplitude horaire')]
     #[Assert\Length(
         min: 5,
@@ -35,7 +35,7 @@ class OpeningHours
         minMessage: "L'amplitude horaire doit comporter au moins {{ limit }} caractères",
         maxMessage: "L'amplitude horaire ne peut pas dépasser {{ limit }} caractères",
     )]
-    private ?string $description = null;
+    private string $description;
 
     public function getId(): ?int
     {

@@ -1,4 +1,3 @@
-
 {{ form_start(form) }}
 
 
@@ -6,7 +5,8 @@
     <input
             name="{{ field_name(form.foodCategoryName) }}"
             type="text" class="form-control pr-admin-form-input"
-            placeholder="Catégorie">
+            placeholder="Catégorie"
+            required>
     <div class="pr-form-error">
         {{ form_errors(form.foodCategoryName) }}
     </div>

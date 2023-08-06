@@ -23,7 +23,7 @@
 <div class="col">
     <input
             name="{{ field_name(form.email) }}"
-            type="text" class="form-control pr-admin-form-input"
+            type="email" class="form-control pr-admin-form-input"
             placeholder="Email" required>
     <div class="pr-form-error">
         {{ form_errors(form.email) }}
@@ -33,8 +33,8 @@
 <div class="col">
     <input
             name="{{ field_name(form.password) }}"
-            type="text" class="form-control pr-admin-form-input"
-            placeholder="Mot de passe">
+            type="password" class="form-control pr-admin-form-input"
+            placeholder="Mot de passe" required>
     <div class="pr-form-error">
         {{ form_errors(form.password) }}
     </div>

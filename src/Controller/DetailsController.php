@@ -3,7 +3,7 @@
 namespace App\Controller;
 
 use App\Form\SendContactEmailType;
-use App\Repository\ContactFormRepository;
+use App\Repository\ContactSubjectRepository;
 use App\Repository\FAQRepository;
 use App\Repository\OpeningHoursRepository;
 use Symfony\Bridge\Twig\Mime\TemplatedEmail;
@@ -18,11 +18,11 @@ class DetailsController extends AbstractController
 {
     #[Route('/contact', name: 'app_contact')]
     public function contact(
-        FAQRepository          $FAQRepository,
-        OpeningHoursRepository $openingHoursRepository,
-        ContactFormRepository  $ContactFormRepository,
-        MailerInterface        $mailer,
-        Request                $request,
+        FAQRepository            $FAQRepository,
+        OpeningHoursRepository   $openingHoursRepository,
+        ContactSubjectRepository $ContactFormRepository,
+        MailerInterface          $mailer,
+        Request                  $request,
     ): Response
     {
         $faqs = $FAQRepository->findAll();
@@ -74,7 +74,7 @@ class DetailsController extends AbstractController
             $mailer->send($email1);
             $mailer->send($email2);
 
-            $this->addFlash('success', 'Votre message a bien été envoyé !');
+            $this->addFlash('success', "Votre message a bien été envoyé ! Nous vous répondrons au plus vite sur l'email $userEmail.");
 
             return $this->redirectToRoute('app_contact', [], Response::HTTP_SEE_OTHER);
         }

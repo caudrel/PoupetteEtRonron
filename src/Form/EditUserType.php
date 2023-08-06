@@ -14,9 +14,15 @@ class EditUserType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $builder
-            ->add('email', EmailType::class)
-            ->add('firstname', TextType::class)
-            ->add('lastname', TextType::class);
+            ->add('email', EmailType::class, [
+                'label' => 'email',
+            ])
+            ->add('firstname', TextType::class, [
+                'label' => 'firstname',
+            ])
+            ->add('lastname', TextType::class, [
+                'label' => 'lastname',
+            ]);
     }
 
     public function configureOptions(OptionsResolver $resolver): void
