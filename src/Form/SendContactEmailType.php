@@ -22,7 +22,6 @@ class SendContactEmailType extends AbstractType
         $builder
             ->add('firstname', TextType::class, [
                 'label' => 'firstname',
-                'required' => true,
                 'constraints' => [
                     new Length([
                         'min' => 2,
@@ -31,7 +30,7 @@ class SendContactEmailType extends AbstractType
                         'maxMessage' => 'Le prénom ne peut pas dépasser {{ limit }} caractères.',
                     ]),
                     new NotBlank([
-                        'message' => 'Le prénom doit être renseigné pour vous répondre au mieux.',
+                        'message' => 'Le prénom doit être renseigné.',
                     ]),
                 ],
             ])
@@ -66,14 +65,13 @@ class SendContactEmailType extends AbstractType
             ])
             ->add('message', TextareaType::class, [
                 'label' => 'message',
-                'required' => true,
                 'constraints' => [
                     new NotBlank([
                         'message' => 'Afin de vous répondre au mieux, merci de préciser votre demande.',
                     ]),
                     new Length([
                         'min' => 50,
-                        'minMessage' => "Le message doit comporter au moins {{ limit }} caractères.",
+                        'minMessage' => "Votre message doit comporter au moins {{ limit }} caractères.",
                     ]),
                 ],
             ])

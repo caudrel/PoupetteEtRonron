@@ -35,13 +35,12 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
      * @var string The hashed password
      */
     #[ORM\Column]
-    /*#[Assert\NotBlank(message: 'Veuillez entrer un mot de passe')]
     #[Assert\Length(
-        min: 2,
-        max: 50,
+        min: 6,
+        max: 255,
         minMessage: 'Votre mot de passe doit comporter au moins {{ limit }} caractères',
         maxMessage: 'Votre mot de passe ne peut pas dépasser {{ limit }} caractères',
-    )]*/
+    )]
     private ?string $password = null;
 
     #[ORM\Column(length: 35)]
@@ -55,12 +54,12 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     private ?string $firstname = null;
 
     #[ORM\Column(length: 35)]
-    #[Assert\NotBlank(message: 'Veuillez entrer un Nom')]
+    #[Assert\NotBlank(message: 'Veuillez entrer un nom')]
     #[Assert\Length(
         min: 2,
         max: 35,
-        minMessage: 'Votre Nom doit comporter au moins {{ limit }} caractères',
-        maxMessage: 'Votre Nom ne peut pas dépasser {{ limit }} caractères',
+        minMessage: 'Votre nom doit comporter au moins {{ limit }} caractères',
+        maxMessage: 'Votre nom ne peut pas dépasser {{ limit }} caractères',
     )]
     private ?string $lastname = null;
 

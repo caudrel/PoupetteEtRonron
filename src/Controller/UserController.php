@@ -14,6 +14,7 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\PasswordHasher\Hasher\UserPasswordHasherInterface;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Component\Security\Core\Authentication\Token\UsernamePasswordToken;
 
 #[Route('/user')]
 class UserController extends AbstractController
@@ -92,13 +93,19 @@ class UserController extends AbstractController
     }
 
     #[Route('/{id}/edit_profile', name: 'app_user_edit_profile', methods: ['GET', 'POST'])]
-    public function editProfile(Request $request, User $user, EntityManagerInterface $entityManager): Response
-    {
+    public function editProfile(
+        Request $request,
+        User $user,
+        EntityManagerInterface $entityManager
+    ): Response {
+
         $form = $this->createForm(ProfileType::class, $user);
         $form->handleRequest($request);
 
+
         if ($form->isSubmitted() && $form->isValid()) {
 
+          /*  dd($form->isValid());*/
             $user->setEmail($form->get('email')->getData());
             $user->setFirstname($form->get('firstname')->getData());
             $user->setLastname($form->get('lastname')->getData());
@@ -124,28 +131,27 @@ class UserController extends AbstractController
     }
 
     #[Route('/{id}/edit', name: 'app_user_edit', methods: ['GET', 'POST'])]
-    public function edit(Request $request, User $user, EntityManagerInterface $entityManager): Response
-    {
+    public function edit(
+        Request $request,
+        User $user,
+        EntityManagerInterface $entityManager
+    ): Response {
+
         $form = $this->createForm(EditUserType::class, $user);
         $form->handleRequest($request);
 
-        if ($form->isSubmitted() && $form->isValid()) {
-
-            $user->setEmail($form->get('email')->getData());
-            $user->setFirstname($form->get('firstname')->getData());
-            $user->setLastname($form->get('lastname')->getData());
-
+        if ($form->isSubmitted() /*&& $form->isValid()*/) {
             $entityManager->persist($user);
             $entityManager->flush();
-            $userId = $user->getId();
 
             $firstName = $user->getFirstname();
             $lastName = $user->getLastname();
 
+            $userId = $user->getId();
+
             $this->addFlash(
                 'success',
-                "Le profil de $firstName $lastName a bien été modifié."
-            );
+                "Le profil de $firstName $lastName a bien été modifié.");
 
             return $this->redirectToRoute('app_user_show', ['id' => $userId], Response::HTTP_SEE_OTHER);
         }
@@ -161,7 +167,7 @@ class UserController extends AbstractController
         Request                     $request,
         User                        $user,
         EntityManagerInterface      $entityManager,
-        UserPasswordHasherInterface $passwordHasher
+        UserPasswordHasherInterface $passwordHasher,
     ): Response
     {
 
@@ -171,7 +177,7 @@ class UserController extends AbstractController
         if ($form->isSubmitted() && $form->isValid()) {
             $encodedPassword = $passwordHasher->hashPassword(
                 $user,
-                $form->get('password')->getData()
+                $form->get('password')->getData(),
             );
 
             $user->setPassword($encodedPassword);
@@ -185,6 +191,7 @@ class UserController extends AbstractController
                 'success',
                 "Le mot de passe a bien été modifié."
             );
+            $this->authenticateUser($user);
 
             return $this->redirectToRoute('app_user_show', ['id' => $userId], Response::HTTP_SEE_OTHER);
         }
@@ -193,6 +200,13 @@ class UserController extends AbstractController
             'user' => $user,
             'form' => $form,
         ]);
+    }
+
+    public function authenticateUser(User $user): void
+    {
+        $providerKey = 'main';
+        $token = new UsernamePasswordToken($user, $providerKey, $user->getRoles());
+        $this->container->get('security.token_storage')->setToken($token);
     }
 
     #[Route('/{id}', name: 'app_user_delete', methods: ['POST'])]
