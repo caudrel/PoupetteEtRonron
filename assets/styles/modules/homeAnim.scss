@@ -2,6 +2,21 @@
   animation: animLogoEntier 2s ease 0s 1 normal forwards;
 }
 
+[class*="reveal-"] {
+  opacity: 0;
+  transform: translateY(30px)
+}
+
+.reveal-2 {
+  transition-delay: 0.2s;
+}
+
+.reveal-visible {
+  opacity: 1;
+  transform: translateY(0);
+  transition: 2s cubic-bezier(.5, 0, 0, 1);
+}
+
 @keyframes animLogoEntier {
   0% {
     transform: scale(0);
@@ -15,7 +30,7 @@
 }
 
 .pr-anim-bienvenue {
-  animation: animBienv 5s ease 0s 1 normal forwards;
+  animation: animBienv 2s ease 0s 1 normal forwards;
 }
 
 @keyframes animBienv {

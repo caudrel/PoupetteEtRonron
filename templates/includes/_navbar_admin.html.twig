@@ -7,7 +7,7 @@
 {% if is_granted('ROLE_ADMIN') %}
 
     <h4 class="pr-color-paper mt-1">Bonjour {{ app.user.firstname }}</h4>
-    <a href="{{ path('app_home') }}"><h6 class="pr-color-paper">Retour au site</h6></a>
+    <a href="{{ path('app_carte') }}"><h6 class="pr-color-paper">Retour au site</h6></a>
     <a href="{{ path('app_logout') }}"><h6 class="pr-color-paper">Me déconnecter</h6></a>
 
 

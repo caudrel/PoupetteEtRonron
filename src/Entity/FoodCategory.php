@@ -20,13 +20,13 @@ class FoodCategory
     private ?int $id = null;
 
     #[ORM\Column]
+    #[Assert\NotBlank(message: 'Le nom de la catégorie ne peut pas être vide')]
     #[Assert\Length(
         min: 3,
         max: 35,
         minMessage: 'Le nom de la catégorie doit comporter au moins {{ limit }} caractères',
         maxMessage: 'Le nom de la catégorie ne peut pas dépasser {{ limit }} caractères',
     )]
-    #[Assert\NotBlank(message: 'Le nom de la catégorie ne peut pas être vide')]
     private ?string $foodCategoryName = null;
 
     #[ORM\Column]

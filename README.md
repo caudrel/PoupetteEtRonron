@@ -27,7 +27,7 @@ Also, I used this project for my exam "Titre Professionnel : Développeur Web et
 
 ## Accessing the administration part
 - login as admin : admin@poupetteetronron.com
-- password : Password41#
+- password : Password41@
 - url : /login
 
 ## Author

@@ -2,7 +2,6 @@
 
 namespace App\Controller;
 
-use App\Entity\Food;
 use App\Repository\BeverageRepository;
 use App\Repository\FoodRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;

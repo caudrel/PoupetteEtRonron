@@ -15,11 +15,13 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\PasswordHasher\Hasher\UserPasswordHasherInterface;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\Security\Core\Authentication\Token\UsernamePasswordToken;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 
 #[Route('/user')]
 class UserController extends AbstractController
 {
     #[Route('/', name: 'app_user_index', methods: ['GET'])]
+    #[IsGranted('ROLE_SUPER_ADMIN')]
     public function index(UserRepository $userRepository): Response
     {
         return $this->render('user/index.html.twig', [
@@ -28,6 +30,7 @@ class UserController extends AbstractController
     }
 
     #[Route('/new', name: 'app_user_new', methods: ['GET', 'POST'])]
+    #[IsGranted('ROLE_SUPER_ADMIN')]
     public function new(
         Request                     $request,
         EntityManagerInterface      $entityManager,
@@ -85,6 +88,7 @@ class UserController extends AbstractController
     }
 
     #[Route('/{id}', name: 'app_user_show', methods: ['GET'])]
+    #[IsGranted('ROLE_ADMIN')]
     public function show(User $user): Response
     {
         return $this->render('user/show.html.twig', [
@@ -93,6 +97,7 @@ class UserController extends AbstractController
     }
 
     #[Route('/{id}/edit_profile', name: 'app_user_edit_profile', methods: ['GET', 'POST'])]
+    #[IsGranted('ROLE_SUPER_ADMIN')]
     public function editProfile(
         Request $request,
         User $user,
@@ -131,6 +136,7 @@ class UserController extends AbstractController
     }
 
     #[Route('/{id}/edit', name: 'app_user_edit', methods: ['GET', 'POST'])]
+    #[IsGranted('ROLE_ADMIN')]
     public function edit(
         Request $request,
         User $user,
@@ -163,6 +169,7 @@ class UserController extends AbstractController
     }
 
     #[Route('/{id}/edit_password', name: 'app_user_edit_password', methods: ['GET', 'POST'])]
+    #[IsGranted('ROLE_ADMIN')]
     public function editPassword(
         Request                     $request,
         User                        $user,
@@ -210,6 +217,7 @@ class UserController extends AbstractController
     }
 
     #[Route('/{id}', name: 'app_user_delete', methods: ['POST'])]
+    #[IsGranted('ROLE_ADMIN')]
     public function delete(Request $request, User $user, EntityManagerInterface $entityManager): Response
     {
         if ($this->isCsrfTokenValid('delete' . $user->getId(), $request->request->get('_token'))) {
