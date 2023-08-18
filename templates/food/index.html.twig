@@ -39,12 +39,15 @@
                 <td>{{ food.createdAt|date('Y-m-d') }}</td>
                 <td>{{ food.updatedAt|date('Y-m-d') }}</td>
                 <td>
-                    <a href="{{ path('app_food_edit', {'id': food.id}) }}" class="d-flex justify-content-center"><button class="pr-button-mini-ice">Modifier</button></a>
+                    <a href="{{ path('app_food_edit', {'id': food.id}) }}" class="d-flex justify-content-center">
+                        <button class="pr-button-mini-ice">Modifier</button>
+                    </a>
                 </td>
             </tr>
         {% endfor %}
         </tbody>
     </table>
+
 
     <button class="btn pr-button-slate"><a href="{{ path('app_food_new') }}">Ajouter</a></button>
 

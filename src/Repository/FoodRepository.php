@@ -51,7 +51,7 @@ class FoodRepository extends ServiceEntityRepository
             ->where('category.foodCategoryName = :categoryName')
             ->andWhere('food.isActiv = :isActive')
             ->setParameter('categoryName', $foodCategoryName)
-            ->setParameter('isActive', true) // Définition du paramètre isActive à true
+            ->setParameter('isActive', true)
             ->getQuery()
             ->getResult();
     }

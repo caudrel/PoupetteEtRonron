@@ -13,7 +13,7 @@ use Symfony\Component\Routing\Annotation\Route;
 
 class ContactSubjectController extends AbstractController
 {
-    #[Route('/contact/subject/new', name: 'app_contact_subject_new', methods: ['GET', 'POST'])]
+    #[Route('/contact_subject/new', name: 'app_contact_subject_new', methods: ['GET', 'POST'])]
     public function new(
         Request                $request,
         EntityManagerInterface $entityManager,
@@ -40,7 +40,7 @@ class ContactSubjectController extends AbstractController
             'contactSubject' => $contactSubject,
         ]);
     }
-    #[Route('/contact/subject', name: 'app_contact_subject')]
+    #[Route('/contact_subject', name: 'app_contact_subject')]
     public function index(ContactSubjectRepository $contactFormRepository): Response
     {
         $subjects = $contactFormRepository->findAll();
@@ -49,7 +49,7 @@ class ContactSubjectController extends AbstractController
         ]);
     }
 
-    #[Route('/contact/subject/{id}', name: 'app_contact_subject_edit')]
+    #[Route('/contact_subject/{id}', name: 'app_contact_subject_edit')]
     public function edit(
         ContactSubject         $contactForm,
         Request                $request,
@@ -76,7 +76,7 @@ class ContactSubjectController extends AbstractController
         ]);
     }
 
-    #[Route('/contact/subject/delete/{id}', name: 'app_contact_subject_delete', methods: ['POST'])]
+    #[Route('/contact_subject/delete/{id}', name: 'app_contact_subject_delete', methods: ['POST'])]
     public function delete(Request $request, ContactSubject $contactForm, EntityManagerInterface $entityManager): Response
     {
         if ($this->isCsrfTokenValid('delete' . $contactForm->getId(), $request->request->get('_token'))) {
