@@ -5,6 +5,7 @@ namespace App\DataFixtures;
 use App\Entity\FAQ;
 use Doctrine\Bundle\FixturesBundle\Fixture;
 use Doctrine\Persistence\ObjectManager;
+use DateTime;
 
 class FAQFixtures extends Fixture
 {
@@ -41,8 +42,8 @@ class FAQFixtures extends Fixture
             $faqForFixture ->setQuestion(($faq ['faq']));
             $faqForFixture ->setAnswer(($faq ['answer']));
             $faqForFixture ->setIsActiv(true);
-            $faqForFixture ->setCreatedAt(new \DateTime());
-            $faqForFixture ->setUpdatedAt(new \DateTime());
+            $faqForFixture ->setCreatedAt(new DateTime());
+            $faqForFixture ->setUpdatedAt(new DateTime());
 
             $manager->persist($faqForFixture);
         }

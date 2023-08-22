@@ -5,6 +5,7 @@ namespace App\DataFixtures;
 use App\Entity\Beverage;
 use Doctrine\Bundle\FixturesBundle\Fixture;
 use Doctrine\Persistence\ObjectManager;
+use DateTime;
 
 class BeverageFixtures extends Fixture
 {
@@ -67,8 +68,8 @@ class BeverageFixtures extends Fixture
                 ->setDescription($beverage ['description'])
                 ->setIsActiv(true)
                 ->setPrice($beverage ['price'])
-                ->setCreatedAt(new \DateTime())
-                ->setUpdatedAt(new \DateTime())
+                ->setCreatedAt(new DateTime())
+                ->setUpdatedAt(new DateTime())
                 ->setBeverageCategory($this->getReference('beverageCategory_' . $beverage['beverageCategory']));
 
             $manager->persist($beverageForFixture);

@@ -5,6 +5,7 @@ namespace App\DataFixtures;
 use App\Entity\FoodCategory;
 use Doctrine\Bundle\FixturesBundle\Fixture;
 use Doctrine\Persistence\ObjectManager;
+use DateTime;
 
 class FoodCategoryFixtures extends Fixture
 {
@@ -20,8 +21,8 @@ class FoodCategoryFixtures extends Fixture
             $category = new FoodCategory();
             $category->setFoodCategoryName($categoryName);
             $category->setIsActiv(true);
-            $category->setCreatedAt(new \DateTime());
-            $category->setUpdatedAt(new \DateTime());
+            $category->setCreatedAt(new DateTime());
+            $category->setUpdatedAt(new DateTime());
 
             $manager->persist($category);
             $this->addReference('foodCategory_' . $categoryName, $category);

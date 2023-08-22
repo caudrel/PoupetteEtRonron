@@ -5,6 +5,7 @@ namespace App\DataFixtures;
 use Doctrine\Bundle\FixturesBundle\Fixture;
 use Doctrine\Persistence\ObjectManager;
 use App\Entity\ContactSubject;
+use DateTime;
 
 class ContactFormFixtures extends Fixture
 {
@@ -23,8 +24,8 @@ class ContactFormFixtures extends Fixture
             $contactFormForFixture = new ContactSubject();
             $contactFormForFixture ->setSubject($subject);
             $contactFormForFixture ->setIsValid(true);
-            $contactFormForFixture ->setCreatedAt(new \DateTime());
-            $contactFormForFixture ->setUpdatedAt(new \DateTime());
+            $contactFormForFixture ->setCreatedAt(new DateTime());
+            $contactFormForFixture ->setUpdatedAt(new DateTime());
 
             $manager->persist($contactFormForFixture);
         }
