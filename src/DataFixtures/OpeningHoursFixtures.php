@@ -5,6 +5,7 @@ namespace App\DataFixtures;
 use App\Entity\OpeningHours;
 use Doctrine\Bundle\FixturesBundle\Fixture;
 use Doctrine\Persistence\ObjectManager;
+use DateTime;
 
 class OpeningHoursFixtures extends Fixture
 {
@@ -45,8 +46,8 @@ class OpeningHoursFixtures extends Fixture
             $openingHoursForFixture = new OpeningHours();
             $openingHoursForFixture->setDay(($openingHours ['day']));
             $openingHoursForFixture->setDescription(($openingHours ['hours']));
-            $openingHoursForFixture->setCreatedAt(new \DateTime());
-            $openingHoursForFixture->setUpdatedAt(new \DateTime());
+            $openingHoursForFixture->setCreatedAt(new DateTime());
+            $openingHoursForFixture->setUpdatedAt(new DateTime());
 
             $manager->persist($openingHoursForFixture);
         }
