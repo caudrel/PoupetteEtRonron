@@ -29,9 +29,17 @@
   width: 50%;
 }
 
+/* For tablet */
+@media screen and (max-width: 840px) {
+  .pr-menu-logo {
+    height: 5vh;
+  }
+}
+
+/* For mobile */
 @media screen and (max-width: 430px) {
   .pr-menu-logo {
-    height: 6vh;
+    height: 5vh;
   }
   .btn {
     --bs-btn-padding-x: 0;
@@ -49,7 +57,7 @@
   }
 
   .pr-menu-menu {
-    font-size: 0.6rem;
+    font-size: 0.5rem;
   }
 
   .offcanvas {

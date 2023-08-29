@@ -5,7 +5,7 @@
     <input
             name="{{ field_name(form.lastname) }}"
             type="text" class="form-control pr-admin-form-input"
-            value="{{ user.lastname }}">
+            value="{{ user.lastname }}" required>
     <div class="pr-form-error">
         {{ form_errors(form.lastname) }}
     </div>
@@ -16,7 +16,7 @@
     <input
             name="{{ field_name(form.firstname) }}"
             type="text" class="form-control pr-admin-form-input"
-            value="{{ user.firstname }}">
+            value="{{ user.firstname }}" required>
     <div class="pr-form-error">
         {{ form_errors(form.firstname) }}
     </div>
@@ -27,7 +27,7 @@
     <input
             name="{{ field_name(form.email) }}"
             type="email" class="form-control pr-admin-form-input"
-            value="{{ user.email }}">
+            value="{{ user.email }}" required>
     <div class="pr-form-error">
         {{ form_errors(form.email) }}
     </div>

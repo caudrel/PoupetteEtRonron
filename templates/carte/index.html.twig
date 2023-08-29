@@ -5,31 +5,25 @@
 {% block body %}
 
     <div class="pr-carte-background">
-    {% include "includes/_navbar.html.twig" %}
+        {% include "includes/_navbar.html.twig" %}
 
         <div class="pr-carte-container">
-            <h1 class="pt-1 pb-0 mb-0 mt-5">LA CARTE</h1>
+            <h1 class="pr-carte-title">LA CARTE</h1>
 
             <div class="pr-carte-section">
                 <div class="pr-carte-inner-section">
-                    <table class="w-100">
-                        <tbody>
-                        <thead>
-                        <tr class="">
-                            <th><h3 class="fw-light text-end mt-0 mb-2">Les menus</h3></th>
-                            <th></th>
-                            <th></th>
-                        </tr>
-                        </thead>
-                        {% for menu in menus %}
-                            <tr>
-                                <td class="pr-carte-itemName fw-light align-text-top">{{ menu.foodName }}</td>
-                                <td class="pr-carte-description fw-light">{{ menu.description }}</td>
-                                <td class="pr-carte-price fw-light">{{ menu.price|number_format(2) }} €</td>
-                            </tr>
-                        {% endfor %}
-                        </tbody>
-                    </table>
+
+                    <div class="pr-carte-subtitle">
+                        Les menus
+                    </div>
+
+                    {% for menu in menus %}
+                        <div class="pr-carte-display">
+                            <div class="pr-carte-itemName">{{ menu.foodName }}</div>
+                            <div class="pr-carte-description">{{ menu.description }}</div>
+                            <div class="pr-carte-price">{{ menu.price|number_format(2) }} €</div>
+                        </div>
+                    {% endfor %}
                     <p class="pr-cart-cf mb-0">* un élément = une part de pizza ou un dessert</p>
                     <p class="pr-cart-cf mt-0">* une boisson = une eau 33cl ou un soft 33cl</p>
                 </div>
@@ -37,119 +31,87 @@
 
             <div class="pr-carte-section">
                 <div class="pr-carte-inner-section">
-                    <table class="w-100">
-                        <tbody>
-                        <thead>
-                        <tr class="">
-                            <th><h3 class="fw-light text-end mt-0 mb-2">Les pizzas</h3></th>
-                            <th></th>
-                            <th></th>
-                        </tr>
-                        </thead>
-                        {% for pizza in pizzas %}
-                            <tr>
-                                <td class="pr-carte-itemName fw-light align-text-top">{{ pizza.foodName }}</td>
-                                <td class="pr-carte-description fw-light">{{ pizza.description }}</td>
-                                <td class="pr-carte-price fw-light">{{ pizza.price|number_format(2) }} €</td>
-                            </tr>
-                        {% endfor %}
-                        </tbody>
-                    </table>
-                    <p class="pr-cart-cf">Une part fait environs 10cm x 20cm</p>
+                    <div class="pr-carte-subtitle">
+                        Les pizzas
+                    </div>
+                    {% for pizza in pizzas %}
+                        <div class="pr-carte-display">
+                            <div class="pr-carte-itemName">{{ pizza.foodName }}</div>
+                            <div class="pr-carte-description">{{ pizza.description }}</div>
+                            <div class="pr-carte-price">{{ pizza.price|number_format(2) }} €</div>
+                            {% if pizza.isVegetarian == true %}
+                                <div class="pr-carte-isVegetarian">
+                                    <img src="{{ asset('build/images/vegetarian.png') }}" alt="Vegetarian"
+                                         class="pr-vegetarian-icon">
+                                </div>
+                            {% endif %}
+                        </div>
+                    {% endfor %}
+                    <p class="pr-cart-cf mb-0">Une part fait environs 10cm x 20cm</p>
+                    <p class="pr-cart-cf mt-0"><img src="{{ asset('build/images/vegetarian.png') }}"
+                                                    class="pr-vegetarian-icon"> = végétarien</p>
                 </div>
             </div>
 
             <div class="pr-carte-section">
                 <div class="pr-carte-inner-section">
-                    <table class="w-100">
-                        <tbody>
-                        <thead>
-                        <tr class="">
-                            <th><h3 class="fw-light text-end mt-0 mb-2">Les desserts</h3></th>
-                            <th></th>
-                            <th></th>
-                        </tr>
-                        </thead>
-                        {% for dessert in desserts %}
-                            <tr>
-                                <td class="pr-carte-itemName fw-light align-text-top">{{ dessert.foodName }}</td>
-                                <td class="pr-carte-description fw-light">{{ dessert.description }}</td>
-                                <td class="pr-carte-price fw-light">{{ dessert.price|number_format(2) }} €</td>
-                            </tr>
-                        {% endfor %}
-                        </tbody>
-                    </table>
+                    <div class="pr-carte-subtitle">
+                        Les desserts
+                    </div>
+                    {% for dessert in desserts %}
+                        <div class="pr-carte-display">
+                            <div class="pr-carte-itemName">{{ dessert.foodName }}</div>
+                            <div class="pr-carte-description">{{ dessert.description }}</div>
+                            <div class="pr-carte-price">{{ dessert.price|number_format(2) }} €</div>
+                        </div>
+                    {% endfor %}
                 </div>
             </div>
 
-            <h1 class="pt-1 pb-0 mb-0 mt-5">LES BOISSONS</h1>
+            <h1 class="pr-carte-title">LES BOISSONS</h1>
 
             <div class="pr-carte-section">
                 <div class="pr-carte-inner-section">
-                    <table class="w-100">
-                        <tbody>
-                        <thead>
-                        <tr class="">
-                            <th><h3 class="fw-light text-end mt-0 mb-2">Les softs</h3></th>
-                            <th></th>
-                            <th></th>
-                        </tr>
-                        </thead>
-                        {% for waterSoft in waterSofts %}
-                            <tr>
-                                <td class="pr-carte-itemName fw-light align-text-top">{{ waterSoft.beverageName }}</td>
-                                <td class="pr-carte-description fw-light">{{ waterSoft.description }}</td>
-                                <td class="pr-carte-price fw-light">{{ waterSoft.price|number_format(2) }} €</td>
-                            </tr>
-                        {% endfor %}
-                        </tbody>
-                    </table>
+                    <div class="pr-carte-subtitle">
+                        Les softs
+                    </div>
+                    {% for waterSoft in waterSofts %}
+                        <div class="pr-carte-display">
+                            <div class="pr-carte-itemName">{{ waterSoft.beverageName }}</div>
+                            <div class="pr-carte-description">{{ waterSoft.beverageName }}</div>
+                            <div class="pr-carte-price">{{ waterSoft.price|number_format(2) }} €</div>
+                        </div>
+                    {% endfor %}
                 </div>
             </div>
 
             <div class="pr-carte-section">
                 <div class="pr-carte-inner-section">
-                    <table class="w-100">
-                        <tbody>
-                        <thead>
-                        <tr class="">
-                            <th><h3 class="fw-light text-end mt-0 mb-2">Bières pression</h3></th>
-                            <th></th>
-                            <th></th>
-                        </tr>
-                        </thead>
-                        {% for beerTap in beerTaps %}
-                            <tr>
-                                <td class="pr-carte-itemName fw-light align-text-top">{{ beerTap.beverageName }}</td>
-                                <td class="pr-carte-description fw-light">{{ beerTap.description }}</td>
-                                <td class="pr-carte-price fw-light">{{ beerTap.price|number_format(2) }} €</td>
-                            </tr>
-                        {% endfor %}
-                        </tbody>
-                    </table>
+                    <div class="pr-carte-subtitle">
+                        Les bières pression
+                    </div>
+                    {% for beerTap in beerTaps %}
+                        <div class="pr-carte-display">
+                            <div class="pr-carte-itemName">{{ beerTap.beverageName }}</div>
+                            <div class="pr-carte-description">{{ beerTap.description }}</div>
+                            <div class="pr-carte-price">{{ beerTap.price|number_format(2) }} €</div>
+                        </div>
+                    {% endfor %}
                 </div>
             </div>
 
             <div class="pr-carte-section">
                 <div class="pr-carte-inner-section">
-                    <table class="w-100">
-                        <tbody>
-                        <thead>
-                        <tr class="">
-                            <th><h3 class="fw-light text-end mt-0 mb-2">Bières bouteilles</h3></th>
-                            <th></th>
-                            <th></th>
-                        </tr>
-                        </thead>
-                        {% for beerBottle in beerBottles %}
-                            <tr>
-                                <td class="pr-carte-itemName fw-light align-text-top">{{ beerBottle.beverageName }}</td>
-                                <td class="pr-carte-description fw-light">{{ beerBottle.description }}</td>
-                                <td class="pr-carte-price fw-light">{{ beerBottle.price|number_format(2) }} €</td>
-                            </tr>
-                        {% endfor %}
-                        </tbody>
-                    </table>
+                    <div class="pr-carte-subtitle">
+                        Les bières bouteilles
+                    </div>
+                    {% for beerBottle in beerBottles %}
+                        <div class="pr-carte-display">
+                            <div class="pr-carte-itemName">{{ beerBottle.beverageName }}</div>
+                            <div class="pr-carte-description">{{ beerBottle.description }}</div>
+                            <div class="pr-carte-price">{{ beerBottle.price|number_format(2) }} €</div>
+                        </div>
+                    {% endfor %}
                 </div>
             </div>
 
