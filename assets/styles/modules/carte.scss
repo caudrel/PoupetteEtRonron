@@ -14,6 +14,15 @@
   border-radius: 10px;
 }
 
+.pr-carte-title{
+  color: $pr-color-orange;
+  font-weight: 400;
+  text-align: center;
+  margin-top: 1rem;
+  margin-bottom: 0.5rem;
+  padding-top: 2.5rem;
+}
+
 .pr-carte-section {
   width: 90%;
   margin: 1.5rem auto;
@@ -22,33 +31,62 @@
 }
 
 .pr-carte-inner-section {
-  width: 90%;
+  width: 94%;
   margin: 1.5rem auto;
+}
+
+.pr-carte-display {
+  display: flex;
+  flex-direction: row;
+}
+
+.pr-carte-subtitle {
+  font-family: $pr-title-font-family;
+  color: $pr-color-slate;
+  font-weight: 300;
+  font-size: 1.6rem;
+  text-align: center;
+  margin-top: 0;
+  margin-bottom: 1.5rem;
 }
 
 .pr-carte-itemName {
   width: 20%;
+  font-weight: 500;
   text-align: right;
   font-size: .9rem;
+  padding-right: 1rem;
   font-family: $pr-title-font-family;
   color: $pr-color-slate;
 }
 
 .pr-carte-description {
-  width: 65%;
-  text-align: left;
-  padding-right: 2rem;
-  padding-left: 2rem;
+  width: 69%;
+  font-weight: 300;
   font-size: .9rem;
+  padding: auto 0;
   font-family: $pr-title-font-family;
   color: $pr-color-slate;
 }
 
 .pr-carte-price {
-  width: 10%;
+  width: 8%;
   text-align: right;
+  font-weight: 300;
   font-size: .9rem;
   font-family: $pr-title-font-family;
+  color: $pr-color-slate;
+}
+
+.pr-carte-isVegetarian {
+  width: 3%;
+  text-align: right;
+}
+
+.pr-vegetarian-icon {
+  width: .9rem;
+  height: .9rem;
+  vertical-align: text-top;
   color: $pr-color-slate;
 }
 
@@ -59,9 +97,51 @@
   margin-top: 1rem;
 }
 
-@media screen and (max-width: 430px) {
+
+@media screen and (max-width: 840px) {
   .pr-carte-container {
     max-width: 95%;
     padding-bottom: 1rem;
   }
+}
+
+
+@media screen and (max-width: 430px) {
+  .pr-carte-container {
+    max-width: 93%;
+    padding-bottom: 1rem;
+  }
+
+  .pr-carte-section {
+    width: 88%
+  }
+
+  .pr-carte-display {
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 1.5rem;
+  }
+
+  .pr-carte-itemName {
+    width: 100%;
+    text-align: center;
+    padding: 0;
+  }
+  .pr-carte-description{
+    width: 100%;
+    text-align: center;
+  }
+  .pr-carte-price {
+    width: 100%;
+    text-align: center;
+  }
+  .pr-carte-isVegetarian{
+    width: 100%;
+    text-align: center;
+  }
+
+  .pr-carte-subtitle {
+    font-size: 1.5rem;
+  }
+
 }
