@@ -1,0 +1,27 @@
+
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1 class="py-5 mb-0">500</h1>
+
+    <div class="d-flex flex-column align-items-center mt-3 mb-5">
+        <p>
+            Ouch ! Il semble que nous ayons perdu le signal...
+        </p>
+        <p>
+            Rechargez la page ou revenez plus tard !
+        </p>
+    </div>
+
+    <div class="mx-auto w-25 mb-5">
+        <img src="{{ asset('build/images/LogoPRentier.png') }}" alt="Logo Poupette et Ronron" class="pr-menus">
+    </div>
+
+    <div class="d-flex justify-content-center my-5">
+        <a href="{{ path('app_home') }}">
+            <button class="btn pr-button-orange" type="submit">
+                <h4 class="m-0 p-0 pr-color-paper">Accueil</h4>
+            </button>
+        </a>
+    </div>
+{% endblock %}
