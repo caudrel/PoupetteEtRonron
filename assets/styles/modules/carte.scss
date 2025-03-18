@@ -6,14 +6,6 @@
   padding-bottom: 3rem;
 }
 
-.pr-carte-container {
-  max-width: 80%;
-  margin: 0 auto;
-  background-color: $pr-color-paper;
-  padding-bottom: 2rem;
-  border-radius: 10px;
-}
-
 .pr-carte-title{
   color: $pr-color-orange;
   font-weight: 400;
@@ -23,21 +15,9 @@
   padding-top: 2.5rem;
 }
 
-.pr-carte-section {
-  width: 90%;
-  margin: 1.5rem auto;
-  border-radius: 10px;
-  border: 1px solid $pr-color-slate;
-}
-
 .pr-carte-inner-section {
   width: 94%;
   margin: 1.5rem auto;
-}
-
-.pr-carte-display {
-  display: flex;
-  flex-direction: row;
 }
 
 .pr-carte-subtitle {
@@ -48,6 +28,26 @@
   text-align: center;
   margin-top: 0;
   margin-bottom: 1.5rem;
+}
+
+.pr-carte-container {
+  max-width: 80%;
+  margin: 0 auto;
+  background-color: $pr-color-paper;
+  padding-bottom: 2rem;
+  border-radius: 10px;
+}
+
+.pr-carte-section {
+  width: 90%;
+  margin: 1.5rem auto;
+  border-radius: 10px;
+  border: 1px solid $pr-color-slate;
+}
+
+.pr-carte-display {
+  display: flex;
+  flex-direction: row;
 }
 
 .pr-carte-itemName {

@@ -8,7 +8,7 @@ This is a website for a restaurant that allow the owner (and the admin-Role user
 The menu, the users, the FAQ, the subjects of the contact form, and the opening hours are editable.
 
 As this project was part of my evaluation, we all have been asked to do the CRUD manually (vs via Symfony) and not use EasyAdminBundle.
-Also, I used this project for my exam "Titre Professionnel : Développeur Web et Web Mobile". 
+Also, I used this project for my exam "Titre Professionnel : Développeur Web et Web Mobile".
 
 ## Steps
 
@@ -24,15 +24,15 @@ Also, I used this project for my exam "Titre Professionnel : Développeur Web et
 - run the command `symfony server:start`
 - Run `yarn run dev --watch` to compile assets when needed
 
-
 ## Accessing the administration part
+
 - login as admin : admin@poupetteetronron.com
-- password : Password41@
+- password : Password41!
 - url : /login
 
 ## Author
 
-- Aurélie Lozach          https://www.linkedin.com/in/aurelielozach/
+- Aurélie Lozach https://www.linkedin.com/in/aurelielozach/
 
 I coded this desktop and mobile app with PHP 8.2, with Symfony.
 

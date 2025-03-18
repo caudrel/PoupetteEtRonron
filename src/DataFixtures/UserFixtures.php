@@ -20,6 +20,9 @@ class UserFixtures extends Fixture
 
     public function load(ObjectManager $manager): void
     {
+        /*
+         * Création de 5 utilisateurs avec le bundle Faker et le Role Admin
+         */
         $faker = Factory::create('fr_FR');
         for ($userIterator = 0; $userIterator < 5; $userIterator++) {
             $user = new User();
@@ -37,9 +40,12 @@ class UserFixtures extends Fixture
             $manager->persist($user);
         }
 
+        /*
+         * Création d'un utilisateur avec le Role Super Admin
+         */
         $userSuperAdmin = new User();
         $userSuperAdmin
-            ->setEmail('admin@poupetteetronron.com')
+            ->setEmail('lozachaurelie@gmail.com')
             ->setPassword($this->passwordHasher->hashPassword($userSuperAdmin, 'Password41!'))
             ->setFirstname('Julien')
             ->setLastname('Engels')

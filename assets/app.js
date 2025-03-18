@@ -10,6 +10,13 @@ import './styles/app.scss';
 
 require('bootstrap');
 
+
+/*
+* Below is the code to reveal elements when they are in the viewport
+* The classes "reveal-" are defined in the styles/modules/homeAnim.scss file
+* The class "reveal-1" and "reveal-2" are applied to elements in the file templates/home/index.html.twig
+* When at least 10% (ratio) of the element targeted is visible, the class "reveal-visible" is added to the element
+ */
 const ratio = .1
 const options = {
     root: null,
@@ -30,4 +37,4 @@ const observer = new IntersectionObserver(handleIntersect, options)
 document.querySelectorAll('[class*="reveal-"]').forEach(function (r) {
     observer.observe(r)
 })
-
+// End of the code to reveal elements when they are in the viewport

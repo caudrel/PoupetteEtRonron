@@ -72,7 +72,7 @@
 }
 
 .pr-table-admin-show {
-  width: 45vw
+  width: 45vw;
 }
 
 .pr-table-admin-show tbody > tr > th {
@@ -106,22 +106,17 @@
   background-color: $pr-color-orange;
 }
 
-.pr-index {
+.pr-index table,
+th {
+  font-size: 0.8rem;
 }
 
-.pr-index table, th {
-  font-size: .8rem;
+.pr-index table th,
+td {
+  font-size: 0.7rem;
 }
 
-.pr-index table th, td {
-  font-size: .7rem;
-}
-
-.pr-th {
-
-}
-
-.pr-col-email{
+.pr-col-email {
   width: 13%;
   overflow-wrap: anywhere;
 }
@@ -141,31 +136,31 @@
   width: 5%;
   overflow-wrap: anywhere;
 }
-.pr-col-verif{
+.pr-col-verif {
   width: 5%;
   overflow-wrap: anywhere;
 }
-.pr-col-created{
+.pr-col-created {
   width: 6%;
   overflow-wrap: anywhere;
 }
-.pr-col-modified{
+.pr-col-modified {
   width: 6%;
   overflow-wrap: anywhere;
 }
-.pr-col-action{
+.pr-col-action {
   width: 7%;
   overflow-wrap: anywhere;
 }
 
-.alert-success{
+.alert-success {
   color: $pr-color-slate;
   background-color: $pr-color-iceblue;
   border-color: $pr-color-slate;
   border-radius: 6px;
 }
 
-.alert-danger{
+.alert-danger {
   color: $pr-color-orange;
   background-color: $pr-color-slate;
   border-color: $pr-color-orange;

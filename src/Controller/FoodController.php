@@ -21,6 +21,8 @@ class FoodController extends AbstractController
         EntityManagerInterface $entityManager,
     ): Response
     {
+        ini_set('display_errors', 1);
+        error_reporting(E_ALL);
         $food = new Food();
 
         $form = $this->createForm(FoodType::class, $food);
@@ -29,7 +31,6 @@ class FoodController extends AbstractController
         if ($form->isSubmitted() && $form->isValid()) {
             $food->setCreatedAt(new \DateTime());
             $food->setUpdatedAt(new \DateTime());
-
             $entityManager->persist($food);
             $entityManager->flush();
 

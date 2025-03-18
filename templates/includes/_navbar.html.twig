@@ -14,7 +14,7 @@
     <div class="offcanvas-body">
         <a href="{{ path('app_home') }}"><h3 class="pr-nav-link">Le concept</h3></a>
         <a href="{{ path('app_carte') }}"><h3 class="pr-nav-link">La carte</h3></a>
-        <a href="{{ path('app_contact') }}"><h3 class="pr-nav-link">Adresse & FAQ</h3></a>
+        <a href="{{ path('app_contact') }}"><h3 class="pr-nav-link">Contact</h3></a>
         {% if app.user %}
             <a href="{{ path('app_admin_home', {id: app.user.id} ) }}"><h3 class="pr-nav-link">Administration</h3></a>
         {% endif %}

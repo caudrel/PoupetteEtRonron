@@ -9,6 +9,9 @@ use Symfony\Component\Routing\Annotation\Route;
 
 class AdminHomeController extends AbstractController
 {
+    /**
+     * @Route("/admin/home", name="app_admin_home")
+     **/
     #[Route('/admin/home', name: 'app_admin_home')]
     public function index(): Response
     {
